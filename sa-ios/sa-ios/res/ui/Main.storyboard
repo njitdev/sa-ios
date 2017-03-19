@@ -69,10 +69,10 @@
             </objects>
             <point key="canvasLocation" x="963.75" y="128.87323943661971"/>
         </scene>
-        <!--View Controller-->
+        <!--Message Board View Controller-->
         <scene sceneID="Pdv-HL-dQi">
             <objects>
-                <viewController id="Y6V-zu-bQv" sceneMemberID="viewController">
+                <viewController id="Y6V-zu-bQv" customClass="MessageBoardViewController" customModule="sa_ios" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Tvh-1w-EUX"/>
                         <viewControllerLayoutGuide type="bottom" id="wy5-V7-CGy"/>
@@ -92,7 +92,7 @@
                                                 <rect key="frame" x="0.0" y="28" width="320" height="70"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ZUs-RY-4bR" id="dZ0-sk-hFA">
-                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="69"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="70"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                 </tableViewCellContentView>
                                             </tableViewCell>

@@ -6,6 +6,6 @@ target 'sa-ios' do
   use_frameworks!
 
   # Pods for sa-ios
-  # pod 'Google/Analytics'
+  pod 'GoogleAnalytics'
 
 end

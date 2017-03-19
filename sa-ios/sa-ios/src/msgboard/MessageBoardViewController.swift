@@ -8,11 +8,14 @@
 
 import UIKit
 
-class MessageBoardViewController: UIViewController {
-
+class MessageBoardViewController: GAITrackedViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.screenName = "Message Board List"
     }
 }
