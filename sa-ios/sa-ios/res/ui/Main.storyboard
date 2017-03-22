@@ -12,9 +12,15 @@
         <scene sceneID="EtE-Of-o7d">
             <objects>
                 <navigationController id="VxW-KH-cjZ" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="OBM-T7-CZH">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="OBM-T7-CZH">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="barTintColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="17"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </textAttributes>
                     </navigationBar>
                     <connections>
                         <segue destination="YDu-Uc-Grk" kind="relationship" relationship="rootViewController" id="hXL-1q-Fsk"/>
@@ -24,7 +30,7 @@
             </objects>
             <point key="canvasLocation" x="88" y="129"/>
         </scene>
-        <!--Home-->
+        <!--SchoolApp-->
         <scene sceneID="nAB-f8-MAq">
             <objects>
                 <viewController id="YDu-Uc-Grk" customClass="HomeViewController" customModule="sa_ios" customModuleProvider="target" sceneMemberID="viewController">
@@ -33,83 +39,82 @@
                         <viewControllerLayoutGuide type="bottom" id="n7E-Ux-YEg"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="nw1-4I-h2s">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4uy-kj-vr2">
-                                <rect key="frame" x="74.5" y="503" width="171" height="45"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="45" id="7sY-Ey-1Hx"/>
-                                    <constraint firstAttribute="width" constant="171" id="EeR-97-hMp"/>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="45" id="Tfn-Qw-Pam"/>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="171" id="V8T-Kl-CPk"/>
-                                </constraints>
-                                <state key="normal" title="Message Board" backgroundImage="btn_rect">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4uy-kj-vr2">
+                                <rect key="frame" x="16" y="20" width="239" height="45"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Debug: Message Board" backgroundImage="btn_rect">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="keyPath">
-                                        <integer key="value" value="10"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <segue destination="Y6V-zu-bQv" kind="show" id="scG-H8-hQK"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="4uy-kj-vr2" firstAttribute="bottom" secondItem="nw1-4I-h2s" secondAttribute="bottom" constant="-20" id="Ivo-sh-Si7"/>
-                            <constraint firstItem="4uy-kj-vr2" firstAttribute="centerX" secondItem="nw1-4I-h2s" secondAttribute="centerX" id="lg0-OP-tXB"/>
-                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Home" id="PwZ-nb-aFd"/>
+                    <navigationItem key="navigationItem" title="SchoolApp" id="PwZ-nb-aFd"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yE9-r7-YnK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="963.75" y="128.87323943661971"/>
         </scene>
-        <!--Message Board View Controller-->
+        <!--留言板-->
         <scene sceneID="Pdv-HL-dQi">
             <objects>
-                <viewController id="Y6V-zu-bQv" customClass="MessageBoardViewController" customModule="sa_ios" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="留言板" id="Y6V-zu-bQv" customClass="MessageBoardViewController" customModule="sa_ios" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Tvh-1w-EUX"/>
                         <viewControllerLayoutGuide type="bottom" id="wy5-V7-CGy"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="FOj-KG-WuG">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Usr-xn-E58">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                                <subviews>
-                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="70" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="jmK-px-NZy">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <prototypes>
-                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="PostCell" rowHeight="70" id="ZUs-RY-4bR">
-                                                <rect key="frame" x="0.0" y="28" width="320" height="70"/>
-                                                <autoresizingMask key="autoresizingMask"/>
-                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ZUs-RY-4bR" id="dZ0-sk-hFA">
-                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="70"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                </tableViewCellContentView>
-                                            </tableViewCell>
-                                        </prototypes>
-                                        <sections/>
-                                    </tableView>
-                                </subviews>
-                            </stackView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="82" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="jmK-px-NZy">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MessageBoardListCell" rowHeight="70" id="ZUs-RY-4bR" customClass="MessageBoardListCell" customModule="sa_ios" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="320" height="70"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ZUs-RY-4bR" id="dZ0-sk-hFA">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="69"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="nickname" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nrh-aq-Qde">
+                                                    <rect key="frame" x="15" y="12" width="290" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="text" lineBreakMode="tailTruncation" numberOfLines="100" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qtv-bg-grK">
+                                                    <rect key="frame" x="15" y="39" width="290" height="20"/>
+                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                    <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="14"/>
+                                                    <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="lblNickname" destination="nrh-aq-Qde" id="Gbt-iO-fk9"/>
+                                            <outlet property="lblText" destination="Qtv-bg-grK" id="KXr-0P-qN4"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <sections/>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="wy5-V7-CGy" firstAttribute="top" secondItem="Usr-xn-E58" secondAttribute="bottom" id="KTt-sD-fGb"/>
-                            <constraint firstItem="Usr-xn-E58" firstAttribute="leading" secondItem="FOj-KG-WuG" secondAttribute="leading" id="XG6-M0-rFz"/>
-                            <constraint firstItem="Usr-xn-E58" firstAttribute="top" secondItem="FOj-KG-WuG" secondAttribute="top" id="eOG-zg-YeY"/>
-                            <constraint firstAttribute="trailing" secondItem="Usr-xn-E58" secondAttribute="trailing" id="w8c-GD-xzZ"/>
-                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="tblPosts" destination="jmK-px-NZy" id="QMP-1R-5UO"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nSF-8P-HP0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

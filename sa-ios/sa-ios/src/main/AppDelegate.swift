@@ -28,7 +28,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         gai.dispatchInterval = 10; // Send events every 10 seconds
         gai.trackUncaughtExceptions = true  // Report uncaught exceptions
-        gai.logger.logLevel = GAILogLevel.verbose  // Remove before app release
+        // gai.logger.logLevel = GAILogLevel.verbose  // Remove before app release
 
         return true
     }
