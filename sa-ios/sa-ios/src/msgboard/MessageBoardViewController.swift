@@ -72,23 +72,36 @@ class MessageBoardViewController: GAITrackedViewController, UITableViewDelegate,
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // Number of rows = number of posts
-        return posts.count;
+        // Number of rows = number of posts + last cell
+        return posts.count + 1;
     }
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        // Calculate cell height by content
-        let textHeight = posts[indexPath.row].text.heightWithConstrainedWidth(width: self.view.frame.width - 30, font: UIFont(name: "Apple SD Gothic Neo", size: 14)!);
-        return textHeight + 70 - 19;
+        if (indexPath.row < posts.count) {
+            // Calculate cell height by content
+            let textHeight = posts[indexPath.row].text.heightWithConstrainedWidth(width: self.view.frame.width - 30, font: UIFont.systemFont(ofSize: 14));
+            return textHeight + 70 - 19;
+        } else {
+            // Default height for last cell
+            return 70;
+        }
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         // Fetch reusable cell or allocate a new cell
         let cell = tblPosts.dequeueReusableCell(withIdentifier: cellReuseIdentifier, for: indexPath) as! MessageBoardListCell
 
-        // Assign values
-        cell.lblNickname.text = posts[indexPath.row].user_name
-        cell.lblText.text = posts[indexPath.row].text
+        if (indexPath.row < posts.count) {
+            // Normal cell, assign values
+            cell.lblLastCell.isHidden = true;
+            cell.lblNickname.text = posts[indexPath.row].user_name
+            cell.lblText.text = posts[indexPath.row].text
+        } else {
+            // Last cell, display static text
+            cell.lblNickname.text = "";
+            cell.lblText.text = "";
+            cell.lblLastCell.isHidden = false;
+        }
 
         return cell;
     }
