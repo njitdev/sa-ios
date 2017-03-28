@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AlamofireNetworkActivityIndicator
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -29,6 +30,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         gai.dispatchInterval = 10; // Send events every 10 seconds
         gai.trackUncaughtExceptions = true  // Report uncaught exceptions
         // gai.logger.logLevel = GAILogLevel.verbose  // Remove before app release
+
+        // Enable automatic NetworkActivityIndicator management
+        NetworkActivityIndicatorManager.shared.isEnabled = true
+        NetworkActivityIndicatorManager.shared.startDelay = 0.1;
 
         return true
     }

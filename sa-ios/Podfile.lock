@@ -1,15 +1,19 @@
 PODS:
   - Alamofire (4.4.0)
+  - AlamofireNetworkActivityIndicator (2.1.0):
+    - Alamofire (~> 4.1)
   - GoogleAnalytics (3.17.0)
 
 DEPENDENCIES:
   - Alamofire (~> 4.4)
+  - AlamofireNetworkActivityIndicator (~> 2.0)
   - GoogleAnalytics (~> 3.17.0)
 
 SPEC CHECKSUMS:
   Alamofire: dc44b1600b800eb63da6a19039a0083d62a6a62d
+  AlamofireNetworkActivityIndicator: 4716f6554bdfb9c7cf13b1e0e3af21163129690a
   GoogleAnalytics: f42cc53a87a51fe94334821868d9c8481ff47a7b
 
-PODFILE CHECKSUM: 4ca9ec353232d24198d251574aed024ed8c959ae
+PODFILE CHECKSUM: 6a544d8ae55055886a937507b1c0428570db4535
 
 COCOAPODS: 1.2.0
