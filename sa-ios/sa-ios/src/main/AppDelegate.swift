@@ -19,7 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         
         // Google Analytics
-        let kGaPropertyId = "UA-61812304-1";
+        let kGaPropertyId = "UA-61812304-1"
         GAI.sharedInstance().tracker(withTrackingId: kGaPropertyId)
         
         // Configure GAI
@@ -33,7 +33,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         // Enable automatic NetworkActivityIndicator management
         NetworkActivityIndicatorManager.shared.isEnabled = true
-        NetworkActivityIndicatorManager.shared.startDelay = 0.1;
+        NetworkActivityIndicatorManager.shared.startDelay = 0.1
 
         return true
     }

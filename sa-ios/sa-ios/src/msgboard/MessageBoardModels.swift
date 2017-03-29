@@ -12,14 +12,14 @@ class MessageBoardModels: NSObject {
     // Fetch posts by page
     static func fetchPosts(page: Int, completionHandler: @escaping ([MessageBoardPost]?) -> Void) {
         // Prepare parameters
-        let params: Parameters = ["page": page];
+        let params: Parameters = ["page": page]
 
         // Make request
         Alamofire.request(SAConfig.APIBaseURL + "/app/msgboard/posts", parameters: params).responseJSON { (response) in
             // Return nil on failure
             if (!(response.response?.statusCode == 200)) {
-                completionHandler(nil);
-                return;
+                completionHandler(nil)
+                return
             }
 
             if let r_value = response.result.value {
@@ -27,10 +27,10 @@ class MessageBoardModels: NSObject {
                 let r_dict = r_value as! NSDictionary
 
                 // Extract array
-                let r_posts = r_dict.value(forKey: "posts") as! [Dictionary<String, Any>];
+                let r_posts = r_dict.value(forKey: "posts") as! [Dictionary<String, Any>]
 
                 // Create empty result array
-                var result: [MessageBoardPost] = [];
+                var result: [MessageBoardPost] = []
 
                 // Loop through items
                 for r_post in r_posts {
@@ -39,21 +39,21 @@ class MessageBoardModels: NSObject {
                     let post = MessageBoardPost(user_name: r_post["user_name"] as! String, text: r_post["text"] as! String)
 
                     // Assign optional properties
-                    post.id = r_post["id"] as? Int;
-                    post.user_title = r_post["user_title"] as? String;
-                    post.user_contact = r_post["user_contact"] as? String;
-                    post.user_department = r_post["user_department"] as? String;
+                    post.id = r_post["id"] as? Int
+                    post.user_title = r_post["user_title"] as? String
+                    post.user_contact = r_post["user_contact"] as? String
+                    post.user_department = r_post["user_department"] as? String
 
                     // Add to result array
-                    result.append(post);
+                    result.append(post)
                 }
                 // Return result successfully
-                completionHandler(result);
-                return;
+                completionHandler(result)
+                return
             }
 
             // Fail by default
-            completionHandler(nil);
+            completionHandler(nil)
         }
     }
 }
@@ -70,7 +70,7 @@ class MessageBoardPost: NSObject {
 
     // Initializer
     init(user_name: String, text: String) {
-        self.user_name = user_name;
-        self.text = text;
+        self.user_name = user_name
+        self.text = text
     }
 }

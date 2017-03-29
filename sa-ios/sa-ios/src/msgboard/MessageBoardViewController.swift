@@ -11,11 +11,15 @@ class MessageBoardViewController: GAITrackedViewController, UITableViewDelegate,
 
     @IBOutlet weak var tblPosts: UITableView!
 
+    // UI
     let cellReuseIdentifier = "MessageBoardListCell"
-    let sampleCell = MessageBoardListCell();
+    let sampleCell = MessageBoardListCell()
 
     // Data
-    var posts: [MessageBoardPost] = [];
+    var posts: [MessageBoardPost] = []
+    var pageSize = 30
+    var nextPage = 0
+    var allPostsFetched = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,7 +31,7 @@ class MessageBoardViewController: GAITrackedViewController, UITableViewDelegate,
         tblPosts.delegate = self
         tblPosts.dataSource = self
 
-        // Pull-to-refresh
+        // Add pull-to-refresh
         let tblPostsRefreshControl = UIRefreshControl()
         tblPostsRefreshControl.addTarget(self, action: #selector(tblPostsRefresh(_:)), for: .valueChanged)
         if #available(iOS 10.0, *) {
@@ -36,54 +40,71 @@ class MessageBoardViewController: GAITrackedViewController, UITableViewDelegate,
             tblPosts.backgroundView = tblPostsRefreshControl
         }
 
-        tblPostsRefreshControl.beginRefreshing();
-        fetchPosts(refreshControl: tblPostsRefreshControl);
+        // Fetch first page
+        tblPostsRefreshControl.beginRefreshing()
+        fetchNextPage(refreshControl: tblPostsRefreshControl)
     }
 
     override func viewWillAppear(_ animated: Bool) {
         self.screenName = "Message Board List"
     }
 
-    func fetchPosts(refreshControl: UIRefreshControl?) {
-        // Fetch messages via model on screen load
-        MessageBoardModels.fetchPosts(page: 0) { (posts) in
-            if (posts == nil) {
-                // TODO: Prompt for errors
-
-                // Do not update local state
-                return;
-            }
-
-            self.posts = posts!;
-            self.tblPosts.reloadData();
-
-            // End pull-to-refresh
-            refreshControl?.endRefreshing();
-        }
+    func tblPostsRefresh(_ refreshControl: UIRefreshControl) {
+        nextPage = 0
+        fetchNextPage(refreshControl: refreshControl)
     }
 
-    func tblPostsRefresh(_ refreshControl: UIRefreshControl) {
-        fetchPosts(refreshControl: refreshControl)
+    func fetchNextPage(refreshControl: UIRefreshControl?) {
+        // Fetch messages via model on screen load
+        MessageBoardModels.fetchPosts(page: nextPage) { (posts) in
+            // End pull-to-refresh
+            refreshControl?.endRefreshing()
+
+            if (posts == nil) {
+                // TODO: Prompt for errors
+                SAUIUtils.alert(viewController: self, title: "", message: "数据获取失败")
+
+                // Do not update local state
+                return
+            }
+
+            // Clear local array if first page
+            if (self.nextPage == 0) {
+                self.allPostsFetched = false
+                self.posts = []
+            }
+
+            // Detect last page
+            if (posts!.count < self.pageSize) {
+                self.allPostsFetched = true
+            } else {
+                self.nextPage += 1
+            }
+
+            // Append to local array
+            self.posts += posts!
+            self.tblPosts.reloadData()
+        }
     }
 
     func numberOfSections(in tableView: UITableView) -> Int {
         // Sigle-section table
-        return 1;
+        return 1
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // Number of rows = number of posts + last cell
-        return posts.count + 1;
+        return posts.count + 1
     }
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if (indexPath.row < posts.count) {
             // Calculate cell height by content
-            let textHeight = posts[indexPath.row].text.heightWithConstrainedWidth(width: self.view.frame.width - 30, font: UIFont.systemFont(ofSize: 14));
-            return textHeight + 70 - 19;
+            let textHeight = posts[indexPath.row].text.heightWithConstrainedWidth(width: self.view.frame.width - 30, font: UIFont.systemFont(ofSize: 14))
+            return textHeight + 70 - 19 + 1
         } else {
             // Default height for last cell
-            return 70;
+            return 70
         }
     }
 
@@ -93,14 +114,23 @@ class MessageBoardViewController: GAITrackedViewController, UITableViewDelegate,
 
         if (indexPath.row < posts.count) {
             // Normal cell, assign values
-            cell.lblLastCell.isHidden = true;
+            cell.lblBackgroundText.isHidden = true
             cell.lblNickname.text = posts[indexPath.row].user_name
             cell.lblText.text = posts[indexPath.row].text
         } else {
-            // Last cell, display static text
-            cell.lblNickname.text = "";
-            cell.lblText.text = "";
-            cell.lblLastCell.isHidden = false;
+            // Last cell, load next page
+            cell.lblNickname.text = ""
+            cell.lblText.text = ""
+
+            if (allPostsFetched) {
+                cell.lblBackgroundText.text = "已加载所有留言"
+            } else {
+                cell.lblBackgroundText.text = "加载中..."
+                if (nextPage > 0) {
+                    fetchNextPage(refreshControl: nil)
+                }
+            }
+            cell.lblBackgroundText.isHidden = false
         }
 
         return cell;

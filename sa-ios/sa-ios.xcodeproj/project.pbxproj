@@ -10,6 +10,7 @@
 		792433A91E80F95F00709F2D /* MessageBoardModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 792433A81E80F95F00709F2D /* MessageBoardModels.swift */; };
 		792B7FE51E82263F00E8E309 /* SAGlobal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 792B7FE41E82263F00E8E309 /* SAGlobal.swift */; };
 		792B7FE71E82268300E8E309 /* SAConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 792B7FE61E82268300E8E309 /* SAConfig.swift */; };
+		7969BDC81E8B636B0009BB4C /* SAUIUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7969BDC71E8B636B0009BB4C /* SAUIUtils.swift */; };
 		79AF926D1E73A6800091B535 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 79AF92631E73A6800091B535 /* Assets.xcassets */; };
 		79AF926F1E73A6800091B535 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 79AF92661E73A6800091B535 /* LaunchScreen.storyboard */; };
 		79AF92701E73A6800091B535 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 79AF92671E73A6800091B535 /* Main.storyboard */; };
@@ -26,6 +27,7 @@
 		792433A81E80F95F00709F2D /* MessageBoardModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageBoardModels.swift; sourceTree = "<group>"; };
 		792B7FE41E82263F00E8E309 /* SAGlobal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SAGlobal.swift; sourceTree = "<group>"; };
 		792B7FE61E82268300E8E309 /* SAConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SAConfig.swift; sourceTree = "<group>"; };
+		7969BDC71E8B636B0009BB4C /* SAUIUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SAUIUtils.swift; sourceTree = "<group>"; };
 		79AF92491E73A44D0091B535 /* sa-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "sa-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		79AF92631E73A6800091B535 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		79AF92641E73A6800091B535 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -65,6 +67,7 @@
 			children = (
 				792B7FE41E82263F00E8E309 /* SAGlobal.swift */,
 				792B7FE61E82268300E8E309 /* SAConfig.swift */,
+				7969BDC71E8B636B0009BB4C /* SAUIUtils.swift */,
 			);
 			path = utils;
 			sourceTree = "<group>";
@@ -290,6 +293,7 @@
 				79AF92751E73E1D20091B535 /* MessageBoardViewController.swift in Sources */,
 				79AF92721E73A6800091B535 /* AppDelegate.swift in Sources */,
 				79D6323B1E80EAA000328C0D /* MessageBoardListCell.swift in Sources */,
+				7969BDC81E8B636B0009BB4C /* SAUIUtils.swift in Sources */,
 				79AF92711E73A6800091B535 /* HomeViewController.swift in Sources */,
 				792433A91E80F95F00709F2D /* MessageBoardModels.swift in Sources */,
 			);

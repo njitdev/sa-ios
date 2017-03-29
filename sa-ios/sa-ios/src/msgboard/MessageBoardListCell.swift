@@ -11,7 +11,7 @@ class MessageBoardListCell: UITableViewCell {
 
     @IBOutlet weak var lblNickname: UILabel!
     @IBOutlet weak var lblText: UILabel!
-    @IBOutlet weak var lblLastCell: UILabel!
+    @IBOutlet weak var lblBackgroundText: UILabel!
 
     override func awakeFromNib() {
         super.awakeFromNib()
