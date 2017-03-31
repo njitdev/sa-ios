@@ -8,6 +8,6 @@
 import UIKit
 
 class SAConfig: NSObject {
-    public static let APIBaseURL = "https://api-dev.mygdut.com"
+    public static let APIBaseURL = "https://api-dev.njitdev.com"
     public static let appName = Bundle.main.object(forInfoDictionaryKey: "CFBundleName") as! String
 }
