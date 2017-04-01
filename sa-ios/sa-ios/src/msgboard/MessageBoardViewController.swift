@@ -93,7 +93,12 @@ class MessageBoardViewController: GAITrackedViewController, UITableViewDelegate,
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // Number of rows = number of posts + last cell
+        // No bottom cell if no data
+        if (posts.count == 0) {
+            return 0;
+        }
+
+        // + bottom cell for loading more
         return posts.count + 1
     }
 

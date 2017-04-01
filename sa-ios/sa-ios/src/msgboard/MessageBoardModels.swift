@@ -22,38 +22,33 @@ class MessageBoardModels: NSObject {
                 return
             }
 
-            if let r_value = response.result.value {
-                // Downcasting
-                let r_dict = r_value as! NSDictionary
+            // Extract array
+            let r_dict = response.result.value as? [String: Any]
+            let r_result = r_dict?["result"] as? [String: Any]
+            let r_posts = r_result?["posts"] as? [[String: Any]]
 
-                // Extract array
-                let r_posts = r_dict.value(forKey: "posts") as! [Dictionary<String, Any>]
+            // Create empty result array
+            var result: [MessageBoardPost] = []
 
-                // Create empty result array
-                var result: [MessageBoardPost] = []
+            // Loop through items
+            for r_post in r_posts ?? [] {
 
-                // Loop through items
-                for r_post in r_posts {
+                // Initialize with required properties
+                let post = MessageBoardPost(user_name: r_post["user_name"] as! String,
+                                            text: r_post["text"] as! String)
 
-                    // Initialize with required properties
-                    let post = MessageBoardPost(user_name: r_post["user_name"] as! String, text: r_post["text"] as! String)
+                // Assign optional properties
+                post.id = r_post["id"] as? Int
+                post.user_title = r_post["user_title"] as? String
+                post.user_contact = r_post["user_contact"] as? String
+                post.user_department = r_post["user_department"] as? String
 
-                    // Assign optional properties
-                    post.id = r_post["id"] as? Int
-                    post.user_title = r_post["user_title"] as? String
-                    post.user_contact = r_post["user_contact"] as? String
-                    post.user_department = r_post["user_department"] as? String
-
-                    // Add to result array
-                    result.append(post)
-                }
-                // Return result successfully
-                completionHandler(result)
-                return
+                // Add to result array
+                result.append(post)
             }
-
-            // Fail by default
-            completionHandler(nil)
+            // Return result successfully
+            completionHandler(result)
+            return
         }
     }
 }
