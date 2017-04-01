@@ -4,9 +4,9 @@
 //
 //  Created by Yunzhu Li on 3/10/17.
 //
-//
 
 import UIKit
+import Sentry
 import AlamofireNetworkActivityIndicator
 
 @UIApplicationMain
@@ -14,13 +14,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        
+
         // Google Analytics
-        let kGaPropertyId = "UA-61812304-1"
-        GAI.sharedInstance().tracker(withTrackingId: kGaPropertyId)
+        GAI.sharedInstance().tracker(withTrackingId: SAConfig.GAPropertyID)
         
         // Configure GAI
         guard let gai = GAI.sharedInstance() else {
@@ -30,6 +28,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         gai.dispatchInterval = 10; // Send events every 10 seconds
         gai.trackUncaughtExceptions = true  // Report uncaught exceptions
         // gai.logger.logLevel = GAILogLevel.verbose  // Remove before app release
+
+        // Create a Sentry client and start crash handler
+        SentryClient.shared = SentryClient(dsnString: SAConfig.sentryClientKey)
+        SentryClient.shared?.startCrashHandler()
 
         // Enable automatic NetworkActivityIndicator management
         NetworkActivityIndicatorManager.shared.isEnabled = true
