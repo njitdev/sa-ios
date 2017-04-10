@@ -38,7 +38,7 @@ class MessageBoardModels: NSObject {
                                             text: r_post["text"] as! String)
 
                 // Assign optional properties
-                post.id = r_post["id"] as? Int
+                post._id = r_post["_id"] as? String
                 post.user_title = r_post["user_title"] as? String
                 post.user_contact = r_post["user_contact"] as? String
                 post.user_department = r_post["user_department"] as? String
@@ -54,8 +54,8 @@ class MessageBoardModels: NSObject {
 }
 
 class MessageBoardPost: NSObject {
-    public var id: Int?                 // Post ID (generated on server side)
-    public var session_id: String?      // Session ID (generated on client side at each start)
+    public var _id: String?             // Post ID (generated on server side)
+    public var installation_id: String? // Installation ID (generated on client side at first start)
     public var user_name: String        // Nickname
     public var text: String             // Text
     public var user_title: String?      // User title for team members
