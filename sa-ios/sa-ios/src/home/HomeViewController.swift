@@ -13,4 +13,8 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         self.title = SAConfig.appName
     }
+
+    @IBAction func btnLoginAction(_ sender: UIBarButtonItem) {
+        SAUtils.alert(viewController: self, title: "Error", message: "Not implemented")
+    }
 }

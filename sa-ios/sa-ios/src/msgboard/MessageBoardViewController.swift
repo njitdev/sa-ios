@@ -14,6 +14,7 @@ class MessageBoardViewController: GAITrackedViewController, UITableViewDelegate,
     // UI
     let cellReuseIdentifier = "MessageBoardListCell"
     let sampleCell = MessageBoardListCell()
+    var tblPostsRefreshControl = UIRefreshControl()
 
     // Data
     var posts: [MessageBoardPost] = []
@@ -25,29 +26,30 @@ class MessageBoardViewController: GAITrackedViewController, UITableViewDelegate,
         super.viewDidLoad()
 
         // UITableView requires registering custom cells, however it only works when not registered..
-        // tblPosts.register(MessageBoardListCell.self, forCellReuseIdentifier: cellReuseIdentifier)
+//        tblPosts.register(MessageBoardListCell.self, forCellReuseIdentifier: cellReuseIdentifier)
 
         // Set this class as the event delegate and datasource of the UITableview
         tblPosts.delegate = self
         tblPosts.dataSource = self
 
         // Add pull-to-refresh
-        let tblPostsRefreshControl = UIRefreshControl()
         tblPostsRefreshControl.addTarget(self, action: #selector(tblPostsRefresh(_:)), for: .valueChanged)
         if #available(iOS 10.0, *) {
             tblPosts.refreshControl = tblPostsRefreshControl
         } else {
             tblPosts.backgroundView = tblPostsRefreshControl
         }
-
-        // Fetch first page
-        tblPostsRefreshControl.beginRefreshing()
-        fetchNextPage(refreshControl: tblPostsRefreshControl)
     }
 
     override func viewWillAppear(_ animated: Bool) {
         self.screenName = "Message Board List"
+
+        // Fetch first page
+        tblPostsRefreshControl.beginRefreshing()
+        tblPostsRefresh(tblPostsRefreshControl)
     }
+
+    // MARK: Table view
 
     func tblPostsRefresh(_ refreshControl: UIRefreshControl) {
         nextPage = 0
@@ -60,10 +62,9 @@ class MessageBoardViewController: GAITrackedViewController, UITableViewDelegate,
             // End pull-to-refresh
             refreshControl?.endRefreshing()
 
+            // Failure
             if (posts == nil) {
-                // TODO: Prompt for errors
-                SAUIUtils.alert(viewController: self, title: "", message: "数据获取失败")
-
+                SAUtils.alert(viewController: self, title: "网络错误", message: "数据获取失败")
                 // Do not update local state
                 return
             }
@@ -105,8 +106,8 @@ class MessageBoardViewController: GAITrackedViewController, UITableViewDelegate,
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if (indexPath.row < posts.count) {
             // Calculate cell height by content
-            let textHeight = posts[indexPath.row].text.heightWithConstrainedWidth(width: self.view.frame.width - 30, font: UIFont.systemFont(ofSize: 14))
-            return textHeight + 70 - 19 + 1
+            let textHeight = posts[indexPath.row].text.heightWithConstrainedWidth(width: self.view.frame.width - 32, font: UIFont.systemFont(ofSize: 14))
+            return textHeight + 70 - 17 + 2 // Cell - label + buffer
         } else {
             // Default height for last cell
             return 70

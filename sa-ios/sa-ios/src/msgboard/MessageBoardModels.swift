@@ -15,7 +15,7 @@ class MessageBoardModels: NSObject {
         let params: Parameters = ["page": page]
 
         // Make request
-        Alamofire.request(SAConfig.APIBaseURL + "/app/msgboard/posts", parameters: params).responseJSON { (response) in
+        Alamofire.request(SAConfig.APIBaseURL + "/app/msgboard/" + SAConfig.schoolIdentifier + "/posts", parameters: params).responseJSON { (response) in
             // Return nil on failure
             if (!(response.response?.statusCode == 200)) {
                 completionHandler(nil)
@@ -49,6 +49,31 @@ class MessageBoardModels: NSObject {
             // Return result successfully
             completionHandler(result)
             return
+        }
+    }
+
+    // Submit new post
+    static func submitPost(post: MessageBoardPost, user_student_id: String?, completionHandler: @escaping (Bool) -> Void) {
+        // Parameters
+        var params: Parameters = ["user_name": post.user_name, "text": post.text]
+
+        // Assign optional values
+        if let v = post.installation_id { params["installation_id"] = v }
+        if let v = post.user_contact    { params["user_contact"]    = v }
+        if let v = user_student_id      { params["user_student_id"] = v }
+
+        // Make request
+        Alamofire.request(SAConfig.APIBaseURL + "/app/msgboard/" + SAConfig.schoolIdentifier + "/posts",
+                          method: .post,
+                          parameters: params).responseJSON { (response) in
+
+            // Return false on failure
+            if (!(response.response?.statusCode == 200)) {
+                completionHandler(false)
+                return
+            }
+
+            completionHandler(true)
         }
     }
 }

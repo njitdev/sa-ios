@@ -8,5 +8,5 @@
 import UIKit
 
 class SAGlobal: NSObject {
-
+    public static var installation_id = ""
 }
