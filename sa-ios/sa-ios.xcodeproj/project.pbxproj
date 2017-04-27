@@ -7,7 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		792433A91E80F95F00709F2D /* MessageBoardModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 792433A81E80F95F00709F2D /* MessageBoardModels.swift */; };
+		791DED451EAEF5EF007FF646 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 791DED441EAEF5EF007FF646 /* LoginViewController.swift */; };
+		791DED481EAF0161007FF646 /* MessageBoardModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 791DED471EAF0161007FF646 /* MessageBoardModels.swift */; };
+		791DED4A1EAF01A6007FF646 /* SchoolSystemModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 791DED491EAF01A6007FF646 /* SchoolSystemModels.swift */; };
 		792B7FE51E82263F00E8E309 /* SAGlobal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 792B7FE41E82263F00E8E309 /* SAGlobal.swift */; };
 		792B7FE71E82268300E8E309 /* SAConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 792B7FE61E82268300E8E309 /* SAConfig.swift */; };
 		7969BDC81E8B636B0009BB4C /* SAUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7969BDC71E8B636B0009BB4C /* SAUtils.swift */; };
@@ -25,7 +27,9 @@
 /* Begin PBXFileReference section */
 		28857303E536878AB54BCB51 /* Pods-sa-ios.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-sa-ios.release.xcconfig"; path = "Pods/Target Support Files/Pods-sa-ios/Pods-sa-ios.release.xcconfig"; sourceTree = "<group>"; };
 		7913B1EC1E7E2D070030281C /* sa-ios-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "sa-ios-Bridging-Header.h"; sourceTree = "<group>"; };
-		792433A81E80F95F00709F2D /* MessageBoardModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageBoardModels.swift; sourceTree = "<group>"; };
+		791DED441EAEF5EF007FF646 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		791DED471EAF0161007FF646 /* MessageBoardModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageBoardModels.swift; sourceTree = "<group>"; };
+		791DED491EAF01A6007FF646 /* SchoolSystemModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SchoolSystemModels.swift; sourceTree = "<group>"; };
 		792B7FE41E82263F00E8E309 /* SAGlobal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SAGlobal.swift; sourceTree = "<group>"; };
 		792B7FE61E82268300E8E309 /* SAConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SAConfig.swift; sourceTree = "<group>"; };
 		7969BDC71E8B636B0009BB4C /* SAUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SAUtils.swift; sourceTree = "<group>"; };
@@ -62,6 +66,23 @@
 				28857303E536878AB54BCB51 /* Pods-sa-ios.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		791DED431EAEF5D8007FF646 /* login */ = {
+			isa = PBXGroup;
+			children = (
+				791DED441EAEF5EF007FF646 /* LoginViewController.swift */,
+			);
+			path = login;
+			sourceTree = "<group>";
+		};
+		791DED461EAF00CE007FF646 /* models */ = {
+			isa = PBXGroup;
+			children = (
+				791DED471EAF0161007FF646 /* MessageBoardModels.swift */,
+				791DED491EAF01A6007FF646 /* SchoolSystemModels.swift */,
+			);
+			path = models;
 			sourceTree = "<group>";
 		};
 		792B7FE31E82261200E8E309 /* utils */ = {
@@ -125,7 +146,9 @@
 			children = (
 				79AF926B1E73A6800091B535 /* main */,
 				792B7FE31E82261200E8E309 /* utils */,
+				791DED461EAF00CE007FF646 /* models */,
 				79AF92691E73A6800091B535 /* home */,
+				791DED431EAEF5D8007FF646 /* login */,
 				79AF92731E73E17F0091B535 /* msgboard */,
 			);
 			path = src;
@@ -154,7 +177,6 @@
 				79AF92741E73E1D20091B535 /* MessageBoardViewController.swift */,
 				79D6323A1E80EAA000328C0D /* MessageBoardListCell.swift */,
 				79D11D421EAD69C500F63C09 /* NewPostViewController.swift */,
-				792433A81E80F95F00709F2D /* MessageBoardModels.swift */,
 			);
 			path = msgboard;
 			sourceTree = "<group>";
@@ -292,14 +314,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				792B7FE51E82263F00E8E309 /* SAGlobal.swift in Sources */,
+				791DED4A1EAF01A6007FF646 /* SchoolSystemModels.swift in Sources */,
 				792B7FE71E82268300E8E309 /* SAConfig.swift in Sources */,
 				79AF92751E73E1D20091B535 /* MessageBoardViewController.swift in Sources */,
 				79AF92721E73A6800091B535 /* AppDelegate.swift in Sources */,
+				791DED481EAF0161007FF646 /* MessageBoardModels.swift in Sources */,
 				79D6323B1E80EAA000328C0D /* MessageBoardListCell.swift in Sources */,
 				79D11D431EAD69C500F63C09 /* NewPostViewController.swift in Sources */,
 				7969BDC81E8B636B0009BB4C /* SAUtils.swift in Sources */,
 				79AF92711E73A6800091B535 /* HomeViewController.swift in Sources */,
-				792433A91E80F95F00709F2D /* MessageBoardModels.swift in Sources */,
+				791DED451EAEF5EF007FF646 /* LoginViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

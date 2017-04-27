@@ -9,12 +9,31 @@ import UIKit
 
 class HomeViewController: UIViewController {
 
+    @IBOutlet weak var btnToggleLogin: UIBarButtonItem!
+
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = SAConfig.appName
     }
 
-    @IBAction func btnLoginAction(_ sender: UIBarButtonItem) {
-        SAUtils.alert(viewController: self, title: "Error", message: "Not implemented")
+    override func viewWillAppear(_ animated: Bool) {
+        updateLoginStatus()
+    }
+
+    @IBAction func btnToggleLoginAction(_ sender: UIBarButtonItem) {
+        if SAGlobal.user_session_id != nil {
+            SAGlobal.user_session_id = nil
+            updateLoginStatus()
+        } else {
+            performSegue(withIdentifier: "segLogin", sender: self);
+        }
+    }
+
+    func updateLoginStatus() {
+        if SAGlobal.user_session_id != nil {
+            btnToggleLogin.title = "退出"
+        } else {
+            btnToggleLogin.title = "登录"
+        }
     }
 }

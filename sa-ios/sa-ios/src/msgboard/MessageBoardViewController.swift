@@ -58,13 +58,13 @@ class MessageBoardViewController: GAITrackedViewController, UITableViewDelegate,
 
     func fetchNextPage(refreshControl: UIRefreshControl?) {
         // Fetch messages via model on screen load
-        MessageBoardModels.fetchPosts(page: nextPage) { (posts) in
+        MessageBoardModels.fetchPosts(page: nextPage) { (posts, message) in
             // End pull-to-refresh
             refreshControl?.endRefreshing()
 
             // Failure
             if (posts == nil) {
-                SAUtils.alert(viewController: self, title: "网络错误", message: "数据获取失败")
+                SAUtils.alert(viewController: self, title: "获取数据失败", message: message)
                 // Do not update local state
                 return
             }

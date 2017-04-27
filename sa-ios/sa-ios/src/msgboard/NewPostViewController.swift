@@ -19,21 +19,15 @@ class NewPostViewController: UITableViewController {
         super.viewDidLoad()
     }
 
-    func enableControls(enabled: Bool) {
-        btnSend.isEnabled = enabled
-        txtUserName.isEnabled = enabled
-        txtUserContact.isEnabled = enabled
-        txtText.isEditable = enabled
-
-        // Dim screen
-        if enabled {
-            self.tableView.alpha = 1
-        } else {
-            self.tableView.alpha = 0.8
-        }
+    @IBAction func txtUserNamePrimaryAction(_ sender: Any) {
+        txtUserContact.becomeFirstResponder()
     }
 
-    @IBAction func btnSentAction(_ sender: Any) {
+    @IBAction func txtUserContactPrimaryAction(_ sender: Any) {
+        txtText.becomeFirstResponder()
+    }
+
+    @IBAction func btnSendAction(_ sender: Any) {
         if (txtUserName.text!.characters.count <= 0 ||
             txtText.text.characters.count <= 0) {
             SAUtils.alert(viewController: self, title: "新留言", message: "昵称和留言是必填内容");
@@ -41,7 +35,7 @@ class NewPostViewController: UITableViewController {
         }
 
         // Disable user interaction
-        self.enableControls(enabled: false)
+        self.setBusyState(true)
 
         // Construct Post object
         let post = MessageBoardPost(user_name: txtUserName.text!, text: txtText.text)
@@ -51,16 +45,29 @@ class NewPostViewController: UITableViewController {
         post.user_contact = txtUserContact.text
 
         // Send request
-        MessageBoardModels.submitPost(post: post, user_student_id: nil) { (success) in
+        MessageBoardModels.submitPost(post: post, user_student_id: nil) { (success, message) in
             // Enable user interaction
-            self.enableControls(enabled: true)
+            self.setBusyState(false)
 
             if (success) {
                 // Return to list view (and refresh)
                 self.navigationController?.popViewController(animated: true);
             } else {
-                SAUtils.alert(viewController: self, title: "网络错误", message: "留言发送失败");
+                SAUtils.alert(viewController: self, title: "发送失败", message: message);
             }
+        }
+    }
+
+    // Set UI busy (disable all user interaction)
+    func setBusyState(_ busy: Bool) {
+        btnSend.isEnabled = !busy
+        self.tableView.isUserInteractionEnabled = !busy
+
+        // Dim screen
+        if busy {
+            self.tableView.alpha = 0.95
+        } else {
+            self.tableView.alpha = 1
         }
     }
 }
