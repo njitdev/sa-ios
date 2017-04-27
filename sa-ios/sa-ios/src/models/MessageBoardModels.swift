@@ -7,6 +7,8 @@
 
 import UIKit
 import Alamofire
+import AlamofireObjectMapper
+import ObjectMapper
 
 class MessageBoardModels: NSObject {
     // Message Board base URL
@@ -18,39 +20,16 @@ class MessageBoardModels: NSObject {
         let params: Parameters = ["page": page]
 
         // Make request
-        Alamofire.request(self.apiBaseURL + "/posts", parameters: params).responseJSON { (response) in
+        Alamofire.request(apiBaseURL + "/posts", parameters: params).responseObject { (response: DataResponse<MessageBoardListResponse>) in
             // Response status validation
             switch response.result {
             case .success(_):
-
-                // Extract array
-                let r_dict = response.result.value as? [String: Any]
-                let r_result = r_dict?["result"] as? [String: Any]
-                let r_posts = r_result?["posts"] as? [[String: Any]]
-
-                // Create empty result array
-                var result: [MessageBoardPost] = []
-
-                // Loop through items
-                for r_post in r_posts ?? [] {
-
-                    // Initialize with required properties
-                    let post = MessageBoardPost(user_name: r_post["user_name"] as! String,
-                                                text: r_post["text"] as! String)
-
-                    // Assign optional properties
-                    post._id = r_post["_id"] as? String
-                    post.user_title = r_post["user_title"] as? String
-                    post.user_contact = r_post["user_contact"] as? String
-                    post.user_department = r_post["user_department"] as? String
-
-                    // Add to result array
-                    result.append(post)
+                let resp_obj = response.result.value
+                if let posts = resp_obj?.posts {
+                    completionHandler(posts, "ok")
+                } else {
+                    completionHandler(nil, "数据解析错误")
                 }
-                // Return result successfully
-                completionHandler(result, "ok")
-                return
-
             default:
                 completionHandler(nil, "网络通信错误")
             }
@@ -79,19 +58,46 @@ class MessageBoardModels: NSObject {
     }
 }
 
-class MessageBoardPost: NSObject {
+class MessageBoardListResponse: Mappable {
+    var posts: [MessageBoardPost]?
+    var page_num: Int?
+    var message: String!
+
+    required init?(map: Map) {}
+
+    func mapping(map: Map) {
+        posts    <- map["result.posts"]
+        page_num <- map["result.page_num"]
+        message  <- map["message"]
+    }
+}
+
+class MessageBoardPost: Mappable {
     public var _id: String?             // Post ID (generated on server side)
     public var installation_id: String? // Installation ID (generated on client side at first start)
-    public var user_name: String        // Nickname
-    public var text: String             // Text
+    public var user_name: String!       // Nickname
+    public var text: String!            // Text
     public var user_title: String?      // User title for team members
     public var user_contact: String?    // User contact
     public var user_student_id: String? // Student ID
     public var user_department: String? // Department
 
-    // Initializer
+    required init?(map: Map) {}
+
+    // For creating object without JSON
     init(user_name: String, text: String) {
         self.user_name = user_name
         self.text = text
+    }
+
+    func mapping(map: Map) {
+        _id             <- map["_id"]
+        installation_id <- map["installation_id"]
+        user_name       <- map["user_name"]
+        text            <- map["text"]
+        user_title      <- map["user_title"]
+        user_contact    <- map["user_contact"]
+        user_student_id <- map["user_student_id"]
+        user_department <- map["user_department"]
     }
 }

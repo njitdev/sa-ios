@@ -96,7 +96,7 @@ class MessageBoardViewController: GAITrackedViewController, UITableViewDelegate,
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // No bottom cell if no data
         if (posts.count == 0) {
-            return 0;
+            return 0
         }
 
         // + bottom cell for loading more
@@ -139,7 +139,7 @@ class MessageBoardViewController: GAITrackedViewController, UITableViewDelegate,
             cell.lblBackgroundText.isHidden = false
         }
 
-        return cell;
+        return cell
     }
 }
 

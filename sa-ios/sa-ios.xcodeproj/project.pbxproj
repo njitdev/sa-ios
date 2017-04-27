@@ -12,6 +12,8 @@
 		791DED4A1EAF01A6007FF646 /* SchoolSystemModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 791DED491EAF01A6007FF646 /* SchoolSystemModels.swift */; };
 		792B7FE51E82263F00E8E309 /* SAGlobal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 792B7FE41E82263F00E8E309 /* SAGlobal.swift */; };
 		792B7FE71E82268300E8E309 /* SAConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 792B7FE61E82268300E8E309 /* SAConfig.swift */; };
+		792BC7251EB1BCAC00B441FF /* GradesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 792BC7241EB1BCAC00B441FF /* GradesViewController.swift */; };
+		792BC7271EB1BCED00B441FF /* GradeItemTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 792BC7261EB1BCED00B441FF /* GradeItemTableCell.swift */; };
 		7969BDC81E8B636B0009BB4C /* SAUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7969BDC71E8B636B0009BB4C /* SAUtils.swift */; };
 		79AF926D1E73A6800091B535 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 79AF92631E73A6800091B535 /* Assets.xcassets */; };
 		79AF926F1E73A6800091B535 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 79AF92661E73A6800091B535 /* LaunchScreen.storyboard */; };
@@ -32,6 +34,8 @@
 		791DED491EAF01A6007FF646 /* SchoolSystemModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SchoolSystemModels.swift; sourceTree = "<group>"; };
 		792B7FE41E82263F00E8E309 /* SAGlobal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SAGlobal.swift; sourceTree = "<group>"; };
 		792B7FE61E82268300E8E309 /* SAConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SAConfig.swift; sourceTree = "<group>"; };
+		792BC7241EB1BCAC00B441FF /* GradesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradesViewController.swift; sourceTree = "<group>"; };
+		792BC7261EB1BCED00B441FF /* GradeItemTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradeItemTableCell.swift; sourceTree = "<group>"; };
 		7969BDC71E8B636B0009BB4C /* SAUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SAUtils.swift; sourceTree = "<group>"; };
 		79AF92491E73A44D0091B535 /* sa-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "sa-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		79AF92631E73A6800091B535 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -95,6 +99,15 @@
 			path = utils;
 			sourceTree = "<group>";
 		};
+		792BC7231EB1BC9700B441FF /* grades */ = {
+			isa = PBXGroup;
+			children = (
+				792BC7241EB1BCAC00B441FF /* GradesViewController.swift */,
+				792BC7261EB1BCED00B441FF /* GradeItemTableCell.swift */,
+			);
+			path = grades;
+			sourceTree = "<group>";
+		};
 		79AF92401E73A44D0091B535 = {
 			isa = PBXGroup;
 			children = (
@@ -149,6 +162,7 @@
 				791DED461EAF00CE007FF646 /* models */,
 				79AF92691E73A6800091B535 /* home */,
 				791DED431EAEF5D8007FF646 /* login */,
+				792BC7231EB1BC9700B441FF /* grades */,
 				79AF92731E73E17F0091B535 /* msgboard */,
 			);
 			path = src;
@@ -319,7 +333,9 @@
 				79AF92751E73E1D20091B535 /* MessageBoardViewController.swift in Sources */,
 				79AF92721E73A6800091B535 /* AppDelegate.swift in Sources */,
 				791DED481EAF0161007FF646 /* MessageBoardModels.swift in Sources */,
+				792BC7251EB1BCAC00B441FF /* GradesViewController.swift in Sources */,
 				79D6323B1E80EAA000328C0D /* MessageBoardListCell.swift in Sources */,
+				792BC7271EB1BCED00B441FF /* GradeItemTableCell.swift in Sources */,
 				79D11D431EAD69C500F63C09 /* NewPostViewController.swift in Sources */,
 				7969BDC81E8B636B0009BB4C /* SAUtils.swift in Sources */,
 				79AF92711E73A6800091B535 /* HomeViewController.swift in Sources */,

@@ -77,11 +77,6 @@ class LoginViewController: UITableViewController {
     func setBusyState(_ busy: Bool) {
         self.tableView.isUserInteractionEnabled = !busy
         btnLogin.isEnabled = !busy
-
-        if (busy) {
-            actBusy.startAnimating()
-        } else {
-            actBusy.stopAnimating()
-        }
+        busy ? actBusy.startAnimating() : actBusy.stopAnimating()
     }
 }

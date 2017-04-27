@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import ObjectMapper
 
 class NewPostViewController: UITableViewController {
 
@@ -64,10 +65,6 @@ class NewPostViewController: UITableViewController {
         self.tableView.isUserInteractionEnabled = !busy
 
         // Dim screen
-        if busy {
-            self.tableView.alpha = 0.95
-        } else {
-            self.tableView.alpha = 1
-        }
+        self.tableView.alpha = busy ? 0.95 : 1
     }
 }
