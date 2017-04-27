@@ -8,7 +8,8 @@ target 'sa-ios' do
   # Pods for sa-ios
   pod 'GoogleAnalytics', '~> 3.17.0'
   pod 'Alamofire', '~> 4.4'
+  pod 'AlamofireObjectMapper', '~> 4.0'
   pod 'AlamofireNetworkActivityIndicator', '~> 2.0'
-  pod 'Sentry', :git => 'https://github.com/getsentry/sentry-swift.git', :tag => '2.1.6'
+  pod 'Sentry', :git => 'https://github.com/getsentry/sentry-swift.git', :tag => '2.1.9'
 
 end

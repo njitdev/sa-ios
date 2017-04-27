@@ -2,50 +2,53 @@ PODS:
   - Alamofire (4.4.0)
   - AlamofireNetworkActivityIndicator (2.1.0):
     - Alamofire (~> 4.1)
+  - AlamofireObjectMapper (4.1.0):
+    - Alamofire (~> 4.1)
+    - ObjectMapper (~> 2.0)
   - GoogleAnalytics (3.17.0)
-  - KSCrash (1.15.3):
-    - KSCrash/Installations (= 1.15.3)
-  - KSCrash/Installations (1.15.3):
+  - KSCrash (1.15.8):
+    - KSCrash/Installations (= 1.15.8)
+  - KSCrash/Installations (1.15.8):
     - KSCrash/Recording
     - KSCrash/Reporting
-  - KSCrash/Recording (1.15.3):
-    - KSCrash/Recording/Tools (= 1.15.3)
-  - KSCrash/Recording/Tools (1.15.3)
-  - KSCrash/Reporting (1.15.3):
+  - KSCrash/Recording (1.15.8):
+    - KSCrash/Recording/Tools (= 1.15.8)
+  - KSCrash/Recording/Tools (1.15.8)
+  - KSCrash/Reporting (1.15.8):
     - KSCrash/Recording
-    - KSCrash/Reporting/Filters (= 1.15.3)
-    - KSCrash/Reporting/MessageUI (= 1.15.3)
-    - KSCrash/Reporting/Sinks (= 1.15.3)
-    - KSCrash/Reporting/Tools (= 1.15.3)
-  - KSCrash/Reporting/Filters (1.15.3):
+    - KSCrash/Reporting/Filters (= 1.15.8)
+    - KSCrash/Reporting/MessageUI (= 1.15.8)
+    - KSCrash/Reporting/Sinks (= 1.15.8)
+    - KSCrash/Reporting/Tools (= 1.15.8)
+  - KSCrash/Reporting/Filters (1.15.8):
     - KSCrash/Recording
-    - KSCrash/Reporting/Filters/Alert (= 1.15.3)
-    - KSCrash/Reporting/Filters/AppleFmt (= 1.15.3)
-    - KSCrash/Reporting/Filters/Base (= 1.15.3)
-    - KSCrash/Reporting/Filters/Basic (= 1.15.3)
-    - KSCrash/Reporting/Filters/GZip (= 1.15.3)
-    - KSCrash/Reporting/Filters/JSON (= 1.15.3)
-    - KSCrash/Reporting/Filters/Sets (= 1.15.3)
-    - KSCrash/Reporting/Filters/Stringify (= 1.15.3)
-    - KSCrash/Reporting/Filters/Tools (= 1.15.3)
-  - KSCrash/Reporting/Filters/Alert (1.15.3):
-    - KSCrash/Recording
-    - KSCrash/Reporting/Filters/Base
-  - KSCrash/Reporting/Filters/AppleFmt (1.15.3):
+    - KSCrash/Reporting/Filters/Alert (= 1.15.8)
+    - KSCrash/Reporting/Filters/AppleFmt (= 1.15.8)
+    - KSCrash/Reporting/Filters/Base (= 1.15.8)
+    - KSCrash/Reporting/Filters/Basic (= 1.15.8)
+    - KSCrash/Reporting/Filters/GZip (= 1.15.8)
+    - KSCrash/Reporting/Filters/JSON (= 1.15.8)
+    - KSCrash/Reporting/Filters/Sets (= 1.15.8)
+    - KSCrash/Reporting/Filters/Stringify (= 1.15.8)
+    - KSCrash/Reporting/Filters/Tools (= 1.15.8)
+  - KSCrash/Reporting/Filters/Alert (1.15.8):
     - KSCrash/Recording
     - KSCrash/Reporting/Filters/Base
-  - KSCrash/Reporting/Filters/Base (1.15.3):
-    - KSCrash/Recording
-  - KSCrash/Reporting/Filters/Basic (1.15.3):
+  - KSCrash/Reporting/Filters/AppleFmt (1.15.8):
     - KSCrash/Recording
     - KSCrash/Reporting/Filters/Base
-  - KSCrash/Reporting/Filters/GZip (1.15.3):
+  - KSCrash/Reporting/Filters/Base (1.15.8):
+    - KSCrash/Recording
+  - KSCrash/Reporting/Filters/Basic (1.15.8):
     - KSCrash/Recording
     - KSCrash/Reporting/Filters/Base
-  - KSCrash/Reporting/Filters/JSON (1.15.3):
+  - KSCrash/Reporting/Filters/GZip (1.15.8):
     - KSCrash/Recording
     - KSCrash/Reporting/Filters/Base
-  - KSCrash/Reporting/Filters/Sets (1.15.3):
+  - KSCrash/Reporting/Filters/JSON (1.15.8):
+    - KSCrash/Recording
+    - KSCrash/Reporting/Filters/Base
+  - KSCrash/Reporting/Filters/Sets (1.15.8):
     - KSCrash/Recording
     - KSCrash/Reporting/Filters/AppleFmt
     - KSCrash/Reporting/Filters/Base
@@ -53,45 +56,49 @@ PODS:
     - KSCrash/Reporting/Filters/GZip
     - KSCrash/Reporting/Filters/JSON
     - KSCrash/Reporting/Filters/Stringify
-  - KSCrash/Reporting/Filters/Stringify (1.15.3):
+  - KSCrash/Reporting/Filters/Stringify (1.15.8):
     - KSCrash/Recording
     - KSCrash/Reporting/Filters/Base
-  - KSCrash/Reporting/Filters/Tools (1.15.3):
+  - KSCrash/Reporting/Filters/Tools (1.15.8):
     - KSCrash/Recording
-  - KSCrash/Reporting/MessageUI (1.15.3):
+  - KSCrash/Reporting/MessageUI (1.15.8):
     - KSCrash/Recording
-  - KSCrash/Reporting/Sinks (1.15.3):
+  - KSCrash/Reporting/Sinks (1.15.8):
     - KSCrash/Recording
     - KSCrash/Reporting/Filters
     - KSCrash/Reporting/Tools
-  - KSCrash/Reporting/Tools (1.15.3):
+  - KSCrash/Reporting/Tools (1.15.8):
     - KSCrash/Recording
-  - Sentry (2.1.6):
-    - KSCrash (~> 1.15.3)
+  - ObjectMapper (2.2.6)
+  - Sentry (2.1.9):
+    - KSCrash (~> 1.15.5)
 
 DEPENDENCIES:
   - Alamofire (~> 4.4)
   - AlamofireNetworkActivityIndicator (~> 2.0)
+  - AlamofireObjectMapper (~> 4.0)
   - GoogleAnalytics (~> 3.17.0)
-  - Sentry (from `https://github.com/getsentry/sentry-swift.git`, tag `2.1.6`)
+  - Sentry (from `https://github.com/getsentry/sentry-swift.git`, tag `2.1.9`)
 
 EXTERNAL SOURCES:
   Sentry:
     :git: https://github.com/getsentry/sentry-swift.git
-    :tag: 2.1.6
+    :tag: 2.1.9
 
 CHECKOUT OPTIONS:
   Sentry:
     :git: https://github.com/getsentry/sentry-swift.git
-    :tag: 2.1.6
+    :tag: 2.1.9
 
 SPEC CHECKSUMS:
   Alamofire: dc44b1600b800eb63da6a19039a0083d62a6a62d
   AlamofireNetworkActivityIndicator: 4716f6554bdfb9c7cf13b1e0e3af21163129690a
+  AlamofireObjectMapper: 435adc82f5b367679bd9e71c4974a54efd0b2521
   GoogleAnalytics: f42cc53a87a51fe94334821868d9c8481ff47a7b
-  KSCrash: f344875321256d5906569a0853d73c6354a9f6f4
-  Sentry: a1d7e0f25dcd80a1b990d67837e9d9c5f186c6c6
+  KSCrash: 4acb0f9cdb0b1ce7155c608dc175d91d750a8c3a
+  ObjectMapper: 042708195cc46c20871cbcbec0453826398273fd
+  Sentry: 0dad761f7d6ca36ad424d87f9c0f22b66eaf7b91
 
-PODFILE CHECKSUM: 24e4ebe824afd14ce05cf3a759634052bce30624
+PODFILE CHECKSUM: 1ace5aa116cd12169213b74027f3b64e8ce49b88
 
-COCOAPODS: 1.2.0
+COCOAPODS: 1.2.1
