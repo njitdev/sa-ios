@@ -7,16 +7,22 @@
 
 import UIKit
 
-class HomeViewController: UIViewController {
+class HomeViewController: UITableViewController {
 
-    @IBOutlet weak var btnToggleLogin: UIBarButtonItem!
+    @IBOutlet weak var lblStudentName: UILabel!
+    @IBOutlet weak var lblLoginInformation: UILabel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = SAConfig.appName
+        self.navigationItem.title = SAConfig.appName
     }
 
     override func viewWillAppear(_ animated: Bool) {
+        // Deselect rows
+        if let selected_indexpath = self.tableView.indexPathForSelectedRow {
+            self.tableView.deselectRow(at: selected_indexpath, animated: true)
+        }
+
         updateLoginStatus()
     }
 
@@ -31,9 +37,10 @@ class HomeViewController: UIViewController {
 
     func updateLoginStatus() {
         if SAGlobal.user_session_id != nil {
-            btnToggleLogin.title = "退出"
+
         } else {
-            btnToggleLogin.title = "登录"
+            lblStudentName.text = "教务系统"
+            lblLoginInformation.text = "未登录"
         }
     }
 }
