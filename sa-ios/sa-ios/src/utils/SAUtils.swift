@@ -25,7 +25,8 @@ class SAUtils: NSObject {
     }
 
     // Write KV store
-    public static func writeLocalKVStore(key: String, val: String) {
+    public static func writeLocalKVStore(key: String, val: String?) {
+        if val == nil { return }
         let defaults = UserDefaults.standard
         defaults.set(val, forKey: key)
     }

@@ -12,29 +12,14 @@ class GradesViewController: GAITrackedViewController, UITableViewDelegate, UITab
 
     @IBOutlet weak var tblGrades: UITableView!
 
-    private var grade_items: [GradeItem] = []
+    var data_grades: [GradeItem] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         tblGrades.dataSource = self
         tblGrades.delegate = self
-
-        // Determine if user is logged in
-        if let session_id = SAGlobal.user_session_id {
-            // Fetch data
-            SchoolSystemModels.grades(session_id: session_id, student_id: nil) { (array, message) in
-                if let grades = array {
-                    self.grade_items = grades
-                    self.tblGrades.reloadData()
-                } else {
-                    SAUtils.alert(viewController: self, title: "无法获取成绩", message: message)
-                }
-            }
-        } else {
-            // Use cached data if exists, or prompt
-            SAUtils.alert(viewController: self, title: "Error", message: "User not logged in, should prompt or use cached data (not implemented).")
-        }
+        self.tblGrades.reloadData()
     }
 
     // MARK: - Table view data source
@@ -48,7 +33,7 @@ class GradesViewController: GAITrackedViewController, UITableViewDelegate, UITab
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return grade_items.count
+        return data_grades.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -56,7 +41,7 @@ class GradesViewController: GAITrackedViewController, UITableViewDelegate, UITab
         let cell = tableView.dequeueReusableCell(withIdentifier: "GradesTableCell", for: indexPath) as! GradeItemTableCell
 
         // Get GradeItem
-        let g = grade_items[indexPath.row]
+        let g = data_grades[indexPath.row]
 
         var subtitle = ""
         if let v = g.course_isrequired { subtitle.append(v) }

@@ -39,6 +39,28 @@ class SchoolSystemModels: NSObject {
         }
     }
 
+    // Get student basic info
+    static func studentBasicInfo(session_id: String, student_id: String?,
+                                 completionHandler: @escaping (StudentBasicInfo?, String) -> Void) {
+        // Prepare parameters
+        var params: Parameters = ["session_id": session_id];
+        if let v = student_id { params["student_id"] = v }
+
+        // Make request
+        Alamofire.request(self.apiBaseURL + "/student/basic-info", parameters: params).responseObject(keyPath: "result") { (response: DataResponse<StudentBasicInfo>) in
+            switch response.result {
+            case .success(_):
+                if let basic_info = response.result.value {
+                    completionHandler(basic_info, "ok")
+                } else {
+                    completionHandler(nil, "数据解析错误")
+                }
+            default:
+                completionHandler(nil, "网络通信错误");
+            }
+        }
+    }
+
     // Get grades
     static func grades(session_id: String, student_id: String?,
                        completionHandler: @escaping ([GradeItem]?, String) -> Void) {
@@ -73,6 +95,26 @@ class AuthSubmitResponse: Mappable {
         auth_result <- map["result.auth_result"]
         session_id  <- map["result.session_id"]
         message     <- map["message"]
+    }
+}
+
+class StudentBasicInfo: Mappable {
+    var student_id: String?
+    var student_name: String!
+    var student_enroll_year: String?
+    var student_department: String!
+    var student_major: String?
+    var student_class: String?
+
+    required init?(map: Map) {}
+
+    func mapping(map: Map) {
+        student_id          <- map["student_id"]
+        student_name        <- map["student_name"]
+        student_enroll_year <- map["student_enroll_year"]
+        student_department  <- map["student_department"]
+        student_major       <- map["student_major"]
+        student_class       <- map["student_class"]
     }
 }
 
