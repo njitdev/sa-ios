@@ -14,6 +14,10 @@
 		792B7FE71E82268300E8E309 /* SAConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 792B7FE61E82268300E8E309 /* SAConfig.swift */; };
 		792BC7251EB1BCAC00B441FF /* GradesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 792BC7241EB1BCAC00B441FF /* GradesViewController.swift */; };
 		792BC7271EB1BCED00B441FF /* GradeItemTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 792BC7261EB1BCED00B441FF /* GradeItemTableCell.swift */; };
+		7937FE0F1EB6B10F005EAA10 /* ClassScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7937FE0E1EB6B10F005EAA10 /* ClassScheduleViewController.swift */; };
+		7937FE111EB6B136005EAA10 /* AnnouncementsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7937FE101EB6B136005EAA10 /* AnnouncementsViewController.swift */; };
+		7937FE131EB6B585005EAA10 /* LibraryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7937FE121EB6B585005EAA10 /* LibraryViewController.swift */; };
+		7937FE151EB6B6DB005EAA10 /* LibraryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7937FE141EB6B6DB005EAA10 /* LibraryTableViewCell.swift */; };
 		7969BDC81E8B636B0009BB4C /* SAUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7969BDC71E8B636B0009BB4C /* SAUtils.swift */; };
 		79AF926D1E73A6800091B535 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 79AF92631E73A6800091B535 /* Assets.xcassets */; };
 		79AF926F1E73A6800091B535 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 79AF92661E73A6800091B535 /* LaunchScreen.storyboard */; };
@@ -22,6 +26,7 @@
 		79AF92721E73A6800091B535 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79AF926C1E73A6800091B535 /* AppDelegate.swift */; };
 		79AF92751E73E1D20091B535 /* MessageBoardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79AF92741E73E1D20091B535 /* MessageBoardViewController.swift */; };
 		79D11D431EAD69C500F63C09 /* NewPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79D11D421EAD69C500F63C09 /* NewPostViewController.swift */; };
+		79D581261EB6BC95007F7E99 /* ExamScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79D581251EB6BC95007F7E99 /* ExamScheduleViewController.swift */; };
 		79D6323B1E80EAA000328C0D /* MessageBoardListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79D6323A1E80EAA000328C0D /* MessageBoardListCell.swift */; };
 		8DC8F9F9EBBDE8A1C7F7832D /* Pods_sa_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 909FFD9DD9D5A5D1790517A2 /* Pods_sa_ios.framework */; };
 /* End PBXBuildFile section */
@@ -36,6 +41,10 @@
 		792B7FE61E82268300E8E309 /* SAConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SAConfig.swift; sourceTree = "<group>"; };
 		792BC7241EB1BCAC00B441FF /* GradesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradesViewController.swift; sourceTree = "<group>"; };
 		792BC7261EB1BCED00B441FF /* GradeItemTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradeItemTableCell.swift; sourceTree = "<group>"; };
+		7937FE0E1EB6B10F005EAA10 /* ClassScheduleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClassScheduleViewController.swift; sourceTree = "<group>"; };
+		7937FE101EB6B136005EAA10 /* AnnouncementsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnnouncementsViewController.swift; sourceTree = "<group>"; };
+		7937FE121EB6B585005EAA10 /* LibraryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LibraryViewController.swift; sourceTree = "<group>"; };
+		7937FE141EB6B6DB005EAA10 /* LibraryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LibraryTableViewCell.swift; sourceTree = "<group>"; };
 		7969BDC71E8B636B0009BB4C /* SAUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SAUtils.swift; sourceTree = "<group>"; };
 		79AF92491E73A44D0091B535 /* sa-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "sa-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		79AF92631E73A6800091B535 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -46,6 +55,7 @@
 		79AF926C1E73A6800091B535 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		79AF92741E73E1D20091B535 /* MessageBoardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageBoardViewController.swift; sourceTree = "<group>"; };
 		79D11D421EAD69C500F63C09 /* NewPostViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewPostViewController.swift; sourceTree = "<group>"; };
+		79D581251EB6BC95007F7E99 /* ExamScheduleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExamScheduleViewController.swift; sourceTree = "<group>"; };
 		79D6323A1E80EAA000328C0D /* MessageBoardListCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageBoardListCell.swift; sourceTree = "<group>"; };
 		7C2BFBE9F1C877A34C28E1BF /* Pods-sa-ios.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-sa-ios.debug.xcconfig"; path = "Pods/Target Support Files/Pods-sa-ios/Pods-sa-ios.debug.xcconfig"; sourceTree = "<group>"; };
 		909FFD9DD9D5A5D1790517A2 /* Pods_sa_ios.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_sa_ios.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -108,6 +118,31 @@
 			path = grades;
 			sourceTree = "<group>";
 		};
+		7937FE0B1EB6B0B8005EAA10 /* announcements */ = {
+			isa = PBXGroup;
+			children = (
+				7937FE101EB6B136005EAA10 /* AnnouncementsViewController.swift */,
+			);
+			path = announcements;
+			sourceTree = "<group>";
+		};
+		7937FE0C1EB6B0B8005EAA10 /* classschedule */ = {
+			isa = PBXGroup;
+			children = (
+				7937FE0E1EB6B10F005EAA10 /* ClassScheduleViewController.swift */,
+			);
+			path = classschedule;
+			sourceTree = "<group>";
+		};
+		7937FE0D1EB6B0B8005EAA10 /* library */ = {
+			isa = PBXGroup;
+			children = (
+				7937FE121EB6B585005EAA10 /* LibraryViewController.swift */,
+				7937FE141EB6B6DB005EAA10 /* LibraryTableViewCell.swift */,
+			);
+			path = library;
+			sourceTree = "<group>";
+		};
 		79AF92401E73A44D0091B535 = {
 			isa = PBXGroup;
 			children = (
@@ -162,7 +197,11 @@
 				791DED461EAF00CE007FF646 /* models */,
 				79AF92691E73A6800091B535 /* home */,
 				791DED431EAEF5D8007FF646 /* login */,
+				7937FE0C1EB6B0B8005EAA10 /* classschedule */,
+				79D581241EB6BC7A007F7E99 /* examschedule */,
 				792BC7231EB1BC9700B441FF /* grades */,
+				7937FE0B1EB6B0B8005EAA10 /* announcements */,
+				7937FE0D1EB6B0B8005EAA10 /* library */,
 				79AF92731E73E17F0091B535 /* msgboard */,
 			);
 			path = src;
@@ -193,6 +232,14 @@
 				79D11D421EAD69C500F63C09 /* NewPostViewController.swift */,
 			);
 			path = msgboard;
+			sourceTree = "<group>";
+		};
+		79D581241EB6BC7A007F7E99 /* examschedule */ = {
+			isa = PBXGroup;
+			children = (
+				79D581251EB6BC95007F7E99 /* ExamScheduleViewController.swift */,
+			);
+			path = examschedule;
 			sourceTree = "<group>";
 		};
 		DB0367F5B6ACEA3393D022D4 /* Frameworks */ = {
@@ -327,14 +374,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7937FE0F1EB6B10F005EAA10 /* ClassScheduleViewController.swift in Sources */,
 				792B7FE51E82263F00E8E309 /* SAGlobal.swift in Sources */,
 				791DED4A1EAF01A6007FF646 /* SchoolSystemModels.swift in Sources */,
+				7937FE151EB6B6DB005EAA10 /* LibraryTableViewCell.swift in Sources */,
 				792B7FE71E82268300E8E309 /* SAConfig.swift in Sources */,
 				79AF92751E73E1D20091B535 /* MessageBoardViewController.swift in Sources */,
 				79AF92721E73A6800091B535 /* AppDelegate.swift in Sources */,
 				791DED481EAF0161007FF646 /* MessageBoardModels.swift in Sources */,
+				79D581261EB6BC95007F7E99 /* ExamScheduleViewController.swift in Sources */,
+				7937FE111EB6B136005EAA10 /* AnnouncementsViewController.swift in Sources */,
 				792BC7251EB1BCAC00B441FF /* GradesViewController.swift in Sources */,
 				79D6323B1E80EAA000328C0D /* MessageBoardListCell.swift in Sources */,
+				7937FE131EB6B585005EAA10 /* LibraryViewController.swift in Sources */,
 				792BC7271EB1BCED00B441FF /* GradeItemTableCell.swift in Sources */,
 				79D11D431EAD69C500F63C09 /* NewPostViewController.swift in Sources */,
 				7969BDC81E8B636B0009BB4C /* SAUtils.swift in Sources */,

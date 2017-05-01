@@ -18,7 +18,12 @@
 
 import UIKit
 
-class SAGlobal: NSObject {
-    public static var installation_id = ""
-    public static var user_session_id: String?
+class LibraryTableViewCell: UITableViewCell {
+
+    @IBOutlet weak var lblTitle: UILabel!
+    @IBOutlet weak var lblAuthor: UILabel!
+    @IBOutlet weak var lblPublisher: UILabel!
+    @IBOutlet weak var lblInventory: UILabel!
+    @IBOutlet weak var lblAcquisitionNumber: UILabel!
+
 }

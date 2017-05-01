@@ -18,7 +18,11 @@
 
 import UIKit
 
-class SAGlobal: NSObject {
-    public static var installation_id = ""
-    public static var user_session_id: String?
+class ClassScheduleViewController: UIViewController {
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        // Do any additional setup after loading the view.
+    }
 }

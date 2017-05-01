@@ -18,7 +18,20 @@
 
 import UIKit
 
-class SAGlobal: NSObject {
-    public static var installation_id = ""
-    public static var user_session_id: String?
+class LibraryViewController: UIViewController {
+
+    @IBOutlet weak var txtKeyword: UITextField!
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+    }
+
+    @IBAction func txtKeywordPrimaryAction(_ sender: Any) {
+        // User tap "Search" on keyboard
+
+        // Hide keyboard
+        txtKeyword.resignFirstResponder()
+
+        // Perform search
+    }
 }

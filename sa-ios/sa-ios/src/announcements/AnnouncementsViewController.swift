@@ -18,7 +18,16 @@
 
 import UIKit
 
-class SAGlobal: NSObject {
-    public static var installation_id = ""
-    public static var user_session_id: String?
+class AnnouncementsViewController: UIViewController {
+
+    @IBOutlet weak var tableview: UITableView!
+    @IBOutlet weak var segCategory: UISegmentedControl!
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+    }
+
+    @IBAction func segCategoryChanged(_ sender: Any) {
+
+    }
 }
