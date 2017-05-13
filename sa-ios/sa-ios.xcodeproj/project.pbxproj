@@ -18,6 +18,7 @@
 		7937FE111EB6B136005EAA10 /* AnnouncementsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7937FE101EB6B136005EAA10 /* AnnouncementsViewController.swift */; };
 		7937FE131EB6B585005EAA10 /* LibraryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7937FE121EB6B585005EAA10 /* LibraryViewController.swift */; };
 		7937FE151EB6B6DB005EAA10 /* LibraryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7937FE141EB6B6DB005EAA10 /* LibraryTableViewCell.swift */; };
+		7967C7711EBE47EE00ABF4FC /* GradeFiltersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7967C7701EBE47EE00ABF4FC /* GradeFiltersViewController.swift */; };
 		7969BDC81E8B636B0009BB4C /* SAUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7969BDC71E8B636B0009BB4C /* SAUtils.swift */; };
 		79AF926D1E73A6800091B535 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 79AF92631E73A6800091B535 /* Assets.xcassets */; };
 		79AF926F1E73A6800091B535 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 79AF92661E73A6800091B535 /* LaunchScreen.storyboard */; };
@@ -45,6 +46,7 @@
 		7937FE101EB6B136005EAA10 /* AnnouncementsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnnouncementsViewController.swift; sourceTree = "<group>"; };
 		7937FE121EB6B585005EAA10 /* LibraryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LibraryViewController.swift; sourceTree = "<group>"; };
 		7937FE141EB6B6DB005EAA10 /* LibraryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LibraryTableViewCell.swift; sourceTree = "<group>"; };
+		7967C7701EBE47EE00ABF4FC /* GradeFiltersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradeFiltersViewController.swift; sourceTree = "<group>"; };
 		7969BDC71E8B636B0009BB4C /* SAUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SAUtils.swift; sourceTree = "<group>"; };
 		79AF92491E73A44D0091B535 /* sa-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "sa-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		79AF92631E73A6800091B535 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -114,6 +116,7 @@
 			children = (
 				792BC7241EB1BCAC00B441FF /* GradesViewController.swift */,
 				792BC7261EB1BCED00B441FF /* GradeItemTableCell.swift */,
+				7967C7701EBE47EE00ABF4FC /* GradeFiltersViewController.swift */,
 			);
 			path = grades;
 			sourceTree = "<group>";
@@ -385,6 +388,7 @@
 				79D581261EB6BC95007F7E99 /* ExamScheduleViewController.swift in Sources */,
 				7937FE111EB6B136005EAA10 /* AnnouncementsViewController.swift in Sources */,
 				792BC7251EB1BCAC00B441FF /* GradesViewController.swift in Sources */,
+				7967C7711EBE47EE00ABF4FC /* GradeFiltersViewController.swift in Sources */,
 				79D6323B1E80EAA000328C0D /* MessageBoardListCell.swift in Sources */,
 				7937FE131EB6B585005EAA10 /* LibraryViewController.swift in Sources */,
 				792BC7271EB1BCED00B441FF /* GradeItemTableCell.swift in Sources */,

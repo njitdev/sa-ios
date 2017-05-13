@@ -21,15 +21,60 @@ import UIKit
 class GradesViewController: GAITrackedViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var tblGrades: UITableView!
+    @IBOutlet weak var lblGPA: UILabel!
+    @IBOutlet weak var lblPassed: UILabel!
 
-    var data_grades: [GradeItem] = []
+    public var data_grades: [GradeItem] = []
+    public var data_grades_filtered: [GradeItem] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        tblGrades.dataSource = self
-        tblGrades.delegate = self
+        self.tblGrades.dataSource = self
+        self.tblGrades.delegate = self
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        self.loadData()
+    }
+
+    private func loadData() {
+        // Display all data if no filtered data available
+        if self.data_grades_filtered.count == 0 {
+            self.data_grades_filtered = self.data_grades
+        }
+
+        // Count and display pass / total
+        var passed = 0
+        for g in self.data_grades_filtered {
+            if let score = Int(g.score) {
+                if score >= 60 {
+                    passed += 1
+                }
+            }
+        }
+        self.lblPassed.text = "\(passed) / \(self.data_grades_filtered.count)"
+
+        // Compute and display GPA
+        self.lblGPA.text = String(format: "估算绩点: %0.3f", self.computeGPA())
+
+        // Reload table
         self.tblGrades.reloadData()
+    }
+
+    private func computeGPA() -> Float {
+        var credits_sum: Float = 0
+        var weighted_sum: Float = 0
+
+        for g in self.data_grades_filtered {
+            if let credits = Float(g.credits), let score = Int(g.score) {
+                let gp = Float(Int((score - 50) / 10)) + 0.1 * Float(score % 10)
+                weighted_sum += gp * credits
+                credits_sum += credits
+            }
+        }
+
+        return weighted_sum / credits_sum
     }
 
     // MARK: - Table view data source
@@ -43,7 +88,7 @@ class GradesViewController: GAITrackedViewController, UITableViewDelegate, UITab
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return data_grades.count
+        return self.data_grades_filtered.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -51,7 +96,7 @@ class GradesViewController: GAITrackedViewController, UITableViewDelegate, UITab
         let cell = tableView.dequeueReusableCell(withIdentifier: "GradesTableCell", for: indexPath) as! GradeItemTableCell
 
         // Get GradeItem
-        let g = data_grades[indexPath.row]
+        let g = self.data_grades_filtered[indexPath.row]
 
         var subtitle = ""
         if let v = g.course_isrequired { subtitle.append(v) }
@@ -60,19 +105,30 @@ class GradesViewController: GAITrackedViewController, UITableViewDelegate, UITab
 
         cell.lblCourseName.text = g.course_name
         cell.lblSubtitle.text = subtitle
-        cell.lblCredits.text = g.credits + " 学分"
+        cell.lblCredits.text = g.credits
         cell.lblScore.text = g.score
+
+        // Score text color
+        if let score = Int(g.score) {
+            var color = UIColor(red:0.30, green:0.69, blue:0.31, alpha:1.0)
+            if score < 60 {
+                color = UIColor(red:0.94, green:0.33, blue:0.31, alpha:1.0)
+            }
+            cell.lblScore.textColor = color
+        }
 
         return cell
     }
 
-    /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        if (segue.identifier == "segGradeFilters") {
+            if let dest = segue.destination as? GradeFiltersViewController {
+                dest.parent_vc = self
+                dest.data_grades = self.data_grades
+            }
+        }
     }
-    */
 }
