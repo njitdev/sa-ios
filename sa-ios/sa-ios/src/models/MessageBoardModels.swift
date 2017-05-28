@@ -36,11 +36,7 @@ class MessageBoardModels: NSObject {
             switch response.result {
             case .success(_):
                 let resp_obj = response.result.value
-                if let posts = resp_obj?.posts {
-                    completionHandler(posts, "ok")
-                } else {
-                    completionHandler(nil, "数据解析错误")
-                }
+                completionHandler(resp_obj?.posts, "ok")
             default:
                 completionHandler(nil, "网络通信错误")
             }

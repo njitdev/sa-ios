@@ -22,7 +22,7 @@ import AlamofireObjectMapper
 import ObjectMapper
 
 class SchoolSystemModels: NSObject {
-    // Message Board base URL
+    // School system base URL
     private static let apiBaseURL = SAConfig.APIBaseURL + "/school/" + SAConfig.schoolIdentifier
 
     // Submit login info
@@ -44,7 +44,7 @@ class SchoolSystemModels: NSObject {
                     completionHandler(nil, "请检查用户名和密码")
                 }
             default:
-                completionHandler(nil, "网络通信错误");
+                completionHandler(nil, "网络通信错误")
             }
         }
     }
@@ -60,13 +60,9 @@ class SchoolSystemModels: NSObject {
         Alamofire.request(self.apiBaseURL + "/student/basic-info", parameters: params).responseObject(keyPath: "result") { (response: DataResponse<StudentBasicInfo>) in
             switch response.result {
             case .success(_):
-                if let basic_info = response.result.value {
-                    completionHandler(basic_info, "ok")
-                } else {
-                    completionHandler(nil, "数据解析错误")
-                }
+                completionHandler(response.result.value, "ok")
             default:
-                completionHandler(nil, "网络通信错误");
+                completionHandler(nil, "网络通信错误")
             }
         }
     }
@@ -82,13 +78,9 @@ class SchoolSystemModels: NSObject {
         Alamofire.request(self.apiBaseURL + "/grades", parameters: params).responseArray(keyPath: "result") { (response: DataResponse<[GradeItem]>) in
             switch response.result {
             case .success(_):
-                if let grades = response.result.value {
-                    completionHandler(grades, "ok")
-                } else {
-                    completionHandler(nil, "数据解析错误")
-                }
+                completionHandler(response.result.value, "ok")
             default:
-                completionHandler(nil, "网络通信错误");
+                completionHandler(nil, "网络通信错误")
             }
         }
     }

@@ -26,6 +26,11 @@
 		79AF92711E73A6800091B535 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79AF926A1E73A6800091B535 /* HomeViewController.swift */; };
 		79AF92721E73A6800091B535 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79AF926C1E73A6800091B535 /* AppDelegate.swift */; };
 		79AF92751E73E1D20091B535 /* MessageBoardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79AF92741E73E1D20091B535 /* MessageBoardViewController.swift */; };
+		79BCB0DA1EDAC10500614C45 /* LibraryModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79BCB0D91EDAC10500614C45 /* LibraryModels.swift */; };
+		79BCB0DC1EDACFE600614C45 /* BookDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79BCB0DB1EDACFE600614C45 /* BookDetailsViewController.swift */; };
+		79BCB0DE1EDAD1B400614C45 /* BookInventoryTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79BCB0DD1EDAD1B400614C45 /* BookInventoryTableCell.swift */; };
+		79BCB0E01EDB734B00614C45 /* AnnouncemtnesArticleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79BCB0DF1EDB734B00614C45 /* AnnouncemtnesArticleViewController.swift */; };
+		79BCB0E21EDB74C700614C45 /* AnnouncementsModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79BCB0E11EDB74C700614C45 /* AnnouncementsModels.swift */; };
 		79D11D431EAD69C500F63C09 /* NewPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79D11D421EAD69C500F63C09 /* NewPostViewController.swift */; };
 		79D581261EB6BC95007F7E99 /* ExamScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79D581251EB6BC95007F7E99 /* ExamScheduleViewController.swift */; };
 		79D6323B1E80EAA000328C0D /* MessageBoardListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79D6323A1E80EAA000328C0D /* MessageBoardListCell.swift */; };
@@ -56,6 +61,11 @@
 		79AF926A1E73A6800091B535 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		79AF926C1E73A6800091B535 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		79AF92741E73E1D20091B535 /* MessageBoardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageBoardViewController.swift; sourceTree = "<group>"; };
+		79BCB0D91EDAC10500614C45 /* LibraryModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LibraryModels.swift; sourceTree = "<group>"; };
+		79BCB0DB1EDACFE600614C45 /* BookDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookDetailsViewController.swift; sourceTree = "<group>"; };
+		79BCB0DD1EDAD1B400614C45 /* BookInventoryTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookInventoryTableCell.swift; sourceTree = "<group>"; };
+		79BCB0DF1EDB734B00614C45 /* AnnouncemtnesArticleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnnouncemtnesArticleViewController.swift; sourceTree = "<group>"; };
+		79BCB0E11EDB74C700614C45 /* AnnouncementsModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnnouncementsModels.swift; sourceTree = "<group>"; };
 		79D11D421EAD69C500F63C09 /* NewPostViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewPostViewController.swift; sourceTree = "<group>"; };
 		79D581251EB6BC95007F7E99 /* ExamScheduleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExamScheduleViewController.swift; sourceTree = "<group>"; };
 		79D6323A1E80EAA000328C0D /* MessageBoardListCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageBoardListCell.swift; sourceTree = "<group>"; };
@@ -97,6 +107,8 @@
 			children = (
 				791DED471EAF0161007FF646 /* MessageBoardModels.swift */,
 				791DED491EAF01A6007FF646 /* SchoolSystemModels.swift */,
+				79BCB0E11EDB74C700614C45 /* AnnouncementsModels.swift */,
+				79BCB0D91EDAC10500614C45 /* LibraryModels.swift */,
 			);
 			path = models;
 			sourceTree = "<group>";
@@ -125,6 +137,7 @@
 			isa = PBXGroup;
 			children = (
 				7937FE101EB6B136005EAA10 /* AnnouncementsViewController.swift */,
+				79BCB0DF1EDB734B00614C45 /* AnnouncemtnesArticleViewController.swift */,
 			);
 			path = announcements;
 			sourceTree = "<group>";
@@ -142,6 +155,8 @@
 			children = (
 				7937FE121EB6B585005EAA10 /* LibraryViewController.swift */,
 				7937FE141EB6B6DB005EAA10 /* LibraryTableViewCell.swift */,
+				79BCB0DB1EDACFE600614C45 /* BookDetailsViewController.swift */,
+				79BCB0DD1EDAD1B400614C45 /* BookInventoryTableCell.swift */,
 			);
 			path = library;
 			sourceTree = "<group>";
@@ -378,9 +393,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				7937FE0F1EB6B10F005EAA10 /* ClassScheduleViewController.swift in Sources */,
+				79BCB0DC1EDACFE600614C45 /* BookDetailsViewController.swift in Sources */,
 				792B7FE51E82263F00E8E309 /* SAGlobal.swift in Sources */,
 				791DED4A1EAF01A6007FF646 /* SchoolSystemModels.swift in Sources */,
+				79BCB0DA1EDAC10500614C45 /* LibraryModels.swift in Sources */,
 				7937FE151EB6B6DB005EAA10 /* LibraryTableViewCell.swift in Sources */,
+				79BCB0E21EDB74C700614C45 /* AnnouncementsModels.swift in Sources */,
+				79BCB0DE1EDAD1B400614C45 /* BookInventoryTableCell.swift in Sources */,
 				792B7FE71E82268300E8E309 /* SAConfig.swift in Sources */,
 				79AF92751E73E1D20091B535 /* MessageBoardViewController.swift in Sources */,
 				79AF92721E73A6800091B535 /* AppDelegate.swift in Sources */,
@@ -393,6 +412,7 @@
 				7937FE131EB6B585005EAA10 /* LibraryViewController.swift in Sources */,
 				792BC7271EB1BCED00B441FF /* GradeItemTableCell.swift in Sources */,
 				79D11D431EAD69C500F63C09 /* NewPostViewController.swift in Sources */,
+				79BCB0E01EDB734B00614C45 /* AnnouncemtnesArticleViewController.swift in Sources */,
 				7969BDC81E8B636B0009BB4C /* SAUtils.swift in Sources */,
 				79AF92711E73A6800091B535 /* HomeViewController.swift in Sources */,
 				791DED451EAEF5EF007FF646 /* LoginViewController.swift in Sources */,

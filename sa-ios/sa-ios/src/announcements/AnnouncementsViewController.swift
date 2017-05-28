@@ -18,16 +18,96 @@
 
 import UIKit
 
-class AnnouncementsViewController: UIViewController {
+class AnnouncementsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var tableview: UITableView!
     @IBOutlet weak var segCategory: UISegmentedControl!
+    @IBOutlet weak var actLoading: UIActivityIndicatorView!
+
+    var data_list: [AnnouncementListItem] = []
+    var selected_article: AnnouncementListItem?
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        tableview.delegate = self
+        tableview.dataSource = self
+
+        self.segCategoryChanged(segCategory)
+    }
+
+    func setUIBusy(_ busy: Bool) {
+        segCategory.isEnabled = !busy
+        tableview.isUserInteractionEnabled = !busy
+        if (busy) {
+            actLoading.startAnimating()
+        } else {
+            actLoading.stopAnimating()
+        }
     }
 
     @IBAction func segCategoryChanged(_ sender: Any) {
+        // Clear table
+        self.data_list = []
+        tableview.reloadData()
 
+        // Fetch data
+        setUIBusy(true)
+
+        let category: String = String(segCategory.selectedSegmentIndex + 1)
+        AnnouncementsModels.list(category: category) { (announcements, message) in
+            self.setUIBusy(false)
+            if let data = announcements {
+                self.data_list = data
+                self.tableview.reloadData()
+            } else {
+                SAUtils.alert(viewController: self, title: "错误", message: message)
+            }
+        }
+    }
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let details_vc = segue.destination as? AnnouncementsArticleViewController {
+            details_vc.data_article_list_item = selected_article!
+        }
+    }
+
+    // MARK: - UITableViewDelegate, UITableViewDataSource
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.data_list.count
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        // Dequeue cell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "AnnouncementsTableCell", for: indexPath)
+
+        if let lblTitle = cell.textLabel, let lblSubtitle = cell.detailTextLabel {
+            let listItem = data_list[indexPath.row]
+            lblTitle.text = listItem.article_title
+
+            let department = listItem.article_department ?? ""
+            let date = listItem.article_date ?? ""
+            lblSubtitle.text = department + " " + date
+        }
+        return cell
+    }
+
+    // MARK: - UITableViewDelegate
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 55
+    }
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+
+        // Temporarily store the list item to be passed
+        selected_article = data_list[indexPath.row]
+
+        // Execute segue
+        performSegue(withIdentifier: "segAnnouncementsArticle", sender: self)
     }
 }
