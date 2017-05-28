@@ -69,7 +69,7 @@ PODS:
     - KSCrash/Reporting/Tools
   - KSCrash/Reporting/Tools (1.15.8):
     - KSCrash/Recording
-  - ObjectMapper (2.2.6)
+  - ObjectMapper (2.2.7)
   - Sentry (2.1.9):
     - KSCrash (~> 1.15.5)
 
@@ -96,7 +96,7 @@ SPEC CHECKSUMS:
   AlamofireObjectMapper: 435adc82f5b367679bd9e71c4974a54efd0b2521
   GoogleAnalytics: f42cc53a87a51fe94334821868d9c8481ff47a7b
   KSCrash: 4acb0f9cdb0b1ce7155c608dc175d91d750a8c3a
-  ObjectMapper: 042708195cc46c20871cbcbec0453826398273fd
+  ObjectMapper: 65abcfd9a61cf7396cbd14a4fb22fddfcc46577e
   Sentry: 0dad761f7d6ca36ad424d87f9c0f22b66eaf7b91
 
 PODFILE CHECKSUM: 1ace5aa116cd12169213b74027f3b64e8ce49b88

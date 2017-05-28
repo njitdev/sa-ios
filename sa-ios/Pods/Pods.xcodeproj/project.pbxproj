@@ -10,9 +10,11 @@
 		010AEB090285209B2C04CF97A5817AEC /* UserFeedbackViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC4DF64C2223E17CABAB1A0BBD378E4F /* UserFeedbackViewModel.swift */; };
 		019D69270E240E6DCE4790A44D3CE8F2 /* KSCrashReportSinkVictory.h in Headers */ = {isa = PBXBuildFile; fileRef = E62168434E4B8518FE7C772189CC2BCD /* KSCrashReportSinkVictory.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0202E91BD433E428B5ABA0057800D7BD /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B9C4687BA86C05DEFBC35A2F44EF426 /* Foundation.framework */; };
+		028F7BF3F13D9D6CD093BE577808B1B1 /* DateFormatterTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14588FF4726E61EC14D14AA77E1E3083 /* DateFormatterTransform.swift */; };
 		02C8EEBFF790B994FB31B001F8EE5092 /* KSID.h in Headers */ = {isa = PBXBuildFile; fileRef = E3EFDB7B9A1BABB7DBE37A3FEE12F143 /* KSID.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		038A487FA3FDDABD1FE9D095E559A6C6 /* KSCrashReportSinkVictory.m in Sources */ = {isa = PBXBuildFile; fileRef = CA29FB9A77C09627051AE7E8FF358391 /* KSCrashReportSinkVictory.m */; };
 		044270FF589EA1D289E6CDD3195CC876 /* KSCrashMonitor_Deadlock.m in Sources */ = {isa = PBXBuildFile; fileRef = 14B8E7ACA1B347100B1785B084294BDC /* KSCrashMonitor_Deadlock.m */; };
+		05CB6B5B3A5024A0678959CCBFC2A0F7 /* Operators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67DCBF704E9EF0A66C026E6641B44CBE /* Operators.swift */; };
 		063A60F679B551987EEE361D06D1CA90 /* KSDynamicLinker.h in Headers */ = {isa = PBXBuildFile; fileRef = 0501AE7964E08A0E9F614534D91BC4EC /* KSDynamicLinker.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		06DE456F2BF19C3F987861A941685084 /* assets.bundle in Resources */ = {isa = PBXBuildFile; fileRef = B3D3D31768966ACC8D9498D500AA4227 /* assets.bundle */; };
 		0704812F5F7AE4699DB8E3BB5108AC1F /* KSSignalInfo.c in Sources */ = {isa = PBXBuildFile; fileRef = FE580390F1EBDF0304CDBE1EF987988F /* KSSignalInfo.c */; };
@@ -20,14 +22,12 @@
 		096C5F8267302D1AA6F2F9688DD960DF /* NetworkActivityIndicatorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24951F530BC0A4487C68922EA6B68150 /* NetworkActivityIndicatorManager.swift */; };
 		09E678A18FF778A3294C277E781CEFFD /* KSCPU.c in Sources */ = {isa = PBXBuildFile; fileRef = 6D5920DB795A0E49E57AAC1B61BEEC21 /* KSCPU.c */; };
 		0AD310EBDF684D7503C629448634B590 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B9C4687BA86C05DEFBC35A2F44EF426 /* Foundation.framework */; };
-		0DF54EF6561E1295B8765B88B6579241 /* FromJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DFF24435D7A594001B71C599F936BDD /* FromJSON.swift */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		10EB23E9ECC4B33E16933BB1EA560B6A /* Timeline.swift in Sources */ = {isa = PBXBuildFile; fileRef = 889D55A7F6B2EB8392F365C3D9AE106F /* Timeline.swift */; };
 		1381D68F09037FCBFF5E1D5D30739FFC /* KSCrashInstallationConsole.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CCABCE33344227AC27489D4B7C72253 /* KSCrashInstallationConsole.m */; };
 		14282D6E843A8159CB3E430E944CCCB0 /* Frame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EEA3057012A366290111FE75C45026D /* Frame.swift */; };
 		14D61043E6F21282C8DF3AB4E8EC9BC9 /* NSString+URLEncode.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F40259127851F99C387E579F930F489 /* NSString+URLEncode.m */; };
 		1674976E5691AC6C3F018C2E42683218 /* ObjectMapper-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 08742334EE0D86ABAAE4380D26D8E326 /* ObjectMapper-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		168061324984C5CD9C126ACC98F17A18 /* KSCrashMonitor_System.h in Headers */ = {isa = PBXBuildFile; fileRef = 325BEBDB0BF6FAFE4CCD8BC0B39F86B3 /* KSCrashMonitor_System.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		173E0DDB57B8665C8A31804018C38B22 /* DictionaryTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C7325497E05BFAB1830055E7D0CDBDD /* DictionaryTransform.swift */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		174B35E480D9C8D202B479AF4B9FEF24 /* KSCrashMonitor_NSException.h in Headers */ = {isa = PBXBuildFile; fileRef = 3A769B80758F1984B72FFE73B0163AA8 /* KSCrashMonitor_NSException.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		17A91EDA01355100A3BDEF1720BE7097 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3193E95D8037D91348B74F176AF8310F /* MessageUI.framework */; };
 		18316DE9094DD9BB2C011D5DBB4C5387 /* KSCrashReportFilterGZip.m in Sources */ = {isa = PBXBuildFile; fileRef = CE1E3B499B0336B2FE9688221A4EEC6A /* KSCrashReportFilterGZip.m */; };
@@ -40,11 +40,9 @@
 		2123F2E2DB48A8A5AB10F6EE6F828588 /* KSMemory.h in Headers */ = {isa = PBXBuildFile; fileRef = 0F90F2500AB1CA11283F921E1A70712A /* KSMemory.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		22599265E08ED9C09525997941C233D0 /* KSSymbolicator.c in Sources */ = {isa = PBXBuildFile; fileRef = 42FA45CF1B530A4BDCC43065A8C8D53B /* KSSymbolicator.c */; };
 		22A64B57360150C7CC3502FA5B0FCB66 /* NSNumber+Extras.swift in Sources */ = {isa = PBXBuildFile; fileRef = C902DDED785473876692648E442A6B23 /* NSNumber+Extras.swift */; };
-		24553927300B10F87D89BA7360BD4D7F /* NSDecimalNumberTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = F68CA1966C1E7933182E86DF2182DF52 /* NSDecimalNumberTransform.swift */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		24978C92BD5C899788CFE7D26A9B3327 /* KSCrash-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = C7F129D9CAE39C166E388E4BE2BBE750 /* KSCrash-dummy.m */; };
 		249BEC20A95460C784F48DF9AC00A302 /* AlamofireObjectMapper-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = F7484AEEF8120268B05AA52DC9C77C44 /* AlamofireObjectMapper-dummy.m */; };
 		2521EA88CF24BE237660B2F38F8F7A6F /* KSVarArgs.h in Headers */ = {isa = PBXBuildFile; fileRef = BF017B352F7EDE9B138F835A67DDAB5A /* KSVarArgs.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		25A8E544EE7288222A45CDD100453BE7 /* HexColorTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = A06A7B488DAE9417791CCA9538474B09 /* HexColorTransform.swift */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		2807DCA2047E391E2D48D7130218D542 /* Sentry+UserFeedback.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EDCE98CD1C4F47D528A72E89F719E64 /* Sentry+UserFeedback.swift */; };
 		2B7580C5A775453C684DB5F0B46B213F /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C7037EA1F3332D63100CF31DD28C8AA /* Event.swift */; };
 		2BF3F7B85C17C5F44442E2FFE32FAB32 /* NSData+GZip.m in Sources */ = {isa = PBXBuildFile; fileRef = C5B4304AF5B380DE38B16AC3DD331873 /* NSData+GZip.m */; };
@@ -61,9 +59,12 @@
 		3394AC7F39DA5C7A39BFBB70210B279C /* KSCrashDoctor.m in Sources */ = {isa = PBXBuildFile; fileRef = 86B07916FB683E5A78FB55FD60C8AD49 /* KSCrashDoctor.m */; };
 		33CABEC266D86E5A247DF934E98F2E99 /* UserFeedback.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB1408EFCEB1C97E9FF17D099B1B9D74 /* UserFeedback.swift */; };
 		352C04DDC2158BEE7D0A139819D3C4A6 /* NSError+SimpleConstructor.h in Headers */ = {isa = PBXBuildFile; fileRef = 85938984A5922450B1DF816A6C9A547B /* NSError+SimpleConstructor.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		35AFBFB34DA1956EF7FCB64BC50946D8 /* EnumTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC1AC56EA546F60A67BFA1925F24333 /* EnumTransform.swift */; };
 		3626B94094672CB1C9DEA32B9F9502E1 /* TaskDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92384E01EEFBE9B4E183A8A475434B8A /* TaskDelegate.swift */; };
 		36D180A8A936BC79AC76A600492D35C7 /* KSCrashMonitor_User.h in Headers */ = {isa = PBXBuildFile; fileRef = 27DD4140F04A6CF8B16B0AA07A3FBC37 /* KSCrashMonitor_User.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		3726D2495860402EB49CED0395EBF7F8 /* llvm-config.h in Headers */ = {isa = PBXBuildFile; fileRef = 9C61DA033270B0ECFDE48900D2B43D68 /* llvm-config.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		375698920E797E91DBDB8A3249B56B0E /* Map.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50300143A856635D06686BD18AFC66D2 /* Map.swift */; };
+		375AD5B4037B367C74B348C0644C0509 /* FromJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DFF24435D7A594001B71C599F936BDD /* FromJSON.swift */; };
 		37F9ABACDFE4E10CCD61E52517293BA8 /* Demangle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C6EB35C7AE99CD01E60E44958B6DBC23 /* Demangle.cpp */; };
 		383A52DC7C386DD13BF38AC369CD7216 /* KSCrashC.h in Headers */ = {isa = PBXBuildFile; fileRef = 34DDF173835B40E12C725B8CDA243AE2 /* KSCrashC.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		38C318AA8EB9B4FB588D4429422BD6B1 /* Punycode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21132B6C9C28714C79FB6D4F5E7AF2D6 /* Punycode.cpp */; };
@@ -77,28 +78,25 @@
 		3F7B53E023F3D646C6300715D0161C2C /* KSCrashMonitorType.h in Headers */ = {isa = PBXBuildFile; fileRef = C8227CB31A4863E4EEC3B08033CCC895 /* KSCrashMonitorType.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3FCCB6A2BA2E1C0DB0411F9FE0BCEBA2 /* KSDate.h in Headers */ = {isa = PBXBuildFile; fileRef = EC1848F6B3D5F83C04E5F24AB14DF29F /* KSDate.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		426700EC6427E8705EE4CF2223CF3297 /* KSJSONCodec.c in Sources */ = {isa = PBXBuildFile; fileRef = F72C176F3EDBA4D0AB603C283AD0D526 /* KSJSONCodec.c */; };
-		43335DB8AF71F2E9545B2BA43285E287 /* ImmutableMappable.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDEDFAF75D6C801F0A5F2673EE8A8030 /* ImmutableMappable.swift */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		43535D556EC3C24D8C7C5872E08FE87B /* Sentry+Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD4E58F212819B0D2E2D0B2521477C8 /* Sentry+Error.swift */; };
 		43646CCA2322EE9B32EE66076951094E /* KSCrashReportFilterAlert.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A663D465A3BF1DFC11E6286F98304C3 /* KSCrashReportFilterAlert.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		43998AD209433F1D1F38FC43377D3365 /* KSCrashMonitor_Zombie.h in Headers */ = {isa = PBXBuildFile; fileRef = 028DED9F177F42E8E1656A9B22A86DA9 /* KSCrashMonitor_Zombie.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		45170A30623D5BBAE8D50402CEDF234B /* KSCrashMonitor_CPPException.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 65108C40F3EFB5BC67DC5AA918A38E95 /* KSCrashMonitor_CPPException.cpp */; };
 		47552CE7F9A748A16CCE32B5E3205DA9 /* KSFileUtils.c in Sources */ = {isa = PBXBuildFile; fileRef = 3CC0621707406E7FAFD4DECE1C017A2F /* KSFileUtils.c */; };
+		4863B9B382D2BA7A07C414A91E1DD6B0 /* ObjectMapper-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 40B559753DE4F1365B7BD32B5654B0D6 /* ObjectMapper-dummy.m */; };
 		491B2EB4D4A9397FAAA8832BFE666B4D /* NSString+URLEncode.h in Headers */ = {isa = PBXBuildFile; fileRef = 5362CBC3EECA8E079BE6A49AE20F86B6 /* NSString+URLEncode.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		4A5B15F5BD365B620EA6445F1AC559DE /* CustomDateFormatTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16EDE46F23F172C360E893EE4FC9FE7C /* CustomDateFormatTransform.swift */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		4A7CFA6CB753FC44FBA7A725A130A168 /* KSCrashReportFilterSets.m in Sources */ = {isa = PBXBuildFile; fileRef = B888AF2F022775CEEAE5B21EA666814A /* KSCrashReportFilterSets.m */; };
 		4A7FB907B456C4B5284391705E15516D /* KSFileUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = 297C026E8F40D99AD00E5D0235E48D91 /* KSFileUtils.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4ADCFFF8F2D04094CAF1DB735A539313 /* KSCrashReport.c in Sources */ = {isa = PBXBuildFile; fileRef = 03DEB66B623A2E1ADC6E3B8C68ABDD05 /* KSCrashReport.c */; };
 		4C8CAF298B0D4621D2227DDBF5D33EEC /* KSLogger.h in Headers */ = {isa = PBXBuildFile; fileRef = 698AF6D4A53BC211B17CC9038ABB1E1E /* KSLogger.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		4CE57BA9F3209F2E5D730F35361D112D /* ISO8601DateTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EBF50150FDF921EDBAB7FD094B0EEE2 /* ISO8601DateTransform.swift */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		4D004E34CCADFD59566212BB27B01538 /* KSDebug.c in Sources */ = {isa = PBXBuildFile; fileRef = D4C6A49B7573B496A4CEA26CF4B5BF03 /* KSDebug.c */; };
 		4E144A5F6A61AACDFDFF8E00A4E5C17B /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 97BBFB98619F97E6F23D711CDE3C6A28 /* Alamofire.framework */; };
 		4E4BE0424989303D267E26C0037CDB15 /* KSCrashReportFilterGZip.h in Headers */ = {isa = PBXBuildFile; fileRef = EC5D6ED78F532278D80994529E5660EE /* KSCrashReportFilterGZip.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		502E12B5C37515C1A54B5E92B2A24B19 /* KSCrashInstallationEmail.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C145C56F7F042150C6E563A785BC7F9 /* KSCrashInstallationEmail.m */; };
-		50497589C9F33A33FFBA4C2D50B335D3 /* DateTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3D27B599656407E2F638AF340A74D6A /* DateTransform.swift */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		5162DB3C70BBF7D96D46B87127A7E23E /* DemangleNodes.h in Headers */ = {isa = PBXBuildFile; fileRef = 35B0C1A48A2A406F1E44C42729BABE5B /* DemangleNodes.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		52D5DE00FCA2690C3E8731CDB696BFD3 /* KSReachabilityKSCrash.m in Sources */ = {isa = PBXBuildFile; fileRef = F8E715AAC272EB120892F283B913E847 /* KSReachabilityKSCrash.m */; };
-		52E1BABD8927CBAB89E0DFBD65D086A1 /* ToJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A76C95490975F3942C503CF35C381C /* ToJSON.swift */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		5387216E723A3C68E851CA15573CDD71 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ECAF588B894F8A3661D871A3890A4E0 /* Request.swift */; };
+		54334A036232F3AD1BD3D9D682EA702D /* HexColorTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = A06A7B488DAE9417791CCA9538474B09 /* HexColorTransform.swift */; };
 		54D40931DDAB5E8B2CD4EB704EA14AEA /* KSCrashReportSinkQuincyHockey.m in Sources */ = {isa = PBXBuildFile; fileRef = 79051C411C7708BF6179B5495705E251 /* KSCrashReportSinkQuincyHockey.m */; };
 		555143548745BBA0C550000C44FDB804 /* KSStackCursor_Backtrace.c in Sources */ = {isa = PBXBuildFile; fileRef = 5366579DB295F1089ACEEF330B281754 /* KSStackCursor_Backtrace.c */; };
 		55C6EEAA1CBA238DAC49A68043DC370C /* KSCrashInstallation+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = A379462F93CB3FF2728695D8E2C6452B /* KSCrashInstallation+Private.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -114,6 +112,7 @@
 		5AC6BA252379058B8C236D1E08578470 /* KSCrashMonitor_NSException.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FBE701FDFED3207990033E29F4FC575 /* KSCrashMonitor_NSException.m */; };
 		5AC8BC7602A778914C09A9CDDE510E34 /* DebugMeta.swift in Sources */ = {isa = PBXBuildFile; fileRef = C16B3379F7D85B73B3E99C7E7C8D46AF /* DebugMeta.swift */; };
 		5BD884508F134A381B8B842D32F56EAB /* KSCPU_arm.c in Sources */ = {isa = PBXBuildFile; fileRef = AAE6562970DF29C832CB58177307AD02 /* KSCPU_arm.c */; };
+		5BEC65F1E64F4BC3B0AD838E60E1C4A9 /* ToJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A76C95490975F3942C503CF35C381C /* ToJSON.swift */; };
 		5C4E1E59EFADC0E8FF6C2D550C635B88 /* KSCrashMonitor_User.c in Sources */ = {isa = PBXBuildFile; fileRef = 647D83E73C760BB08E3ECBF9A71C41F7 /* KSCrashMonitor_User.c */; };
 		5E63EC5CFE15F9B33D2041D709AA7FE7 /* KSCrashReportFilterBasic.m in Sources */ = {isa = PBXBuildFile; fileRef = DCBD66E7188381F36D7B674B875712EE /* KSCrashReportFilterBasic.m */; };
 		5E98189FA423FF05EECB86038089D3B0 /* KSCrashReportFilterJSON.h in Headers */ = {isa = PBXBuildFile; fileRef = 37FE46266C029282CB9F291FD9FEF3C2 /* KSCrashReportFilterJSON.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -122,16 +121,15 @@
 		6025CED5F92B64187D5583667529D0A1 /* KSCString.h in Headers */ = {isa = PBXBuildFile; fileRef = 700222B6D3319984F9D067A96343864D /* KSCString.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		60A52D5F506ADC33B9E9A635D1CE6428 /* Pods-sa-ios-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = D63F25A6FB05F367B9F3573A8D71E727 /* Pods-sa-ios-dummy.m */; };
 		61200D01A1855D7920CEF835C8BE00B0 /* DispatchQueue+Alamofire.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D0FA81C9AA7C617EE8169C1259D65EC /* DispatchQueue+Alamofire.swift */; };
+		6140699B499701C95C16CA9E10A60B10 /* EnumOperators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0829486C478E29570A2B880CC385DB83 /* EnumOperators.swift */; };
 		6156A3B372C95B4594E344F95BF472C7 /* KSCPU_x86_64.c in Sources */ = {isa = PBXBuildFile; fileRef = 8AF343239295BF4EAFD6F74DA46C0129 /* KSCPU_x86_64.c */; };
-		623FA388F76C743809099881B070081D /* Map.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50300143A856635D06686BD18AFC66D2 /* Map.swift */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		62F65AD8DC4F0F9610F4B8B4738EC094 /* ServerTrustPolicy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35FB709684F36732866A34456EF856DE /* ServerTrustPolicy.swift */; };
 		63D55FD76F95DF1716D7BA1F7E38D758 /* KSCrashInstallationStandard.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C8534173498812EE7F6DD9C25EA846F /* KSCrashInstallationStandard.m */; };
 		64050C1841380BEBF58BB50649B4E026 /* KSSystemCapabilities.h in Headers */ = {isa = PBXBuildFile; fileRef = 973B0DB0668A5F492766531B443B05D4 /* KSSystemCapabilities.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		642FBA0BCB21CE5EF9D7F0920C26798E /* KSHTTPMultipartPostBody.h in Headers */ = {isa = PBXBuildFile; fileRef = 8FC07CB02C84968EB0E662A126514491 /* KSHTTPMultipartPostBody.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		6469BCC88D68905136CBB2FC47F590DB /* TransformOperators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E23E6BF19A29B8DC63ECBE3C93A743 /* TransformOperators.swift */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		6487B30B07234D10B9C28069B6D5B3B3 /* KSDemangle_CPP.h in Headers */ = {isa = PBXBuildFile; fileRef = 262551C80082343460686A8DD6E0436A /* KSDemangle_CPP.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6503E4F7F5DE4E295D027C3BCF6DA5C5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C2BE194B378485CBAC67224213B16E32 /* Assets.xcassets */; };
-		659179EFC4D883F90CCFCD9AF4029E72 /* EnumTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC1AC56EA546F60A67BFA1925F24333 /* EnumTransform.swift */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		6561EFAAAFE0E3FB560D8B87D50C0414 /* DateTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3D27B599656407E2F638AF340A74D6A /* DateTransform.swift */; };
 		65E69A63EB941A07F1ACC25B7824A22A /* KSHTTPRequestSender.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EC3D85E685DD746C0AE1692ACB3B23F /* KSHTTPRequestSender.m */; };
 		66081A4EA6C1DCAB008AD8387BA354F1 /* KSMach.c in Sources */ = {isa = PBXBuildFile; fileRef = 2D0000C260112F15371516EDD59459AE /* KSMach.c */; };
 		680AAAFC23E857038A09DB294376BCAF /* Sentry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA8E0EA68EA3B82A8B23699EF0FE467 /* Sentry.swift */; };
@@ -143,31 +141,35 @@
 		6F93CB34311C169092A78EF431069B63 /* KSStackCursor_SelfThread.h in Headers */ = {isa = PBXBuildFile; fileRef = D714DCCA563B71E1E7CF4CD05F5B033E /* KSStackCursor_SelfThread.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		70AA88A580A10F03F3BCA26683918204 /* Malloc.h in Headers */ = {isa = PBXBuildFile; fileRef = 192B1C9D03DAC5E77EBE4CD56D913654 /* Malloc.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		7107D0A74E584FBD11470C90692E3AB5 /* Stacktrace.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8C7A93E5692433BD0252ACFB393CD9E /* Stacktrace.swift */; };
-		716C8C47D45ED102DB9BC024A44213A2 /* TransformOf.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93CB4B0ACF43854F6D30DE531ABD9C9B /* TransformOf.swift */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		73B9C996AED49ED7CF8EC2A6F1738059 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B9C4687BA86C05DEFBC35A2F44EF426 /* Foundation.framework */; };
+		74D7B56EE91ACB42EB352CEF073CF4BB /* MapError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82491518590C90E7549A46580511D58B /* MapError.swift */; };
 		74DE3C9832A16349EEAF55E98CE09C04 /* KSCrashMonitor.c in Sources */ = {isa = PBXBuildFile; fileRef = 77092C212925B1EB610110417490D54F /* KSCrashMonitor.c */; };
 		750AEE492B7BB9F4AD7D4C5E16BA2D43 /* KSCrashReportFields.h in Headers */ = {isa = PBXBuildFile; fileRef = A5D0885D153BA450400B2893757E484E /* KSCrashReportFields.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		7587FB51A2F6590D87D1C9EDF079C1B3 /* Fallthrough.h in Headers */ = {isa = PBXBuildFile; fileRef = 9FDEB0590F6F5E9E75CC3CA5ABD5DFA6 /* Fallthrough.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		75F8D6E00492DB8B74CDEF49E3854219 /* KSCrashReportFilterStringify.h in Headers */ = {isa = PBXBuildFile; fileRef = FF4BDCE4E81C2E3468CEEE3821A67EF1 /* KSCrashReportFilterStringify.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		765624085108240F1A2952486A60B66F /* DataTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73379874F57E7A663C6C9086BDFAC1F2 /* DataTransform.swift */; };
 		78993676F54279E59315E22D09737036 /* NSData+GZip.h in Headers */ = {isa = PBXBuildFile; fileRef = E3C3E3B9DC52E9DE296227AB3AE3EA59 /* NSData+GZip.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		78C6D5199A1015D4BC15D6E42DCA74E0 /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3509FB24FD77E96E8E4F3A73E8F78315 /* Functions.swift */; };
 		78E3E9279950675287AC9B3C7089E988 /* BreadcrumbStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D63995CC908516AB3BF44C1B24A4EF7 /* BreadcrumbStore.swift */; };
 		792A3A81117E98EFF694F6710EF60067 /* NSMutableData+AppendUTF8.h in Headers */ = {isa = PBXBuildFile; fileRef = 7F0405892A5CA0F838482E26AD2FAE8E /* NSMutableData+AppendUTF8.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		79756BB5901F4D9DD010F3C8702AD094 /* EnumOperators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0829486C478E29570A2B880CC385DB83 /* EnumOperators.swift */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		79D579B7E2838DD8D1F6FA00EDF2FE7F /* Sentry-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = CEC45870732625A9E49C4FF4F2F9310B /* Sentry-dummy.m */; };
 		7A2A14A2BC9A36F2AF333A75C125FB43 /* KSCrashReportFilterStringify.m in Sources */ = {isa = PBXBuildFile; fileRef = 16B3A0E24E73213DE6DAB4F1DEE9AC0E /* KSCrashReportFilterStringify.m */; };
 		7A6BA8A705ADF7B8C8FFA7F066C04117 /* Container+DeepSearch.h in Headers */ = {isa = PBXBuildFile; fileRef = 00F8D61775269B724CB2D6234EB36561 /* Container+DeepSearch.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7AFC5233F65181E4A11D105AD151A3E6 /* KSSysCtl.h in Headers */ = {isa = PBXBuildFile; fileRef = EEF96442ED410E884611F76797602B9A /* KSSysCtl.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7B5FE28C7EA4122B0598738E54DBEBD8 /* SessionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CB9DEC350AD032705AD1B8F8F3A997B /* SessionDelegate.swift */; };
 		7B68B9D48462F4464EC92B548347DA5F /* KSCrashCachedData.h in Headers */ = {isa = PBXBuildFile; fileRef = 7EED0B188B2A824DD73ADF7C92C74C97 /* KSCrashCachedData.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		7BE81D28BE233A47AC5BE1B3FA26FDB5 /* TransformOperators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E23E6BF19A29B8DC63ECBE3C93A743 /* TransformOperators.swift */; };
 		7C6B287C91C8B511C9196187C8FF1D05 /* KSObjC.h in Headers */ = {isa = PBXBuildFile; fileRef = B1E320E8893B1A172FC49CFF1FC4D1CB /* KSObjC.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7CD2692A1E181A2A33818189B8F3459B /* KSCrashMonitor_Signal.h in Headers */ = {isa = PBXBuildFile; fileRef = 39A46562249D62D9960017AAB4E818EC /* KSCrashMonitor_Signal.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		7CE396FE72FBA4930A3E4BFE1A0AFE12 /* KSString.h in Headers */ = {isa = PBXBuildFile; fileRef = 15472E3F10FA8BAB5551716B77E55421 /* KSString.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7D8CC01E8C9EFFF9F4D65406CDE0AB66 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE5B6148C10C7C2D03CFA1F6C706D161 /* Result.swift */; };
 		7DDAB80FCDD4EF823231703852EA6325 /* UserFeedbackTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EFA02BB5364DA0554F0AC5452D331AE /* UserFeedbackTableViewController.swift */; };
 		7FB6B5FC7794BF34265B4AE0FD2CBD63 /* KSCrashInstallationVictory.m in Sources */ = {isa = PBXBuildFile; fileRef = 377E43E8568B2672E59E4BEC2E8954E1 /* KSCrashInstallationVictory.m */; };
+		8022FE8243222780F58CDFD44A49F311 /* ISO8601DateTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EBF50150FDF921EDBAB7FD094B0EEE2 /* ISO8601DateTransform.swift */; };
 		80B1EC059FC9FC424B8782BCBD3E0801 /* RequestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B818561880650C9CCC48A68DB9DDCF26 /* RequestManager.swift */; };
+		80FBD965D6160B82CF4B55FB3409C1FD /* Mappable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279AEC4F29E50E15DCF636248FDAEEF7 /* Mappable.swift */; };
 		82B33F223516A2AA7DA2985E5A954B88 /* ObjectMapper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0EFBB7CD816754A6173356932EC8EAD9 /* ObjectMapper.framework */; };
+		8491440E494CAAAE6DB2EA1D8D215903 /* ImmutableMappable.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDEDFAF75D6C801F0A5F2673EE8A8030 /* ImmutableMappable.swift */; };
 		857AF7D625B0A67C4B94E3379BEBA9F5 /* RequestOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BE76AF00C4C7645D4FDBEB56802773C /* RequestOperation.swift */; };
 		86C822F3899ECCFB0778209BBEE465BD /* KSStackCursor.h in Headers */ = {isa = PBXBuildFile; fileRef = 9CD67A646112252D6B95B77FCCB88DC6 /* KSStackCursor.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		875315D7F1678EB15289E96ECE1A3B93 /* type_traits.h in Headers */ = {isa = PBXBuildFile; fileRef = CDA0F2721DAFD49E4D7350B0BCB01C7D /* type_traits.h */; settings = {ATTRIBUTES = (Project, ); }; };
@@ -175,12 +177,11 @@
 		88DA918CCDAE7B795537C47C6CB34B7C /* KSCrash-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 7BE70C751FFD1F805976DBF88BE8DF71 /* KSCrash-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		89237C6F5FD5E992915906EB96C5E5EC /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 97BBFB98619F97E6F23D711CDE3C6A28 /* Alamofire.framework */; };
 		8A22314EEC3A108CAB1557FDC1A822C1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B9C4687BA86C05DEFBC35A2F44EF426 /* Foundation.framework */; };
-		8B1DCAA3A596869078949E1534E60DB8 /* DateFormatterTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14588FF4726E61EC14D14AA77E1E3083 /* DateFormatterTransform.swift */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		8DAC605E7CDAACE1348ABD7601D7E42C /* KSCrashInstallationVictory.h in Headers */ = {isa = PBXBuildFile; fileRef = 4CDC953B42F1559924A6E9CBD4525E3B /* KSCrashInstallationVictory.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		8E103C24DAD97526233C0656A3229098 /* KSMachineContext_Apple.h in Headers */ = {isa = PBXBuildFile; fileRef = F81C2108A8574C29E7D150F62E45AD44 /* KSMachineContext_Apple.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		8EF78E124F3EBFE86A691743631A1B1A /* KSCrashReport.h in Headers */ = {isa = PBXBuildFile; fileRef = 14F57C35FB2BF2F8B31E4EA3254A8B7A /* KSCrashReport.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		8F46A5E6F7671EA5EA201315E3A799E6 /* IntegerOperators.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4209153F7F4AB1710AF1B4DE8BE945B /* IntegerOperators.swift */; };
 		90D6BCEA4C097455F33C4BA45328BFBF /* KSCrash.m in Sources */ = {isa = PBXBuildFile; fileRef = 277CDBEEBBA41C9FE413DF06317238A0 /* KSCrash.m */; };
-		9113FE1274F17B76B03DA0D5B3B335F3 /* Mapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FD4FDD2CFFC232D26227DA9848E6741 /* Mapper.swift */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		937A5B6A166C635338EBF57B09824C18 /* KSHTTPRequestSender.h in Headers */ = {isa = PBXBuildFile; fileRef = E259BDC864A17CE358D2C2FE615B555F /* KSHTTPRequestSender.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9538492F62B75703955783141CE861A6 /* KSDebug.h in Headers */ = {isa = PBXBuildFile; fileRef = 63954557AD6A18411991DAC36A5FC65A /* KSDebug.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		96958827DD8A3086246D4854BA384803 /* KSCrashReportSinkStandard.m in Sources */ = {isa = PBXBuildFile; fileRef = D01B84BD33229520F5926076C07D0ED7 /* KSCrashReportSinkStandard.m */; };
@@ -189,24 +190,22 @@
 		99311A5C6D69710D9704D0BD6AC9426E /* KSCrashInstallation.m in Sources */ = {isa = PBXBuildFile; fileRef = 64C32B1518BA1DE672CFEB1DDB6BC61C /* KSCrashInstallation.m */; };
 		9981C3E2B5662BEE1E3F7A736E75BB51 /* KSCrashInstallationQuincyHockey.h in Headers */ = {isa = PBXBuildFile; fileRef = C4F9D96C90599CEA10FC58B9B00B8C24 /* KSCrashInstallationQuincyHockey.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9A9A9AAD8499D112A40CF69433CA0934 /* KSCrashReportFilterAlert.m in Sources */ = {isa = PBXBuildFile; fileRef = FE6A83DC12376C6136A1AA53592CF6D5 /* KSCrashReportFilterAlert.m */; };
+		9C655404E5C7D42907234439EF895BD5 /* TransformOf.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93CB4B0ACF43854F6D30DE531ABD9C9B /* TransformOf.swift */; };
 		9ED2BB2981896E0A39EFA365503F58CE /* AFError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D8C7CCA71985691E4202AEEB249A646 /* AFError.swift */; };
 		9EDA595F57D18509A4994ADF6E5177C6 /* Container+DeepSearch.m in Sources */ = {isa = PBXBuildFile; fileRef = 694F991A865100623B121FF62CCE5477 /* Container+DeepSearch.m */; };
-		9EE50A99F3EC271D4315836CBC2C0485 /* URLTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A8EDEE27DE6FB54E81C696BDE21C48 /* URLTransform.swift */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		9EECE3417F1BB1C84873EDE1A30E3EA9 /* KSDemangle_Swift.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7A5BDB035CA3A446211CA0ACB1F9FBF1 /* KSDemangle_Swift.cpp */; };
 		9F76260DA95765C69D1E0FD2AE40FB9E /* KSCrashMonitor_Deadlock.h in Headers */ = {isa = PBXBuildFile; fileRef = 6E6C8B617BBEE6B8D2BD5D09FEE67CB8 /* KSCrashMonitor_Deadlock.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		A0282A7CADD5A67905B51F095A964AA5 /* KSStackCursor_Backtrace.h in Headers */ = {isa = PBXBuildFile; fileRef = 3C1FC0A6CF126A36EA90979727C8C3C7 /* KSStackCursor_Backtrace.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A22566C71CFE2650BB542C4626477DAA /* Mapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FD4FDD2CFFC232D26227DA9848E6741 /* Mapper.swift */; };
 		A2A6F71B727312BD45CC7A4AAD7B0AB7 /* NetworkReachabilityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA29FDFA3DA12D3BF30A1B69F9D99A1E /* NetworkReachabilityManager.swift */; };
 		A39D4BD60F9777DC772146C037E73F74 /* Breadcrumb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B3DF3FDFEF6A1DFB153484E9311A42 /* Breadcrumb.swift */; };
 		A3ABD5D5590D8CDB4CE6CB29B258BA1D /* KSCPU_x86_32.c in Sources */ = {isa = PBXBuildFile; fileRef = 51624FF4F9208934D83ED9BC1D74CB0C /* KSCPU_x86_32.c */; };
-		A702D1A8C14D264AE7B38E898CE76382 /* ObjectMapper-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 40B559753DE4F1365B7BD32B5654B0D6 /* ObjectMapper-dummy.m */; };
 		A9096FBD2D2B3E862A16C298A35490A4 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC4BED0B3AD9ABB2D3A61D35D4500D2E /* User.swift */; };
 		A91C777BE9E39F1D512F2DF6C7C7809D /* UserFeedback.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 55A3D625B38AFADC20A193035C84A531 /* UserFeedback.storyboard */; };
 		A97B4CDEEC5C026339F875520B3ED1E8 /* Casting.h in Headers */ = {isa = PBXBuildFile; fileRef = 2E1397D35F194D71AAD65DACBE757B67 /* Casting.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		A9EEEA7477981DEEBC72432DE9990A4B /* Alamofire-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 02F0A70A0C277D592A9235F9CA8DB71F /* Alamofire-dummy.m */; };
 		AA2E64990C0590693503E596834D7F1E /* SwiftStrings.h in Headers */ = {isa = PBXBuildFile; fileRef = 361A01205058FDFBFD39BB11434B8677 /* SwiftStrings.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		AA6A0BB54E6657EDD593DC3BE9856EFE /* EventOffline.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CAA26AF17D40B4868277B734619D988 /* EventOffline.swift */; };
-		AAC91DDB15208691DA405505FB7EEF03 /* MapError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82491518590C90E7549A46580511D58B /* MapError.swift */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		AB0362A9E4FD38119D228C2DA2770F7F /* Operators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67DCBF704E9EF0A66C026E6641B44CBE /* Operators.swift */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		AC13612CB6F470EADD49F78B63F71DE8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B9C4687BA86C05DEFBC35A2F44EF426 /* Foundation.framework */; };
 		AC495659EE07717DCC0E359E103A2864 /* Thread.swift in Sources */ = {isa = PBXBuildFile; fileRef = 365258E1B7EE9C86AF28C70297F5E50B /* Thread.swift */; };
 		ACECE9F41CC1F2423487F78054413525 /* AlamofireObjectMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BBD9E2601C2CF3210B8448F0D56E62E /* AlamofireObjectMapper.swift */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -215,12 +214,14 @@
 		AF4DCA56BC2D5D8403E7EA9D1E3DC149 /* KSCrash.h in Headers */ = {isa = PBXBuildFile; fileRef = 716AE6D1186CBB824A85A05BCE8A4C8C /* KSCrash.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AFBA1AB5AE86B0B2C9924DB72EEED8BF /* KSCrashReportFilter.h in Headers */ = {isa = PBXBuildFile; fileRef = 217CDC1BD26EBC43676E8E30F8196D91 /* KSCrashReportFilter.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B00546A4D21AB1A59F58D37E44E3D95B /* KSCrashInstallationConsole.h in Headers */ = {isa = PBXBuildFile; fileRef = D74951C3B780D7651E79E04461E7CF85 /* KSCrashInstallationConsole.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B0438CAC2C1459719EC744B12F5C91DC /* DictionaryTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C7325497E05BFAB1830055E7D0CDBDD /* DictionaryTransform.swift */; };
 		B091E66FAA0650FC4EAB96E576992D8B /* storyboards.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 336A0F46E6530323A178CDB40CFA211C /* storyboards.bundle */; };
 		B0FFA1B150D835CE2E9A854587890D25 /* KSCrashReportFilterSets.h in Headers */ = {isa = PBXBuildFile; fileRef = B9BCEE3D85B283C60E1FAEE6D86C8454 /* KSCrashReportFilterSets.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B2F274FF7F2DABE7C0AF84849E4C48AD /* KSDate.c in Sources */ = {isa = PBXBuildFile; fileRef = 08ABF0A622F269F8A2161321390C63F9 /* KSDate.c */; };
 		B5887C920976E81637469D7B7BD56917 /* KSStackCursor_MachineContext.h in Headers */ = {isa = PBXBuildFile; fileRef = 8167FD656CCADFB7CB8E9D54F871B8CC /* KSStackCursor_MachineContext.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B65FCF589DA398C3EFE0128064E510EC /* MultipartFormData.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA21603AA14394B67B0B8AFC7F9A8FE5 /* MultipartFormData.swift */; };
 		B67C6EE1358880CD8DFBD2128546012C /* Sentry.h in Headers */ = {isa = PBXBuildFile; fileRef = 2EDE2D1703B44988B98CF659E6165273 /* Sentry.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B73D4607C1DB58B06986EF7182EE9D08 /* CustomDateFormatTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16EDE46F23F172C360E893EE4FC9FE7C /* CustomDateFormatTransform.swift */; };
 		B83E6CEA6DEA753EE21DD0183AFD96EC /* KSObjCApple.h in Headers */ = {isa = PBXBuildFile; fileRef = 74D68687D4CE4D239C18073635A4F47A /* KSObjCApple.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B94CB080AEF6796D73AE8ED4336ABCF0 /* KSID.c in Sources */ = {isa = PBXBuildFile; fileRef = 2608FFDF85451467E54E3B4B4DFE94FA /* KSID.c */; };
 		BB77F47DD795537AE08A33B58B9BA837 /* KSCrashReportFilterBasic.h in Headers */ = {isa = PBXBuildFile; fileRef = B14413AE1AEF952F601F9DA215CDDFEC /* KSCrashReportFilterBasic.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -236,10 +237,10 @@
 		C28589DB0CD187DCB4D2290555C0AB08 /* KSCrashInstallationStandard.h in Headers */ = {isa = PBXBuildFile; fileRef = D849D121748FB4DC48C10AEE89AE71C2 /* KSCrashInstallationStandard.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C54EF702EDFF3F26C1E1A00689AA177D /* KSCrashReportSinkConsole.h in Headers */ = {isa = PBXBuildFile; fileRef = D3B62B97B6AAEEC83D15A16A9C0A6681 /* KSCrashReportSinkConsole.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C653C4AEA44ACD6CED1A8E7E53961DAB /* KSCrashMonitor_Zombie.c in Sources */ = {isa = PBXBuildFile; fileRef = 2481DF8881812ED18FA1CC38D2FC282E /* KSCrashMonitor_Zombie.c */; };
-		C7486CE7EBA304CDC2159EA5081626D5 /* IntegerOperators.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4209153F7F4AB1710AF1B4DE8BE945B /* IntegerOperators.swift */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		C9DA89081AE5485203E7730767E8382A /* KSCrashReportStore.c in Sources */ = {isa = PBXBuildFile; fileRef = D19C15EBE1BCD2F565665540E4BB9994 /* KSCrashReportStore.c */; };
+		CA1E06CB00C147AD88B8A721BF00F8D5 /* NSDecimalNumberTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = F68CA1966C1E7933182E86DF2182DF52 /* NSDecimalNumberTransform.swift */; };
+		CA2F35983F4B2670A0A195384FF21BD0 /* URLTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A8EDEE27DE6FB54E81C696BDE21C48 /* URLTransform.swift */; };
 		CA6F5796507F8598FB2C169EE06E2C2E /* KSCrashMonitor_Signal.c in Sources */ = {isa = PBXBuildFile; fileRef = 863B9EA91D45A32C9A954C604D60BB31 /* KSCrashMonitor_Signal.c */; };
-		CB580B7DBF3EFB45311B144E84BC78EE /* Mappable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279AEC4F29E50E15DCF636248FDAEEF7 /* Mappable.swift */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		CB6D60925223897FFA2662667DF83E8A /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E8E6053EE637D62BA1DE8D6CC48BED0 /* Response.swift */; };
 		CD12B372DBEA96231C328232226C2B52 /* Pods-sa-ios-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 1B34D9DDDE39FBE448BBF6496669D5E3 /* Pods-sa-ios-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		CF386C84A8103A1552EC874A6963BD3A /* KSCrashReportVersion.h in Headers */ = {isa = PBXBuildFile; fileRef = A3B05A9A5BAA4D62F899B467DA8DCAF4 /* KSCrashReportVersion.h */; settings = {ATTRIBUTES = (Project, ); }; };
@@ -251,7 +252,6 @@
 		D8D60CD1165473DFBD73491986976244 /* KSJSONCodecObjC.m in Sources */ = {isa = PBXBuildFile; fileRef = 34502AC2A944C27543859B61017110B3 /* KSJSONCodecObjC.m */; };
 		D925F5F65F041F6B9F4E44092AE7B768 /* KSStackCursor.c in Sources */ = {isa = PBXBuildFile; fileRef = 457806489AC02FA8D7E4A9D5FB1E3073 /* KSStackCursor.c */; };
 		D936824C9B2977BF24138010300CD67D /* AlamofireNetworkActivityIndicator-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 76A8E66FA629F851457B2BA3EC092EC2 /* AlamofireNetworkActivityIndicator-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		DB833B8FAD23384516AE3A829D703C55 /* TransformType.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0F6ED42A8590E52DD6577A3C10E38C8 /* TransformType.swift */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		DD55B2DAD5C1AC54A47DF05301F388F4 /* KSCrashReportWriter.h in Headers */ = {isa = PBXBuildFile; fileRef = 47F052C7C163B2917C302E52A36CBC44 /* KSCrashReportWriter.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DDA2B359DF3A93F38D4428C9F1C72A5E /* KSLogger.c in Sources */ = {isa = PBXBuildFile; fileRef = 70DDB5F9C3B5210A9FC81647B81D2230 /* KSLogger.c */; };
 		DE50D0FA1757D34A4043608DE751C8E1 /* LLVM.h in Headers */ = {isa = PBXBuildFile; fileRef = 5E0EE806A73F2FBEDEC1137C78D51E38 /* LLVM.h */; settings = {ATTRIBUTES = (Project, ); }; };
@@ -259,11 +259,11 @@
 		DF8BD6BDC3F63D652E6DEE3A23DE37DF /* Optional.h in Headers */ = {isa = PBXBuildFile; fileRef = 72A13D4B3A67AFE2450399FF0B983192 /* Optional.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		E00FF9073AA1DD21ABF6D6F7B6FCE18D /* KSMachineContext.h in Headers */ = {isa = PBXBuildFile; fileRef = 657F23B0A62EB690132316AAAF87ADBD /* KSMachineContext.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E1FDB8EB49DCBA9C697BF5EE4103D28A /* AlamofireObjectMapper-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 1BEAF4569127BABFDC320881AB3502B6 /* AlamofireObjectMapper-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E2B172D4B630FCBD7D61A3FA14892658 /* TransformType.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0F6ED42A8590E52DD6577A3C10E38C8 /* TransformType.swift */; };
 		E38DFD1C209A82C475D211A53F7B2312 /* KSCrashReportFilterAppleFmt.h in Headers */ = {isa = PBXBuildFile; fileRef = 8D11EA81B8A8684410699C808E06144F /* KSCrashReportFilterAppleFmt.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E5883C247506CD5A39E337CA58361553 /* KSCrashReportFixer.c in Sources */ = {isa = PBXBuildFile; fileRef = 8B728B1DD88200061C355317C03CDF0E /* KSCrashReportFixer.c */; };
 		E6C4DB52CC5EEA26DF922EE3BBBA2FD3 /* Exception.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1AC6ED89A4973E739510EA5A9EAFFA /* Exception.swift */; };
 		E6DECF5589EBCE7DC7FF9F5F37AEE98A /* CrashReportConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0748484D68C111AFDA2D95373B002EC4 /* CrashReportConverter.swift */; };
-		E7D25B21874A54B0B88053B9B05BA4DB /* DataTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73379874F57E7A663C6C9086BDFAC1F2 /* DataTransform.swift */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		EAAB8856D3102D185A79ACF771553DC3 /* KSCrashReportStore.h in Headers */ = {isa = PBXBuildFile; fileRef = C513551F1DE009E8969C10F1E6F8EFBA /* KSCrashReportStore.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		EBCCCC61FEF64A9BBB2DC3743E3309D0 /* KSCPU_Apple.h in Headers */ = {isa = PBXBuildFile; fileRef = BEBDFD1EE4138DA7E4FD98212993FA71 /* KSCPU_Apple.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		ECE4A614003B2017F1017E09F05EE60C /* KSCrashMonitor_CPPException.h in Headers */ = {isa = PBXBuildFile; fileRef = F6D5EFF0E191E4DC726515193C62B0E5 /* KSCrashMonitor_CPPException.h */; settings = {ATTRIBUTES = (Project, ); }; };
@@ -1660,7 +1660,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = EFC80F30E9F21DF4B195270284D4B34F /* Build configuration list for PBXNativeTarget "ObjectMapper" */;
 			buildPhases = (
-				CF3F7AB3C7E6BFF2210A6A0C76FE1A19 /* Sources */,
+				95DC01AC865B065A1EEF08BAB0CF8450 /* Sources */,
 				8562E6EA2DA88FF69C44B2AF77E3EDDD /* Frameworks */,
 				7A65A8BC5FC8E2F6178E85C852BD5A45 /* Headers */,
 			);
@@ -1996,42 +1996,42 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		95DC01AC865B065A1EEF08BAB0CF8450 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B73D4607C1DB58B06986EF7182EE9D08 /* CustomDateFormatTransform.swift in Sources */,
+				765624085108240F1A2952486A60B66F /* DataTransform.swift in Sources */,
+				028F7BF3F13D9D6CD093BE577808B1B1 /* DateFormatterTransform.swift in Sources */,
+				6561EFAAAFE0E3FB560D8B87D50C0414 /* DateTransform.swift in Sources */,
+				B0438CAC2C1459719EC744B12F5C91DC /* DictionaryTransform.swift in Sources */,
+				6140699B499701C95C16CA9E10A60B10 /* EnumOperators.swift in Sources */,
+				35AFBFB34DA1956EF7FCB64BC50946D8 /* EnumTransform.swift in Sources */,
+				375AD5B4037B367C74B348C0644C0509 /* FromJSON.swift in Sources */,
+				54334A036232F3AD1BD3D9D682EA702D /* HexColorTransform.swift in Sources */,
+				8491440E494CAAAE6DB2EA1D8D215903 /* ImmutableMappable.swift in Sources */,
+				8F46A5E6F7671EA5EA201315E3A799E6 /* IntegerOperators.swift in Sources */,
+				8022FE8243222780F58CDFD44A49F311 /* ISO8601DateTransform.swift in Sources */,
+				375698920E797E91DBDB8A3249B56B0E /* Map.swift in Sources */,
+				74D7B56EE91ACB42EB352CEF073CF4BB /* MapError.swift in Sources */,
+				80FBD965D6160B82CF4B55FB3409C1FD /* Mappable.swift in Sources */,
+				A22566C71CFE2650BB542C4626477DAA /* Mapper.swift in Sources */,
+				CA1E06CB00C147AD88B8A721BF00F8D5 /* NSDecimalNumberTransform.swift in Sources */,
+				4863B9B382D2BA7A07C414A91E1DD6B0 /* ObjectMapper-dummy.m in Sources */,
+				05CB6B5B3A5024A0678959CCBFC2A0F7 /* Operators.swift in Sources */,
+				5BEC65F1E64F4BC3B0AD838E60E1C4A9 /* ToJSON.swift in Sources */,
+				9C655404E5C7D42907234439EF895BD5 /* TransformOf.swift in Sources */,
+				7BE81D28BE233A47AC5BE1B3FA26FDB5 /* TransformOperators.swift in Sources */,
+				E2B172D4B630FCBD7D61A3FA14892658 /* TransformType.swift in Sources */,
+				CA2F35983F4B2670A0A195384FF21BD0 /* URLTransform.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		A55BBDE6657504017DEA3F565AC6C4F9 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				60A52D5F506ADC33B9E9A635D1CE6428 /* Pods-sa-ios-dummy.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		CF3F7AB3C7E6BFF2210A6A0C76FE1A19 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				4A5B15F5BD365B620EA6445F1AC559DE /* CustomDateFormatTransform.swift in Sources */,
-				E7D25B21874A54B0B88053B9B05BA4DB /* DataTransform.swift in Sources */,
-				8B1DCAA3A596869078949E1534E60DB8 /* DateFormatterTransform.swift in Sources */,
-				50497589C9F33A33FFBA4C2D50B335D3 /* DateTransform.swift in Sources */,
-				173E0DDB57B8665C8A31804018C38B22 /* DictionaryTransform.swift in Sources */,
-				79756BB5901F4D9DD010F3C8702AD094 /* EnumOperators.swift in Sources */,
-				659179EFC4D883F90CCFCD9AF4029E72 /* EnumTransform.swift in Sources */,
-				0DF54EF6561E1295B8765B88B6579241 /* FromJSON.swift in Sources */,
-				25A8E544EE7288222A45CDD100453BE7 /* HexColorTransform.swift in Sources */,
-				43335DB8AF71F2E9545B2BA43285E287 /* ImmutableMappable.swift in Sources */,
-				C7486CE7EBA304CDC2159EA5081626D5 /* IntegerOperators.swift in Sources */,
-				4CE57BA9F3209F2E5D730F35361D112D /* ISO8601DateTransform.swift in Sources */,
-				623FA388F76C743809099881B070081D /* Map.swift in Sources */,
-				AAC91DDB15208691DA405505FB7EEF03 /* MapError.swift in Sources */,
-				CB580B7DBF3EFB45311B144E84BC78EE /* Mappable.swift in Sources */,
-				9113FE1274F17B76B03DA0D5B3B335F3 /* Mapper.swift in Sources */,
-				24553927300B10F87D89BA7360BD4D7F /* NSDecimalNumberTransform.swift in Sources */,
-				A702D1A8C14D264AE7B38E898CE76382 /* ObjectMapper-dummy.m in Sources */,
-				AB0362A9E4FD38119D228C2DA2770F7F /* Operators.swift in Sources */,
-				52E1BABD8927CBAB89E0DFBD65D086A1 /* ToJSON.swift in Sources */,
-				716C8C47D45ED102DB9BC024A44213A2 /* TransformOf.swift in Sources */,
-				6469BCC88D68905136CBB2FC47F590DB /* TransformOperators.swift in Sources */,
-				DB833B8FAD23384516AE3A829D703C55 /* TransformType.swift in Sources */,
-				9EE50A99F3EC271D4315836CBC2C0485 /* URLTransform.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
