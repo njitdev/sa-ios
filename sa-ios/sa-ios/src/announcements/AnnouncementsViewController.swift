@@ -18,7 +18,7 @@
 
 import UIKit
 
-class AnnouncementsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class AnnouncementsViewController: GAITrackedViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var tableview: UITableView!
     @IBOutlet weak var segCategory: UISegmentedControl!
@@ -29,6 +29,9 @@ class AnnouncementsViewController: UIViewController, UITableViewDelegate, UITabl
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        // Google Analytics
+        self.screenName = "AnnouncementsViewController"
 
         tableview.delegate = self
         tableview.dataSource = self
@@ -86,6 +89,12 @@ class AnnouncementsViewController: UIViewController, UITableViewDelegate, UITabl
         let cell = tableView.dequeueReusableCell(withIdentifier: "AnnouncementsTableCell", for: indexPath)
 
         if let lblTitle = cell.textLabel, let lblSubtitle = cell.detailTextLabel {
+            // Adjust style
+            lblTitle.font = UIFont.systemFont(ofSize: 15)
+            lblSubtitle.font = UIFont.systemFont(ofSize: 13)
+            lblSubtitle.textColor = UIColor.gray
+
+            // Data
             let listItem = data_list[indexPath.row]
             lblTitle.text = listItem.article_title
 
@@ -98,7 +107,7 @@ class AnnouncementsViewController: UIViewController, UITableViewDelegate, UITabl
 
     // MARK: - UITableViewDelegate
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 55
+        return 62
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

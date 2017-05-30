@@ -18,7 +18,7 @@
 
 import UIKit
 
-class AnnouncementsArticleViewController: UIViewController {
+class AnnouncementsArticleViewController: GAITrackedViewController {
 
     @IBOutlet weak var webArticle: UIWebView!
     @IBOutlet weak var actLoading: UIActivityIndicatorView!
@@ -27,6 +27,9 @@ class AnnouncementsArticleViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        // Google Analytics
+        self.screenName = "AnnouncementsArticleViewController"
 
         if let list_item = data_article_list_item {
             AnnouncementsModels.article(article_id: list_item.article_id, completionHandler: { (article, message) in

@@ -30,6 +30,9 @@ class GradesViewController: GAITrackedViewController, UITableViewDelegate, UITab
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        // Google Analytics
+        self.screenName = "GradesViewController"
+
         self.tblGrades.dataSource = self
         self.tblGrades.delegate = self
     }

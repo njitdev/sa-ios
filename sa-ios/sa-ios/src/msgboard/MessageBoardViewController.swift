@@ -39,6 +39,9 @@ class MessageBoardViewController: GAITrackedViewController, UITableViewDelegate,
         // UITableView requires registering custom cells, however it only works when not registered..
 //        tblPosts.register(MessageBoardListCell.self, forCellReuseIdentifier: cellReuseIdentifier)
 
+        // Google Analytics
+        self.screenName = "MessageBoardViewController";
+
         // Set this class as the event delegate and datasource of the UITableview
         tblPosts.delegate = self
         tblPosts.dataSource = self
@@ -53,7 +56,6 @@ class MessageBoardViewController: GAITrackedViewController, UITableViewDelegate,
     }
 
     override func viewWillAppear(_ animated: Bool) {
-        self.screenName = "Message Board List"
 
         // Fetch first page
         tblPostsRefreshControl.beginRefreshing()

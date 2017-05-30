@@ -18,7 +18,7 @@
 
 import UIKit
 
-class LibraryViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class LibraryViewController: GAITrackedViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var txtKeyword: UITextField!
     @IBOutlet weak var tableView: UITableView!
@@ -30,8 +30,16 @@ class LibraryViewController: UIViewController, UITableViewDelegate, UITableViewD
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        // Google Analytics
+        self.screenName = "LibraryViewController";
+
         tableView.dataSource = self
         tableView.delegate = self
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        // Focus on search text box at start
+        txtKeyword.becomeFirstResponder()
     }
 
     @IBAction func txtKeywordPrimaryAction(_ sender: Any) {

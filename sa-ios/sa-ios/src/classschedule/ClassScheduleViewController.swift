@@ -18,11 +18,12 @@
 
 import UIKit
 
-class ClassScheduleViewController: UIViewController {
+class ClassScheduleViewController: GAITrackedViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        // Google Analytics
+        self.screenName = "ClassScheduleViewController"
     }
 }

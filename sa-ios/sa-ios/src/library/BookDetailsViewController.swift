@@ -18,7 +18,7 @@
 
 import UIKit
 
-class BookDetailsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class BookDetailsViewController: GAITrackedViewController, UITableViewDataSource, UITableViewDelegate {
 
     @IBOutlet weak var lblTitle: UILabel!
     @IBOutlet weak var lblAuthor: UILabel!
@@ -33,6 +33,9 @@ class BookDetailsViewController: UIViewController, UITableViewDataSource, UITabl
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        // Google Analytics
+        self.screenName = "BookDetailsViewController";
 
         tableView.delegate = self
         tableView.dataSource = self
