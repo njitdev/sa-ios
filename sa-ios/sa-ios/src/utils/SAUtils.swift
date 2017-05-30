@@ -69,4 +69,13 @@ class SAUtils: NSObject {
         }
         return randomString
     }
+
+    // Google Analytics: Send screen view event
+    public static func GAISendScreenView(_ screenName: String) {
+        // Google Analytics
+        let tracker = GAI.sharedInstance().defaultTracker
+        tracker?.set(kGAIScreenName, value: screenName)
+        let build = (GAIDictionaryBuilder.createScreenView().build() as Dictionary) as [AnyHashable: Any]
+        tracker?.send(build)
+    }
 }

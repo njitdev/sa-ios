@@ -30,10 +30,7 @@ class NewPostViewController: UITableViewController {
         super.viewDidLoad()
 
         // Google Analytics
-        let tracker = GAI.sharedInstance().defaultTracker
-        tracker?.set(kGAIScreenName, value: "NewPostViewController")
-        let build = (GAIDictionaryBuilder.createScreenView().build() as Dictionary) as [AnyHashable: Any]
-        tracker?.send(build)
+        SAUtils.GAISendScreenView("NewPostViewController")
     }
 
     @IBAction func txtUserNamePrimaryAction(_ sender: Any) {

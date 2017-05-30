@@ -41,10 +41,7 @@ class HomeViewController: UITableViewController {
         self.navigationItem.title = SAConfig.appName
 
         // Google Analytics
-        let tracker = GAI.sharedInstance().defaultTracker
-        tracker?.set(kGAIScreenName, value: "HomeViewController")
-        let build = (GAIDictionaryBuilder.createScreenView().build() as Dictionary) as [AnyHashable: Any]
-        tracker?.send(build)
+        SAUtils.GAISendScreenView("HomeViewController")
     }
 
     override func viewWillAppear(_ animated: Bool) {

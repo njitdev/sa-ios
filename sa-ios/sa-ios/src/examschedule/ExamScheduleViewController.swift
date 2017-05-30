@@ -24,10 +24,7 @@ class ExamScheduleViewController: UITableViewController {
         super.viewDidLoad()
 
         // Google Analytics
-        let tracker = GAI.sharedInstance().defaultTracker
-        tracker?.set(kGAIScreenName, value: "ExamScheduleViewController")
-        let build = (GAIDictionaryBuilder.createScreenView().build() as Dictionary) as [AnyHashable: Any]
-        tracker?.send(build)
+        SAUtils.GAISendScreenView("ExamScheduleViewController")
     }
 
     // MARK: - Table view data source

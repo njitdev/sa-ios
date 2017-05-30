@@ -37,10 +37,7 @@ class GradeFiltersViewController: UITableViewController {
         self.tableView.reloadData()
 
         // Google Analytics
-        let tracker = GAI.sharedInstance().defaultTracker
-        tracker?.set(kGAIScreenName, value: "GradeFiltersViewController")
-        let build = (GAIDictionaryBuilder.createScreenView().build() as Dictionary) as [AnyHashable: Any]
-        tracker?.send(build)
+        SAUtils.GAISendScreenView("GradeFiltersViewController")
     }
 
     @IBAction func btnResetAction(_ sender: Any) {

@@ -30,10 +30,7 @@ class LoginViewController: UITableViewController {
         super.viewDidLoad()
 
         // Google Analytics
-        let tracker = GAI.sharedInstance().defaultTracker
-        tracker?.set(kGAIScreenName, value: "HomeViewController")
-        let build = (GAIDictionaryBuilder.createScreenView().build() as Dictionary) as [AnyHashable: Any]
-        tracker?.send(build)
+        SAUtils.GAISendScreenView("LoginViewController")
 
         // Read saved login / password
         if let student_login = SAUtils.readLocalKVStore(key: "student_login"),
