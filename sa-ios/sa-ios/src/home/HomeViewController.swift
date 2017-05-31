@@ -20,6 +20,9 @@ import UIKit
 
 class HomeViewController: UITableViewController {
 
+    @IBOutlet weak var btnRefresh: UIBarButtonItem!
+    @IBOutlet weak var btnLogin: UIButton!
+
     @IBOutlet weak var lblStudentName: UILabel!
     @IBOutlet weak var lblLoginInformation: UILabel!
 
@@ -42,93 +45,200 @@ class HomeViewController: UITableViewController {
 
         // Google Analytics
         SAUtils.GAISendScreenView("HomeViewController")
+
+        // Load saved session_id
+        SAGlobal.student_session_id = SAUtils.readLocalKVStore(key: "student_session_id");
+
+        // Load cached data
+        loadCachedData()
     }
 
     override func viewWillAppear(_ animated: Bool) {
-        updateLoginStatus()
+        // Update data
+        autoUpdateData()
     }
 
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.tableView.deselectRow(at: indexPath, animated: true)
+    @IBAction func btnRefreshAct(_ sender: Any) {
+        // Force re-fetch data
+        lastSessionID = ""
+        autoUpdateData()
     }
 
-    // MARK: UI logic
-    func updateLoginStatus() {
-        if let session_id = SAGlobal.user_session_id {
-            // Fetch student basic info if just logged in
-            if lastSessionID != session_id { fetchSchoolSystemData(false) }
-            lastSessionID = session_id
-        } else {
-            lastSessionID = ""
-            fetchSchoolSystemData(true)
-        }
+    func enableActionButtons(_ enable: Bool) {
+        btnRefresh.isEnabled = enable
+        btnLogin.isEnabled = enable
     }
 
-    func displaySchoolSystemInfo() {
+    func displaySchoolSystemData() {
         if let basic_info = self.data_student_basic_info {
-            // Name
-            self.lblStudentName.text = basic_info.student_name
+            btnLogin.setTitle("重新登录", for: UIControlState.normal)
 
+            // Basic info
+            self.lblStudentName.text = basic_info.student_name
             var login_info = "" + basic_info.student_department
             if let v = basic_info.student_enroll_year { login_info = login_info + ", " + v + " 级" }
             self.lblLoginInformation.text = login_info
         } else {
+            btnRefresh.isEnabled = false
+            btnLogin.setTitle("登录", for: UIControlState.normal)
             lblStudentName.text = "教务系统"
-            lblLoginInformation.text = "点这里登录"
+            lblLoginInformation.text = "未登录"
         }
     }
 
     // MARK: Data management
-    func fetchSchoolSystemData(_ fromCache: Bool) {
-        // Fetch from cache
-        if fromCache {
-            if let json = SAUtils.readLocalKVStore(key: "data_student_basic_info") {
-                self.data_student_basic_info = StudentBasicInfo(JSONString: json)
-            }
+    func loadCachedData() {
+        if let json = SAUtils.readLocalKVStore(key: "data_student_basic_info") {
+            self.data_student_basic_info = StudentBasicInfo(JSONString: json)
+        }
 
-            if let json = SAUtils.readLocalKVStore(key: "data_grades") {
-                self.data_grades = [GradeItem](JSONString: json)
-            }
+        if let json = SAUtils.readLocalKVStore(key: "data_grades") {
+            self.data_grades = [GradeItem](JSONString: json)
+        }
 
-            self.displaySchoolSystemInfo()
+        self.displaySchoolSystemData()
+    }
+
+    func autoUpdateData() {
+        // 1. If session_id changed (new login or app startup), fetch basic info
+        // 2. If successful, continue to fetch all data
+        // 3. If failure, attempt to login
+        // 4. If login successful, return to step 2, otherwise stop and prompt error.
+
+        // No session_id (not logged in)
+        if SAGlobal.student_session_id == nil {
+            lastSessionID = ""
+            displaySchoolSystemData()
             return;
         }
 
-        // Fetch from backend
-        // UI Loading state
-        actLogin.startAnimating()
-        actGrades.startAnimating()
-        lblStudentName.text = "登录中"
-        lblLoginInformation.text = "正在获取数据"
+        // Disable action buttons
+        enableActionButtons(false)
 
-        let session_id = SAGlobal.user_session_id!
+        // session_id available
+        let session_id = SAGlobal.student_session_id!
+
+        if lastSessionID != session_id {
+            lastSessionID = session_id
+
+            // 1. session_id changed, fetch basic info (and validate login status)
+            fetchBasicInfo(session_id: session_id, student_id: nil, completionHandler: { (success) in
+                if (success) {
+                    // 2. Continue
+                    // Display login status
+                    self.displaySchoolSystemData()
+
+                    // Fetch and display all other data
+                    self.fetchAndDisplayAllSchoolSystemData()
+                } else {
+                    // 3. Failed, attempt to login
+                    self.loginWithSavedCredentials(completionHandler: { (success) in
+                        // 4.
+                        self.actLogin.stopAnimating()
+                        if (success) {
+                            self.fetchAndDisplayAllSchoolSystemData()
+                        } else {
+                            // End state, enable action buttons
+                            self.enableActionButtons(true)
+                            SAUtils.alert(viewController: self, title: "错误", message: "登录失败，请尝试重新登录")
+                        }
+                    })
+                }
+            })
+        }
+    }
+
+    func fetchBasicInfo(session_id: String, student_id: String?, completionHandler: @escaping (Bool) -> Void) {
+        self.title = "正在更新数据..."
+        self.actLogin.startAnimating()
 
         // Basic info
-        SchoolSystemModels.studentBasicInfo(session_id: session_id, student_id: nil) { (data, message) in
+        SchoolSystemModels.studentBasicInfo(session_id: session_id, student_id: student_id) { (data, message) in
             self.actLogin.stopAnimating()
+
             if let basic_info = data {
-                // Cache data
+                // Store and cache basic info
+                self.data_student_basic_info = basic_info
                 SAUtils.writeLocalKVStore(key: "data_student_basic_info", val: basic_info.toJSONString())
 
-                // Process locally
-                self.data_student_basic_info = basic_info
-                self.displaySchoolSystemInfo()
+                self.title = SAConfig.appName
+                completionHandler(true)
             } else {
-                SAUtils.alert(viewController: self, title: "无法获取数据", message: message + "\n请重新登录");
+                self.title = "基本信息获取失败"
+                completionHandler(false)
             }
         }
+    }
+
+    func loginWithSavedCredentials(completionHandler: @escaping (Bool) -> Void) {
+        // Read saved credentials
+        if let student_login = SAUtils.readLocalKVStore(key: "student_login"),
+           let student_password = SAUtils.readLocalKVStore(key: "student_password") {
+
+            // UI
+            self.title = "登录中..."
+            self.actLogin.startAnimating()
+
+            // Execute
+            SchoolSystemModels.submitAuthInfo(student_login: student_login, student_password: student_password, captcha: nil, completionHandler: { (session_id, message) in
+
+                // UI
+                self.actLogin.stopAnimating()
+
+                if session_id != nil {
+                    // Store and cache session_id
+                    SAGlobal.student_session_id = session_id
+                    SAUtils.writeLocalKVStore(key: "student_session_id", val: session_id)
+
+                    self.title = SAConfig.appName
+                    completionHandler(true)
+                } else {
+                    self.title = "登录失败"
+                    completionHandler(false)
+                }
+            })
+        } else {
+            self.title = "登录失败"
+            completionHandler(false)
+        }
+    }
+
+    func fetchAndDisplayAllSchoolSystemData() {
+        // UI Loading state
+        self.title = "正在更新数据..."
+        actGrades.startAnimating()
+
+        let session_id = SAGlobal.student_session_id!
+
+        // Counter
+        var total = 1, completed = 0
 
         // Fetch grades
         SchoolSystemModels.grades(session_id: session_id, student_id: nil) { (data, message) in
             self.actGrades.stopAnimating()
+
+            completed += 1
+            if (completed == total) {
+                self.enableActionButtons(true)
+                self.title = SAConfig.appName;
+                self.displaySchoolSystemData()
+            }
+
             if let grades = data {
                 SAUtils.writeLocalKVStore(key: "data_grades", val: grades.toJSONString())
                 self.data_grades = grades
+            } else {
+                self.title = "获取成绩失败"
+                SAUtils.alert(viewController: self, title: "错误", message: "获取数据失败，请尝试重新登录")
             }
         }
     }
 
     // MARK: Navigation logic
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.tableView.deselectRow(at: indexPath, animated: true)
+    }
+
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
         switch identifier {
         case "segLogin":

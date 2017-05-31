@@ -64,11 +64,12 @@ class LoginViewController: UITableViewController {
 
             if session_id != nil {
                 // Set session_id
-                SAGlobal.user_session_id = session_id!
+                SAGlobal.student_session_id = session_id!
 
-                // Save login / password
+                // Save credentials
                 SAUtils.writeLocalKVStore(key: "student_login", val: self.txtStudentLogin.text!)
                 SAUtils.writeLocalKVStore(key: "student_password", val: self.txtStudentPassword.text!)
+                SAUtils.writeLocalKVStore(key: "student_session_id", val: session_id)
 
                 // Return to home page
                 self.navigationController?.popViewController(animated: true)
