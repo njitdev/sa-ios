@@ -51,6 +51,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Installation ID
         SAUtils.initInstallationID()
 
+        // Submit start log
+        if let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String {
+            AnalyticsModels.submitStartLog(school: SAConfig.schoolIdentifier,
+                                           installation_id: SAGlobal.installation_id,
+                                           client_version: version,
+                                           device_info: UIDevice.current.name,
+                                           completionHandler: { (_, _) in })
+        }
+
         return true
     }
 

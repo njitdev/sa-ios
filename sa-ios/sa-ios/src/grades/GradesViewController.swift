@@ -50,10 +50,8 @@ class GradesViewController: GAITrackedViewController, UITableViewDelegate, UITab
         // Count and display pass / total
         var passed = 0
         for g in self.data_grades_filtered {
-            if let score = Int(g.score) {
-                if score >= 60 {
-                    passed += 1
-                }
+            if processScore(g.score) >= 60 {
+                passed += 1
             }
         }
         self.lblPassed.text = "\(passed) / \(self.data_grades_filtered.count)"
@@ -65,12 +63,31 @@ class GradesViewController: GAITrackedViewController, UITableViewDelegate, UITab
         self.tblGrades.reloadData()
     }
 
+    private func processScore(_ score: String) -> Int {
+        if score == "合格" {
+            return 60
+        } else if score == "中等" {
+            return 75
+        } else if score == "良好" {
+            return 85
+        } else if score == "优秀" {
+            return 95
+        }
+
+        if let s = Int(score) {
+            return s
+        } else {
+            return 0
+        }
+    }
+
     private func computeGPA() -> Float {
         var credits_sum: Float = 0
         var weighted_sum: Float = 0
 
         for g in self.data_grades_filtered {
-            if let credits = Float(g.credits), let score = Int(g.score) {
+            let score = processScore(g.score)
+            if let credits = Float(g.credits) {
                 let gp = Float(Int((score - 50) / 10)) + 0.1 * Float(score % 10)
                 weighted_sum += gp * credits
                 credits_sum += credits
@@ -112,13 +129,11 @@ class GradesViewController: GAITrackedViewController, UITableViewDelegate, UITab
         cell.lblScore.text = g.score
 
         // Score text color
-        if let score = Int(g.score) {
-            var color = UIColor(red:0.30, green:0.69, blue:0.31, alpha:1.0)
-            if score < 60 {
-                color = UIColor(red:0.94, green:0.33, blue:0.31, alpha:1.0)
-            }
-            cell.lblScore.textColor = color
+        var color = UIColor(red:0.30, green:0.69, blue:0.31, alpha:1.0)
+        if processScore(g.score) < 60 {
+            color = UIColor(red:0.94, green:0.33, blue:0.31, alpha:1.0)
         }
+        cell.lblScore.textColor = color
 
         return cell
     }

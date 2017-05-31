@@ -112,14 +112,14 @@ class HomeViewController: UITableViewController {
             return;
         }
 
-        // Disable action buttons
-        enableActionButtons(false)
-
         // session_id available
         let session_id = SAGlobal.student_session_id!
 
         if lastSessionID != session_id {
             lastSessionID = session_id
+
+            // Disable action buttons
+            enableActionButtons(false)
 
             // 1. session_id changed, fetch basic info (and validate login status)
             fetchBasicInfo(session_id: session_id, student_id: nil, completionHandler: { (success) in
