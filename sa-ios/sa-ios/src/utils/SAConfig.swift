@@ -19,7 +19,7 @@
 import UIKit
 
 class SAConfig: NSObject {
-    public static let appName = Bundle.main.object(forInfoDictionaryKey: "CFBundleName") as! String
+    public static let appName = "MyGDUT"
     public static let APIBaseURL = "https://sa-api-dev.njitdev.com"
     public static let schoolIdentifier = "gdut"
 

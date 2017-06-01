@@ -308,7 +308,7 @@
 				TargetAttributes = {
 					79AF92481E73A44D0091B535 = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = YTMVF784Q8;
+						DevelopmentTeam = 7H36CP54VX;
 						LastSwiftMigration = 0820;
 						ProvisioningStyle = Automatic;
 					};
@@ -530,10 +530,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = YTMVF784Q8;
+				DEVELOPMENT_TEAM = 7H36CP54VX;
 				INFOPLIST_FILE = "$(SRCROOT)/sa-ios/res/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.njitdev.sa-ios";
+				PRODUCT_BUNDLE_IDENTIFIER = org.fatlyz.zfquery;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "sa-ios/src/main/sa-ios-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -548,10 +548,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = YTMVF784Q8;
+				DEVELOPMENT_TEAM = 7H36CP54VX;
 				INFOPLIST_FILE = "$(SRCROOT)/sa-ios/res/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.njitdev.sa-ios";
+				PRODUCT_BUNDLE_IDENTIFIER = org.fatlyz.zfquery;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "sa-ios/src/main/sa-ios-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;

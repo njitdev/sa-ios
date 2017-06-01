@@ -99,6 +99,9 @@ class HomeViewController: UITableViewController {
             } else {
                 lblClassScheduleSubtitle.text = "今日课程: \(cnt)"
             }
+        } else {
+            lblClassScheduleTitle.center.y = 34.5
+            lblClassScheduleSubtitle.isHidden = true
         }
 
         if let grades = data_grades {
@@ -106,8 +109,8 @@ class HomeViewController: UITableViewController {
             lblGradesSubtitle.isHidden = false
             lblGradesSubtitle.text = "\(grades.count) 门课程"
         } else {
-            lblGradesSubtitle.isHidden = true
             lblGradesTitle.center.y = 34.5
+            lblGradesSubtitle.isHidden = true
         }
     }
 
@@ -115,6 +118,10 @@ class HomeViewController: UITableViewController {
     func loadCachedData() {
         if let json = SAUtils.readLocalKVStore(key: "data_student_basic_info") {
             self.data_student_basic_info = StudentBasicInfo(JSONString: json)
+        }
+
+        if let json = SAUtils.readLocalKVStore(key: "data_classes") {
+            self.data_classes = [ClassSession](JSONString: json)
         }
 
         if let json = SAUtils.readLocalKVStore(key: "data_grades") {
@@ -239,35 +246,15 @@ class HomeViewController: UITableViewController {
         // Counter
         var total = 2, completed = 0
 
-        // Fetch grades
-        SchoolSystemModels.grades(session_id: session_id, student_id: nil) { (data, message) in
-            self.actGrades.stopAnimating()
-
-            completed += 1
-            if (completed == total) {
-                self.enableActionButtons(true)
-                self.title = SAConfig.appName;
-                self.displaySchoolSystemData()
-            }
-
-            if let grades: [GradeItem] = data {
-                SAUtils.writeLocalKVStore(key: "data_grades", val: grades.toJSONString())
-                self.data_grades = grades
-            } else {
-                self.title = "获取成绩失败"
-                SAUtils.alert(viewController: self, title: "错误", message: "获取课程表失败，请尝试重新登录")
-            }
-        }
-
         // Fetch clases
         SchoolSystemModels.classScheduleCurrentWeek(session_id: session_id, student_id: nil) { (data, message) in
+
             self.actClassSchedule.stopAnimating()
 
             completed += 1
             if (completed == total) {
                 self.enableActionButtons(true)
                 self.title = SAConfig.appName;
-                self.displaySchoolSystemData()
             }
 
             if let classes: [ClassSession] = data {
@@ -277,6 +264,30 @@ class HomeViewController: UITableViewController {
                 self.title = "获取课程表失败"
                 SAUtils.alert(viewController: self, title: "错误", message: "获取课程表失败，请尝试重新登录")
             }
+
+            self.displaySchoolSystemData()
+        }
+
+        // Fetch grades
+        SchoolSystemModels.grades(session_id: session_id, student_id: nil) { (data, message) in
+
+            self.actGrades.stopAnimating()
+
+            completed += 1
+            if (completed == total) {
+                self.enableActionButtons(true)
+                self.title = SAConfig.appName;
+            }
+
+            if let grades: [GradeItem] = data {
+                SAUtils.writeLocalKVStore(key: "data_grades", val: grades.toJSONString())
+                self.data_grades = grades
+            } else {
+                self.title = "获取成绩失败"
+                SAUtils.alert(viewController: self, title: "错误", message: "获取成绩失败，请尝试重新登录")
+            }
+
+            self.displaySchoolSystemData()
         }
     }
 
@@ -290,6 +301,10 @@ class HomeViewController: UITableViewController {
         case "segLogin":
             return !self.actLogin.isAnimating
         case "segClassSchedule":
+            if self.data_classes == nil {
+                SAUtils.alert(viewController: self, title: "没有数据", message: "请先登录教务系统")
+                return false
+            }
             return !self.actClassSchedule.isAnimating
         case "segGrades":
             if self.data_grades == nil {

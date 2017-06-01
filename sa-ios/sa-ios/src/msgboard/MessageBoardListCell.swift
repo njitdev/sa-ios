@@ -21,6 +21,7 @@ import UIKit
 class MessageBoardListCell: UITableViewCell {
 
     @IBOutlet weak var lblNickname: UILabel!
+    @IBOutlet weak var lblUserTitle: UILabel!
     @IBOutlet weak var lblText: UILabel!
     @IBOutlet weak var lblBackgroundText: UILabel!
 

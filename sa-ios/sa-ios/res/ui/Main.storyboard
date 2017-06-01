@@ -781,14 +781,14 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="暂无数据" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Yc-BE-Gvd">
-                                                    <rect key="frame" x="88" y="35" width="144" height="27"/>
+                                                    <rect key="frame" x="88" y="34" width="144" height="27"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="将在新版教务系统加入此功能后接入" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SZ0-6U-7bi">
-                                                    <rect key="frame" x="20" y="69" width="280" height="27"/>
+                                                    <rect key="frame" x="20" y="68" width="280" height="27"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -946,6 +946,16 @@
                                                     <color key="textColor" red="0.83726602157360408" green="0.83726602157360408" blue="0.83726602157360408" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w1C-S7-cXY">
+                                                    <rect key="frame" x="94" y="12" width="97" height="21"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="97" id="8xZ-9P-Dcr"/>
+                                                        <constraint firstAttribute="height" constant="21" id="913-Kr-NNG"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <color key="textColor" red="0.0039215686269999999" green="0.59215686270000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="trailingMargin" secondItem="Qtv-bg-grK" secondAttribute="trailing" constant="8" id="0s1-CZ-XOr"/>
@@ -954,12 +964,15 @@
                                                 <constraint firstItem="nrh-aq-Qde" firstAttribute="leading" secondItem="dZ0-sk-hFA" secondAttribute="leadingMargin" constant="8" id="NBa-6C-tPP"/>
                                                 <constraint firstItem="Qtv-bg-grK" firstAttribute="leading" secondItem="dZ0-sk-hFA" secondAttribute="leadingMargin" constant="8" id="Ze3-9Z-AnX"/>
                                                 <constraint firstItem="nrh-aq-Qde" firstAttribute="top" secondItem="dZ0-sk-hFA" secondAttribute="topMargin" constant="4" id="e7G-n9-zYo"/>
+                                                <constraint firstItem="w1C-S7-cXY" firstAttribute="leading" secondItem="dZ0-sk-hFA" secondAttribute="leadingMargin" constant="86" id="oN6-wj-vbc"/>
+                                                <constraint firstItem="w1C-S7-cXY" firstAttribute="top" secondItem="dZ0-sk-hFA" secondAttribute="topMargin" constant="4" id="tDO-Yh-9Am"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="lblBackgroundText" destination="c9R-0I-92b" id="QEE-e1-TJb"/>
                                             <outlet property="lblNickname" destination="nrh-aq-Qde" id="Gbt-iO-fk9"/>
                                             <outlet property="lblText" destination="Qtv-bg-grK" id="KXr-0P-qN4"/>
+                                            <outlet property="lblUserTitle" destination="w1C-S7-cXY" id="P6d-C9-wMG"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -983,7 +996,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nSF-8P-HP0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-540" y="846"/>
+            <point key="canvasLocation" x="-540" y="845.07042253521126"/>
         </scene>
         <!--New Post-->
         <scene sceneID="Bs0-FN-IXu">
@@ -1048,7 +1061,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="qYF-87-l3N">
-                                                    <rect key="frame" x="8" y="8" width="304" height="257"/>
+                                                    <rect key="frame" x="8" y="8" width="304" height="258"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>

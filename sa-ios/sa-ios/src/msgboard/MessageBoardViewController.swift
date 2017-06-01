@@ -136,6 +136,7 @@ class MessageBoardViewController: GAITrackedViewController, UITableViewDelegate,
             cell.lblBackgroundText.isHidden = true
             cell.lblNickname.text = posts[indexPath.row].user_name
             cell.lblText.text = posts[indexPath.row].text
+            cell.lblUserTitle.text = posts[indexPath.row].user_title
         } else {
             // Last cell, load next page
             cell.lblNickname.text = ""
