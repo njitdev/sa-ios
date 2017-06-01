@@ -32,13 +32,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         GAI.sharedInstance().tracker(withTrackingId: SAConfig.GAPropertyID)
         
         // Configure GAI
-        guard let gai = GAI.sharedInstance() else {
+        if let gai = GAI.sharedInstance() {
+            gai.dispatchInterval = 10; // Send events every 10 seconds
+            gai.trackUncaughtExceptions = true  // Report uncaught exceptions
+            // gai.logger.logLevel = GAILogLevel.verbose  // Remove before app release
+        } else {
             assert(false, "Google Analytics not configured correctly")
         }
-
-        gai.dispatchInterval = 10; // Send events every 10 seconds
-        gai.trackUncaughtExceptions = true  // Report uncaught exceptions
-        // gai.logger.logLevel = GAILogLevel.verbose  // Remove before app release
 
         // Create a Sentry client and start crash handler
         SentryClient.shared = SentryClient(dsnString: SAConfig.sentryClientKey)

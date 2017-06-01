@@ -20,7 +20,7 @@ import UIKit
 
 class SAConfig: NSObject {
     public static let appName = "MyGDUT"
-    public static let APIBaseURL = "https://sa-api-dev.njitdev.com"
+    public static let APIBaseURL = "https://sa-api-prd.njitdev.com"
     public static let schoolIdentifier = "gdut"
 
     // 3rd party libraries

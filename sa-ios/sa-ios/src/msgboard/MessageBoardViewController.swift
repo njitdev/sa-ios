@@ -140,6 +140,7 @@ class MessageBoardViewController: GAITrackedViewController, UITableViewDelegate,
         } else {
             // Last cell, load next page
             cell.lblNickname.text = ""
+            cell.lblUserTitle.text = ""
             cell.lblText.text = ""
 
             if (allPostsFetched) {
