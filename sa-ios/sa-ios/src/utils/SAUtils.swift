@@ -57,6 +57,16 @@ class SAUtils: NSObject {
         }
     }
 
+    // Google Analytics: Send screen view event
+    public static func GAISendScreenView(_ screenName: String) {
+        // Google Analytics
+        let tracker = GAI.sharedInstance().defaultTracker
+        tracker?.set(kGAIScreenName, value: screenName)
+        let build = (GAIDictionaryBuilder.createScreenView().build() as Dictionary) as [AnyHashable: Any]
+        tracker?.send(build)
+    }
+
+
     // Generate random string
     public static func randomString(length: Int) -> String {
         let letters : NSString = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
@@ -70,12 +80,13 @@ class SAUtils: NSObject {
         return randomString
     }
 
-    // Google Analytics: Send screen view event
-    public static func GAISendScreenView(_ screenName: String) {
-        // Google Analytics
-        let tracker = GAI.sharedInstance().defaultTracker
-        tracker?.set(kGAIScreenName, value: screenName)
-        let build = (GAIDictionaryBuilder.createScreenView().build() as Dictionary) as [AnyHashable: Any]
-        tracker?.send(build)
+    // Get day of week
+    public static func dayOfWeek() -> Int {
+        let todayDate = Date()
+        let myCalendar = Calendar(identifier: .gregorian)
+        var weekDay = myCalendar.component(.weekday, from: todayDate)
+        weekDay -= 1
+        if weekDay == 0 { weekDay = 7 }
+        return weekDay
     }
 }

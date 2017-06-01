@@ -25,6 +25,10 @@ class HomeViewController: UITableViewController {
 
     @IBOutlet weak var lblStudentName: UILabel!
     @IBOutlet weak var lblLoginInformation: UILabel!
+    @IBOutlet weak var lblClassScheduleTitle: UILabel!
+    @IBOutlet weak var lblClassScheduleSubtitle: UILabel!
+    @IBOutlet weak var lblGradesTitle: UILabel!
+    @IBOutlet weak var lblGradesSubtitle: UILabel!
 
     @IBOutlet weak var actLogin: UIActivityIndicatorView!
     @IBOutlet weak var actClassSchedule: UIActivityIndicatorView!
@@ -36,6 +40,7 @@ class HomeViewController: UITableViewController {
 
     // School system data
     private var data_student_basic_info: StudentBasicInfo?
+    private var data_classes: [ClassSession]?
     private var data_grades: [GradeItem]?
 
     // MARK: UI events
@@ -83,6 +88,26 @@ class HomeViewController: UITableViewController {
             btnLogin.setTitle("登录", for: UIControlState.normal)
             lblStudentName.text = "教务系统"
             lblLoginInformation.text = "未登录"
+        }
+
+        if let classes = data_classes {
+            lblClassScheduleTitle.center.y = 24.5
+            lblClassScheduleSubtitle.isHidden = false
+            let cnt = SchoolSystemModels.classSessions(data: classes, dayInWeek: SAUtils.dayOfWeek()).count
+            if (cnt == 0) {
+                lblClassScheduleSubtitle.text = "今日课程: 无"
+            } else {
+                lblClassScheduleSubtitle.text = "今日课程: \(cnt)"
+            }
+        }
+
+        if let grades = data_grades {
+            lblGradesTitle.center.y = 24.5
+            lblGradesSubtitle.isHidden = false
+            lblGradesSubtitle.text = "\(grades.count) 门课程"
+        } else {
+            lblGradesSubtitle.isHidden = true
+            lblGradesTitle.center.y = 34.5
         }
     }
 
@@ -207,11 +232,12 @@ class HomeViewController: UITableViewController {
         // UI Loading state
         self.title = "正在更新数据..."
         actGrades.startAnimating()
+        actClassSchedule.startAnimating()
 
         let session_id = SAGlobal.student_session_id!
 
         // Counter
-        var total = 1, completed = 0
+        var total = 2, completed = 0
 
         // Fetch grades
         SchoolSystemModels.grades(session_id: session_id, student_id: nil) { (data, message) in
@@ -224,12 +250,32 @@ class HomeViewController: UITableViewController {
                 self.displaySchoolSystemData()
             }
 
-            if let grades = data {
+            if let grades: [GradeItem] = data {
                 SAUtils.writeLocalKVStore(key: "data_grades", val: grades.toJSONString())
                 self.data_grades = grades
             } else {
                 self.title = "获取成绩失败"
-                SAUtils.alert(viewController: self, title: "错误", message: "获取数据失败，请尝试重新登录")
+                SAUtils.alert(viewController: self, title: "错误", message: "获取课程表失败，请尝试重新登录")
+            }
+        }
+
+        // Fetch clases
+        SchoolSystemModels.classScheduleCurrentWeek(session_id: session_id, student_id: nil) { (data, message) in
+            self.actClassSchedule.stopAnimating()
+
+            completed += 1
+            if (completed == total) {
+                self.enableActionButtons(true)
+                self.title = SAConfig.appName;
+                self.displaySchoolSystemData()
+            }
+
+            if let classes: [ClassSession] = data {
+                SAUtils.writeLocalKVStore(key: "data_classes", val: classes.toJSONString())
+                self.data_classes = classes
+            } else {
+                self.title = "获取课程表失败"
+                SAUtils.alert(viewController: self, title: "错误", message: "获取课程表失败，请尝试重新登录")
             }
         }
     }
@@ -243,6 +289,8 @@ class HomeViewController: UITableViewController {
         switch identifier {
         case "segLogin":
             return !self.actLogin.isAnimating
+        case "segClassSchedule":
+            return !self.actClassSchedule.isAnimating
         case "segGrades":
             if self.data_grades == nil {
                 SAUtils.alert(viewController: self, title: "没有数据", message: "请先登录教务系统")
@@ -259,6 +307,10 @@ class HomeViewController: UITableViewController {
         switch segue.identifier! {
         case "segLogin":
             break
+        case "segClassSchedule":
+            if let vc_class = segue.destination as? ClassScheduleViewController {
+                vc_class.data_classes = self.data_classes!
+            }
         case "segGrades":
             if let vc_grades = segue.destination as? GradesViewController {
                 vc_grades.data_grades = self.data_grades!

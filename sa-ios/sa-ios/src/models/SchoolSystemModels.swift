@@ -67,6 +67,37 @@ class SchoolSystemModels: NSObject {
         }
     }
 
+    // Get class schedule, current week
+    static func classScheduleCurrentWeek(session_id: String, student_id: String?,
+                                         completionHandler: @escaping ([ClassSession]?, String) -> Void) {
+        // Prepare parameters
+        var params: Parameters = ["session_id": session_id];
+        if let v = student_id { params["student_id"] = v }
+
+        // Make request
+        Alamofire.request(self.apiBaseURL + "/class/current-week", parameters: params).responseArray(keyPath: "result") { (response: DataResponse<[ClassSession]>) in
+            switch response.result {
+            case .success(_):
+                completionHandler(response.result.value, "ok")
+            default:
+                completionHandler(nil, "网络通信错误")
+            }
+        }
+    }
+
+    // Filter class sessions by day
+    static func classSessions(data: [ClassSession], dayInWeek: Int) -> [ClassSession] {
+        var result: [ClassSession] = []
+        for session in data {
+            if let day = Int(session.day_of_week) {
+                if day == dayInWeek {
+                    result.append(session)
+                }
+            }
+        }
+        return result.sorted { $0.classes_in_day < $1.classes_in_day }
+    }
+
     // Get grades
     static func grades(session_id: String, student_id: String?,
                        completionHandler: @escaping ([GradeItem]?, String) -> Void) {
@@ -117,6 +148,26 @@ class StudentBasicInfo: Mappable {
         student_department  <- map["student_department"]
         student_major       <- map["student_major"]
         student_class       <- map["student_class"]
+    }
+}
+
+class ClassSession: Mappable {
+    var day_of_week: String!
+    var classes_in_day: String!
+    var title: String!
+    var instructor: String!
+    var location: String!
+    var type: String?
+
+    required init?(map: Map) {}
+
+    func mapping(map: Map) {
+        day_of_week    <- map["day_of_week"]
+        classes_in_day <- map["classes_in_day"]
+        title          <- map["title"]
+        instructor     <- map["instructor"]
+        location       <- map["location"]
+        type           <- map["type"]
     }
 }
 

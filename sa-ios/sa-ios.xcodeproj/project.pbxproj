@@ -19,6 +19,7 @@
 		7937FE131EB6B585005EAA10 /* LibraryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7937FE121EB6B585005EAA10 /* LibraryViewController.swift */; };
 		7937FE151EB6B6DB005EAA10 /* LibraryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7937FE141EB6B6DB005EAA10 /* LibraryTableViewCell.swift */; };
 		796241911EDE7CF5006898AB /* AnalyticsModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 796241901EDE7CF5006898AB /* AnalyticsModels.swift */; };
+		796241931EDFB208006898AB /* ClassSessionTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 796241921EDFB208006898AB /* ClassSessionTableCell.swift */; };
 		7967C7711EBE47EE00ABF4FC /* GradeFiltersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7967C7701EBE47EE00ABF4FC /* GradeFiltersViewController.swift */; };
 		7969BDC81E8B636B0009BB4C /* SAUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7969BDC71E8B636B0009BB4C /* SAUtils.swift */; };
 		79AF926D1E73A6800091B535 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 79AF92631E73A6800091B535 /* Assets.xcassets */; };
@@ -53,6 +54,7 @@
 		7937FE121EB6B585005EAA10 /* LibraryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LibraryViewController.swift; sourceTree = "<group>"; };
 		7937FE141EB6B6DB005EAA10 /* LibraryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LibraryTableViewCell.swift; sourceTree = "<group>"; };
 		796241901EDE7CF5006898AB /* AnalyticsModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnalyticsModels.swift; sourceTree = "<group>"; };
+		796241921EDFB208006898AB /* ClassSessionTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClassSessionTableCell.swift; sourceTree = "<group>"; };
 		7967C7701EBE47EE00ABF4FC /* GradeFiltersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradeFiltersViewController.swift; sourceTree = "<group>"; };
 		7969BDC71E8B636B0009BB4C /* SAUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SAUtils.swift; sourceTree = "<group>"; };
 		79AF92491E73A44D0091B535 /* sa-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "sa-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -108,10 +110,10 @@
 			isa = PBXGroup;
 			children = (
 				796241901EDE7CF5006898AB /* AnalyticsModels.swift */,
-				791DED471EAF0161007FF646 /* MessageBoardModels.swift */,
-				791DED491EAF01A6007FF646 /* SchoolSystemModels.swift */,
 				79BCB0E11EDB74C700614C45 /* AnnouncementsModels.swift */,
 				79BCB0D91EDAC10500614C45 /* LibraryModels.swift */,
+				791DED471EAF0161007FF646 /* MessageBoardModels.swift */,
+				791DED491EAF01A6007FF646 /* SchoolSystemModels.swift */,
 			);
 			path = models;
 			sourceTree = "<group>";
@@ -149,6 +151,7 @@
 			isa = PBXGroup;
 			children = (
 				7937FE0E1EB6B10F005EAA10 /* ClassScheduleViewController.swift */,
+				796241921EDFB208006898AB /* ClassSessionTableCell.swift */,
 			);
 			path = classschedule;
 			sourceTree = "<group>";
@@ -415,6 +418,7 @@
 				796241911EDE7CF5006898AB /* AnalyticsModels.swift in Sources */,
 				7937FE131EB6B585005EAA10 /* LibraryViewController.swift in Sources */,
 				792BC7271EB1BCED00B441FF /* GradeItemTableCell.swift in Sources */,
+				796241931EDFB208006898AB /* ClassSessionTableCell.swift in Sources */,
 				79D11D431EAD69C500F63C09 /* NewPostViewController.swift in Sources */,
 				79BCB0E01EDB734B00614C45 /* AnnouncemtnesArticleViewController.swift in Sources */,
 				7969BDC81E8B636B0009BB4C /* SAUtils.swift in Sources */,
