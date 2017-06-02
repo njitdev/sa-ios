@@ -795,7 +795,7 @@
                         <outlet property="lblGradesTitle" destination="e8u-f6-zyl" id="4pG-VQ-8zR"/>
                         <outlet property="lblLoginInformation" destination="QTF-Lb-fHT" id="Mx2-Ep-ygQ"/>
                         <outlet property="lblStudentName" destination="cCs-kV-Jch" id="McX-oa-6aG"/>
-                        <segue destination="FQn-eN-EOo" kind="show" id="Fim-B1-d2k"/>
+                        <segue destination="FQn-eN-EOo" kind="show" identifier="segAbout" id="Fim-B1-d2k"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Abu-T4-RN7" userLabel="First Responder" sceneMemberID="firstResponder"/>
