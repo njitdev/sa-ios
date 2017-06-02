@@ -92,6 +92,7 @@ class AnnouncementsViewController: GAITrackedViewController, UITableViewDelegate
             // Adjust style
             lblTitle.font = UIFont.systemFont(ofSize: 15)
             lblSubtitle.font = UIFont.systemFont(ofSize: 13)
+            lblTitle.textColor = UIColor.darkGray
             lblSubtitle.textColor = UIColor.gray
 
             // Data
@@ -107,7 +108,7 @@ class AnnouncementsViewController: GAITrackedViewController, UITableViewDelegate
 
     // MARK: - UITableViewDelegate
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 62
+        return 67
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

@@ -59,7 +59,7 @@ class LoginViewController: UITableViewController {
     @IBAction func btnLoginAction(_ sender: Any) {
         self.setBusyState(true)
 
-        SchoolSystemModels.submitAuthInfo(student_login: txtStudentLogin.text!, student_password: txtStudentPassword.text!, captcha: nil) { (session_id, message) in
+        SchoolSystemModels.submitAuthInfo(installation_id: SAGlobal.installation_id, student_login: txtStudentLogin.text!, student_password: txtStudentPassword.text!, captcha: nil) { (session_id, message) in
             self.setBusyState(false)
 
             if session_id != nil {

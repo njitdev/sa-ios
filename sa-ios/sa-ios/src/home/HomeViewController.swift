@@ -212,7 +212,7 @@ class HomeViewController: UITableViewController {
             self.actLogin.startAnimating()
 
             // Execute
-            SchoolSystemModels.submitAuthInfo(student_login: student_login, student_password: student_password, captcha: nil, completionHandler: { (session_id, message) in
+            SchoolSystemModels.submitAuthInfo(installation_id: SAGlobal.installation_id, student_login: student_login, student_password: student_password, captcha: nil, completionHandler: { (session_id, message) in
 
                 // UI
                 self.actLogin.stopAnimating()

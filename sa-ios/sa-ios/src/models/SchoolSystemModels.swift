@@ -27,10 +27,10 @@ class SchoolSystemModels: NSObject {
 
     // Submit login info
     // Responds with a session_id
-    static func submitAuthInfo(student_login: String, student_password: String, captcha: String?,
+    static func submitAuthInfo(installation_id: String, student_login: String, student_password: String, captcha: String?,
                                completionHandler: @escaping (String?, String) -> Void) {
         // Prepare parameters
-        var params: Parameters = ["student_login": student_login, "student_password": student_password];
+        var params: Parameters = ["installation_id": installation_id, "student_login": student_login, "student_password": student_password];
         if let v = captcha { params["captcha"] = v }
 
         // Make request
