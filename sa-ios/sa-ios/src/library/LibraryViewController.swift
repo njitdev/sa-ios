@@ -60,6 +60,10 @@ class LibraryViewController: GAITrackedViewController, UITableViewDelegate, UITa
             if let books = books {
                 self.data_books = books
                 self.tableView.reloadData()
+
+                if books.count == 0 {
+                    SAUtils.alert(viewController: self, title: "没有搜索结果", message: "换个关键词试试看")
+                }
             } else {
                 SAUtils.alert(viewController: self, title: "错误", message: message)
                 return

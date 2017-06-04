@@ -20,7 +20,6 @@ import UIKit
 
 class ClassSessionTableCell: UITableViewCell {
 
-    @IBOutlet weak var lblNoClass: UILabel!
     @IBOutlet weak var lblSessionNumber: UILabel!
     @IBOutlet weak var lblTitle: UILabel!
     @IBOutlet weak var lblInstructor: UILabel!

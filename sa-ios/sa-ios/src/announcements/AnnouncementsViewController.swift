@@ -92,8 +92,8 @@ class AnnouncementsViewController: GAITrackedViewController, UITableViewDelegate
             // Adjust style
             lblTitle.font = UIFont.systemFont(ofSize: 15)
             lblSubtitle.font = UIFont.systemFont(ofSize: 13)
-            lblTitle.textColor = UIColor.darkGray
-            lblSubtitle.textColor = UIColor.gray
+            lblTitle.textColor = UIColor.init(white: 0.25, alpha: 1)
+            lblSubtitle.textColor = UIColor.init(white: 0.5, alpha: 1)
 
             // Data
             let listItem = data_list[indexPath.row]

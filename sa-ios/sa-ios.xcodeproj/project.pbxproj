@@ -14,6 +14,7 @@
 		792B7FE71E82268300E8E309 /* SAConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 792B7FE61E82268300E8E309 /* SAConfig.swift */; };
 		792BC7251EB1BCAC00B441FF /* GradesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 792BC7241EB1BCAC00B441FF /* GradesViewController.swift */; };
 		792BC7271EB1BCED00B441FF /* GradeItemTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 792BC7261EB1BCED00B441FF /* GradeItemTableCell.swift */; };
+		7930FC8B1EE3CB72004E6455 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7930FC8A1EE3CB72004E6455 /* AboutViewController.swift */; };
 		7937FE0F1EB6B10F005EAA10 /* ClassScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7937FE0E1EB6B10F005EAA10 /* ClassScheduleViewController.swift */; };
 		7937FE111EB6B136005EAA10 /* AnnouncementsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7937FE101EB6B136005EAA10 /* AnnouncementsViewController.swift */; };
 		7937FE131EB6B585005EAA10 /* LibraryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7937FE121EB6B585005EAA10 /* LibraryViewController.swift */; };
@@ -49,6 +50,7 @@
 		792B7FE61E82268300E8E309 /* SAConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SAConfig.swift; sourceTree = "<group>"; };
 		792BC7241EB1BCAC00B441FF /* GradesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradesViewController.swift; sourceTree = "<group>"; };
 		792BC7261EB1BCED00B441FF /* GradeItemTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradeItemTableCell.swift; sourceTree = "<group>"; };
+		7930FC8A1EE3CB72004E6455 /* AboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		7937FE0E1EB6B10F005EAA10 /* ClassScheduleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClassScheduleViewController.swift; sourceTree = "<group>"; };
 		7937FE101EB6B136005EAA10 /* AnnouncementsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnnouncementsViewController.swift; sourceTree = "<group>"; };
 		7937FE121EB6B585005EAA10 /* LibraryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LibraryViewController.swift; sourceTree = "<group>"; };
@@ -136,6 +138,14 @@
 				7967C7701EBE47EE00ABF4FC /* GradeFiltersViewController.swift */,
 			);
 			path = grades;
+			sourceTree = "<group>";
+		};
+		7930FC891EE3A69F004E6455 /* about */ = {
+			isa = PBXGroup;
+			children = (
+				7930FC8A1EE3CB72004E6455 /* AboutViewController.swift */,
+			);
+			path = about;
 			sourceTree = "<group>";
 		};
 		7937FE0B1EB6B0B8005EAA10 /* announcements */ = {
@@ -227,6 +237,7 @@
 				7937FE0B1EB6B0B8005EAA10 /* announcements */,
 				7937FE0D1EB6B0B8005EAA10 /* library */,
 				79AF92731E73E17F0091B535 /* msgboard */,
+				7930FC891EE3A69F004E6455 /* about */,
 			);
 			path = src;
 			sourceTree = "<group>";
@@ -410,6 +421,7 @@
 				79AF92751E73E1D20091B535 /* MessageBoardViewController.swift in Sources */,
 				79AF92721E73A6800091B535 /* AppDelegate.swift in Sources */,
 				791DED481EAF0161007FF646 /* MessageBoardModels.swift in Sources */,
+				7930FC8B1EE3CB72004E6455 /* AboutViewController.swift in Sources */,
 				79D581261EB6BC95007F7E99 /* ExamScheduleViewController.swift in Sources */,
 				7937FE111EB6B136005EAA10 /* AnnouncementsViewController.swift in Sources */,
 				792BC7251EB1BCAC00B441FF /* GradesViewController.swift in Sources */,

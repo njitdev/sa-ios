@@ -70,7 +70,6 @@ class ClassScheduleViewController: GAITrackedViewController, UITableViewDelegate
         let sessions = SchoolSystemModels.classSessions(data: data_classes, dayInWeek: indexPath.section + 1)
         let session = sessions[indexPath.row]
 
-        cell.lblNoClass.isHidden = true
         cell.lblTitle.text = session.title
         cell.lblInstructor.text = session.instructor
         cell.lblLocation.text = session.location
