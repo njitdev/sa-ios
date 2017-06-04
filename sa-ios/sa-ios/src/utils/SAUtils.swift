@@ -21,9 +21,9 @@ import UIKit
 class SAUtils: NSObject {
     // MARK: UI Utilities
     // Quick alert
-    public static func alert(viewController: UIViewController, title: String, message: String) {
+    public static func alert(viewController: UIViewController, title: String, message: String, handler: ((UIAlertAction) -> Void)? = nil) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
-        let action = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil)
+        let action = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: handler)
         alert.addAction(action);
         viewController.present(alert, animated: true, completion: nil);
     }
@@ -78,6 +78,15 @@ class SAUtils: NSObject {
             randomString += NSString(characters: &nextChar, length: 1) as String
         }
         return randomString
+    }
+
+    // Open a URL
+    public static func openURL(url: String) {
+        if let url = URL(string: url) {
+            if UIApplication.shared.canOpenURL(url) {
+                UIApplication.shared.openURL(url)
+            }
+        }
     }
 
     // Get day of week

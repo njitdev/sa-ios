@@ -17,6 +17,7 @@
 //
 
 import UIKit
+import OneSignal
 
 class HomeViewController: UITableViewController {
 
@@ -56,6 +57,16 @@ class HomeViewController: UITableViewController {
 
         // Load cached data
         loadCachedData()
+
+        // Push notifications
+        // Get permission status
+        let push_status: OSPermissionSubscriptionState = OneSignal.getPermissionSubscriptionState()
+        if !push_status.permissionStatus.hasPrompted {
+            // Prompt
+            SAUtils.alert(viewController: self, title: "推送通知", message: "我们未来会推送:\n\n上课、考试提醒\napp 运行状态\n学校的重要通知\n\n永远不会有广告🙂", handler: { (_) in
+                OneSignal.promptForPushNotifications(userResponse: { accepted in })
+            })
+        }
     }
 
     override func viewWillAppear(_ animated: Bool) {

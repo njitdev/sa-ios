@@ -19,6 +19,7 @@
 import UIKit
 import Sentry
 import AlamofireNetworkActivityIndicator
+import OneSignal
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -59,6 +60,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                                            device_info: UIDevice.current.name,
                                            completionHandler: { (_, _) in })
         }
+
+        // Push notifications
+        let onesignalInitSettings = [kOSSettingsKeyAutoPrompt: false]
+        OneSignal.initWithLaunchOptions(launchOptions,
+                                        appId: SAConfig.oneSignalAppID,
+                                        handleNotificationAction: nil,
+                                        settings: onesignalInitSettings)
+
+        OneSignal.inFocusDisplayType = OSNotificationDisplayType.notification;
 
         return true
     }

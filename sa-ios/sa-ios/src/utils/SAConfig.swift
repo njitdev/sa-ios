@@ -26,4 +26,5 @@ class SAConfig: NSObject {
     // 3rd party libraries
     public static let sentryClientKey = "https://63cb6cff1db447298fc2960f52382072:34fa1440cdda48009ae3cddf66d96127@sentry.io/154188"
     public static let GAPropertyID = "UA-61812304-1"
+    public static let oneSignalAppID = "b09405cc-9473-4a3c-90ee-bd8300debb50"
 }

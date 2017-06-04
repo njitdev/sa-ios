@@ -25,27 +25,19 @@ class AboutViewController: UITableViewController {
 
     }
 
+    @IBAction func btnDeveloperFangLiuAct(_ sender: Any) {
+        SAUtils.openURL(url: "https://github.com/FelicityRooting")
+    }
+
     @IBAction func btnDeveloperkevinlin007Act(_ sender: Any) {
-        if let url = URL(string: "https://www.instagram.com/kevinlin22277/") {
-            if UIApplication.shared.canOpenURL(url) {
-                UIApplication.shared.openURL(url)
-            }
-        }
+        SAUtils.openURL(url: "https://www.instagram.com/kevinlin22277/")
     }
 
     @IBAction func btnDeveloperYunzhuAct(_ sender: Any) {
-        if let url = URL(string: "https://yunzhu.li") {
-            if UIApplication.shared.canOpenURL(url) {
-                UIApplication.shared.openURL(url)
-            }
-        }
+        SAUtils.openURL(url: "https://yunzhu.li")
     }
 
     @IBAction func btnAppStoreAct(_ sender: Any) {
-        if let url = URL(string: "itms://itunes.apple.com/us/app/mygdut/id616723635?mt=8") {
-            if UIApplication.shared.canOpenURL(url) {
-                UIApplication.shared.openURL(url)
-            }
-        }
+        SAUtils.openURL(url: "itms://itunes.apple.com/us/app/mygdut/id616723635?mt=8")
     }
 }
