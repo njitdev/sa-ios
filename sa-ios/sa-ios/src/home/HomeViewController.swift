@@ -76,7 +76,9 @@ class HomeViewController: UITableViewController {
 
         // Update about button
         let emojis = ["🤔", "🐳", "🐹", "🚀", "🌆", "🍭", "🍄", "🎹", "🎉", "🚗", "⛵", "🚧", "💶", "🍀", "🍁", "🌸", "🕹", "💾", "🤖", "🙃"]
-        btnAbout.title = emojis[Int(arc4random_uniform(UInt32(emojis.count)))]
+        UIView.performWithoutAnimation {
+            btnAbout.title = emojis[Int(arc4random_uniform(UInt32(emojis.count)))]
+        }
     }
 
     @IBAction func btnRefreshAct(_ sender: Any) {
