@@ -21,6 +21,7 @@ import OneSignal
 
 class HomeViewController: UITableViewController {
 
+    @IBOutlet weak var btnAbout: UIBarButtonItem!
     @IBOutlet weak var btnRefresh: UIBarButtonItem!
     @IBOutlet weak var btnLogin: UIButton!
 
@@ -72,6 +73,10 @@ class HomeViewController: UITableViewController {
     override func viewWillAppear(_ animated: Bool) {
         // Update data
         autoUpdateData()
+
+        // Update about button
+        let emojis = ["🤔", "🐳", "🐹", "🚀", "🌆", "🍭", "🍄", "🎹", "🎉", "🚗", "⛵", "🚧", "💶", "🍀", "🍁", "🌸", "🕹", "💾", "🤖", "🙃"]
+        btnAbout.title = emojis[Int(arc4random_uniform(UInt32(emojis.count)))]
     }
 
     @IBAction func btnRefreshAct(_ sender: Any) {
