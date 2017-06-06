@@ -30,6 +30,9 @@ class AnnouncementsViewController: GAITrackedViewController, UITableViewDelegate
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        // Clear URLCache
+        URLCache.shared.removeAllCachedResponses()
+
         // Google Analytics
         self.screenName = "AnnouncementsViewController"
 
@@ -64,7 +67,7 @@ class AnnouncementsViewController: GAITrackedViewController, UITableViewDelegate
                 self.data_list = data
                 self.tableview.reloadData()
             } else {
-                SAUtils.alert(viewController: self, title: "错误", message: message)
+                SAUtils.alert(viewController: self, title: "错误 😛", message: message)
             }
         }
     }

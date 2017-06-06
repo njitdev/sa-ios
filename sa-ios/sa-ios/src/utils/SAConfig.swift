@@ -21,6 +21,7 @@ import UIKit
 class SAConfig: NSObject {
     public static let appName = "MyGDUT"
     public static let APIBaseURL = "https://sa-api-prd.njitdev.com"
+//    public static let APIBaseURL = "http://127.0.0.1:8000"
     public static let schoolIdentifier = "gdut"
 
     // 3rd party libraries

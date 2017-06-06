@@ -37,7 +37,7 @@ class AnnouncementsModels: NSObject {
             case .success(_):
                 completionHandler(response.result.value, "ok")
             default:
-                completionHandler(nil, "网络通信错误")
+                completionHandler(nil, "连接学校服务器超时")
             }
         }
     }
@@ -53,7 +53,7 @@ class AnnouncementsModels: NSObject {
             case .success(_):
                 completionHandler(response.result.value, "ok")
             default:
-                completionHandler(nil, "网络通信错误")
+                completionHandler(nil, "连接学校服务器超时")
             }
         }
     }

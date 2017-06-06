@@ -29,6 +29,7 @@ class GradeFiltersViewController: UITableViewController {
 
     // Filters
     private var filter_terms_available: [String] = []
+    private var filter_terms_selected: [String] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,7 +42,16 @@ class GradeFiltersViewController: UITableViewController {
     }
 
     @IBAction func btnResetAction(_ sender: Any) {
-        self.applyFilters(term: "")
+        self.applyFilters(reset: true)
+    }
+
+    @IBAction func btnApplyAction(_ sender: Any) {
+        if filter_terms_selected.count == 0 {
+            SAUtils.alert(viewController: self, title: "没有选中任何学期 🤔", message: "如果需要选择所有成绩，请点'重置'")
+            return
+        }
+
+        self.applyFilters()
     }
 
     private func generateFilters() {
@@ -60,21 +70,21 @@ class GradeFiltersViewController: UITableViewController {
         self.filter_terms_available.sort()
     }
 
-    private func applyFilters(term: String) {
+    private func applyFilters(reset: Bool = false) {
         // Clear destination
         self.data_grades_filtered.removeAll()
 
         // term filter
         for g in data_grades {
             if let t = g.term {
-                if t == term {
+                if filter_terms_selected.contains(t) {
                     self.data_grades_filtered.append(g)
                 }
             }
         }
 
-        // Select all if no filter provided
-        if term.characters.count == 0 {
+        // Select all if reset is requested
+        if reset {
             self.data_grades_filtered = self.data_grades
         }
 
@@ -87,8 +97,16 @@ class GradeFiltersViewController: UITableViewController {
 
     // MARK: - Table view delegate
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        // Apply filters
-        self.applyFilters(term: self.filter_terms_available[indexPath.row])
+        tableView.deselectRow(at: indexPath, animated: true)
+
+        let term = self.filter_terms_available[indexPath.row]
+        if filter_terms_selected.contains(term) {
+            filter_terms_selected.remove(at: filter_terms_selected.index(of: term)!)
+            tableView.cellForRow(at: indexPath)?.accessoryType = UITableViewCellAccessoryType.none
+        } else {
+            filter_terms_selected.append(term)
+            tableView.cellForRow(at: indexPath)?.accessoryType = UITableViewCellAccessoryType.checkmark
+        }
     }
 
     // MARK: - Table view data source
@@ -107,7 +125,15 @@ class GradeFiltersViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "GradeFilterTableCell", for: indexPath)
-        cell.textLabel?.text = self.filter_terms_available[indexPath.row]
+
+        let term = self.filter_terms_available[indexPath.row]
+        cell.textLabel?.text = term
+        if filter_terms_selected.contains(term) {
+            cell.accessoryType = UITableViewCellAccessoryType.checkmark
+        } else {
+            cell.accessoryType = UITableViewCellAccessoryType.none
+        }
+
         return cell
     }
 }

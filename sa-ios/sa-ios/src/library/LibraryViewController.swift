@@ -35,9 +35,7 @@ class LibraryViewController: GAITrackedViewController, UITableViewDelegate, UITa
 
         tableView.dataSource = self
         tableView.delegate = self
-    }
 
-    override func viewWillAppear(_ animated: Bool) {
         // Focus on search text box at start
         txtKeyword.becomeFirstResponder()
     }
@@ -62,10 +60,10 @@ class LibraryViewController: GAITrackedViewController, UITableViewDelegate, UITa
                 self.tableView.reloadData()
 
                 if books.count == 0 {
-                    SAUtils.alert(viewController: self, title: "没有搜索结果", message: "换个关键词试试看")
+                    SAUtils.alert(viewController: self, title: "没有搜索结果 😳", message: "换个关键词试试看")
                 }
             } else {
-                SAUtils.alert(viewController: self, title: "错误", message: message)
+                SAUtils.alert(viewController: self, title: "错误 😛", message: message)
                 return
             }
         }

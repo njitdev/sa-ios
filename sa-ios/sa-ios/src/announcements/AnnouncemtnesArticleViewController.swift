@@ -39,7 +39,7 @@ class AnnouncementsArticleViewController: GAITrackedViewController {
                 if let article = article {
                     self.webArticle.loadHTMLString(article.article_body, baseURL: nil)
                 } else {
-                    SAUtils.alert(viewController: self, title: "错误", message: message)
+                    SAUtils.alert(viewController: self, title: "错误 😛", message: message)
                     return
                 }
             })

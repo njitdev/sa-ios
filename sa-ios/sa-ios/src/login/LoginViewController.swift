@@ -74,7 +74,7 @@ class LoginViewController: UITableViewController {
                 // Return to home page
                 self.navigationController?.popViewController(animated: true)
             } else {
-                SAUtils.alert(viewController: self, title: "登录失败", message: message)
+                SAUtils.alert(viewController: self, title: "登录失败 😱", message: message)
             }
         }
     }

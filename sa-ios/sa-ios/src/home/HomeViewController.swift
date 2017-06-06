@@ -64,7 +64,7 @@ class HomeViewController: UITableViewController {
         let push_status: OSPermissionSubscriptionState = OneSignal.getPermissionSubscriptionState()
         if !push_status.permissionStatus.hasPrompted {
             // Prompt
-            SAUtils.alert(viewController: self, title: "推送通知", message: "我们未来会推送:\n\n上课、考试提醒\napp 运行状态\n学校的重要通知\n\n永远不会有广告🙂", handler: { (_) in
+            SAUtils.alert(viewController: self, title: "推送通知 🤖", message: "我们未来会推送:\n\n上课、考试提醒\napp 运行状态\n学校的重要通知\n\n永远不会有广告🙂", handler: { (_) in
                 OneSignal.promptForPushNotifications(userResponse: { accepted in })
             })
         }
@@ -75,13 +75,16 @@ class HomeViewController: UITableViewController {
         autoUpdateData()
 
         // Update about button
-        let emojis = ["🤔", "🐳", "🐹", "🚀", "🌆", "🍭", "🍄", "🎹", "🎉", "🚗", "⛵", "🚧", "💶", "🍀", "🍁", "🌸", "🕹", "💾", "🤖", "🙃"]
+        let emojis = ["🤔", "🐳", "🐹", "🚀", "🏞", "🍭", "🍄", "🎹", "🎉", "🚗", "⛵", "🍀", "🍁", "🌸", "💾", "🤖", "🙃", "👾", "🎓", "💰", "⚽"]
         UIView.performWithoutAnimation {
             btnAbout.title = emojis[Int(arc4random_uniform(UInt32(emojis.count)))]
         }
     }
 
     @IBAction func btnRefreshAct(_ sender: Any) {
+        // Clear URLCache
+        URLCache.shared.removeAllCachedResponses()
+
         // Force re-fetch data
         lastSessionID = ""
         autoUpdateData()
@@ -113,7 +116,7 @@ class HomeViewController: UITableViewController {
             lblClassScheduleSubtitle.isHidden = false
             let cnt = SchoolSystemModels.classSessions(data: classes, dayInWeek: SAUtils.dayOfWeek()).count
             if (cnt == 0) {
-                lblClassScheduleSubtitle.text = "今日课程: 无"
+                lblClassScheduleSubtitle.text = "今日课程: 无 🎉"
             } else {
                 lblClassScheduleSubtitle.text = "今日课程: \(cnt)"
             }
@@ -190,7 +193,7 @@ class HomeViewController: UITableViewController {
                         } else {
                             // End state, enable action buttons
                             self.enableActionButtons(true)
-                            SAUtils.alert(viewController: self, title: "错误", message: "登录失败，请尝试重新登录")
+                            SAUtils.alert(viewController: self, title: "错误 😛", message: "登录失败，请尝试重新登录")
                         }
                     })
                 }
@@ -240,6 +243,9 @@ class HomeViewController: UITableViewController {
                     SAGlobal.student_session_id = session_id
                     SAUtils.writeLocalKVStore(key: "student_session_id", val: session_id)
 
+                    // Set as session session_id
+                    self.lastSessionID = session_id!
+
                     self.title = SAConfig.appName
                     completionHandler(true)
                 } else {
@@ -280,7 +286,7 @@ class HomeViewController: UITableViewController {
                 self.data_classes = classes
             } else {
                 self.title = "获取课程表失败"
-                SAUtils.alert(viewController: self, title: "错误", message: "获取课程表失败，请尝试重新登录")
+                SAUtils.alert(viewController: self, title: "错误 😛", message: "获取课程表失败，请尝试重新登录")
             }
 
             self.displaySchoolSystemData()
@@ -302,7 +308,7 @@ class HomeViewController: UITableViewController {
                 self.data_grades = grades
             } else {
                 self.title = "获取成绩失败"
-                SAUtils.alert(viewController: self, title: "错误", message: "获取成绩失败，请尝试重新登录")
+                SAUtils.alert(viewController: self, title: "错误 😛", message: "获取成绩失败，请尝试重新登录")
             }
 
             self.displaySchoolSystemData()
@@ -317,16 +323,18 @@ class HomeViewController: UITableViewController {
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
         switch identifier {
         case "segLogin":
+            // Force reload on return
+            lastSessionID = ""
             return !self.actLogin.isAnimating
         case "segClassSchedule":
             if self.data_classes == nil {
-                SAUtils.alert(viewController: self, title: "没有数据", message: "请先登录教务系统")
+                SAUtils.alert(viewController: self, title: "没有数据 🤔", message: "请先登录教务系统")
                 return false
             }
             return !self.actClassSchedule.isAnimating
         case "segGrades":
             if self.data_grades == nil {
-                SAUtils.alert(viewController: self, title: "没有数据", message: "请先登录教务系统")
+                SAUtils.alert(viewController: self, title: "没有数据 🤔", message: "请先登录教务系统")
                 return false
             }
             return !self.actGrades.isAnimating

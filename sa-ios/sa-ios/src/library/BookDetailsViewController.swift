@@ -64,7 +64,7 @@ class BookDetailsViewController: GAITrackedViewController, UITableViewDataSource
                     self.data_book_details = details
                     self.tableView.reloadData()
                 } else {
-                    SAUtils.alert(viewController: self, title: "错误", message: message)
+                    SAUtils.alert(viewController: self, title: "没有查询到馆藏 😛", message: "换本书试试看")
                     return;
                 }
             })

@@ -6,6 +6,7 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -271,11 +272,11 @@ Includes portions from BSMobileProvision:
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="101" id="yvo-v9-skj">
-                                        <rect key="frame" x="0.0" y="268" width="320" height="101"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="132" id="yvo-v9-skj">
+                                        <rect key="frame" x="0.0" y="268" width="320" height="132"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="yvo-v9-skj" id="D2o-zy-MYq">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="101"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="132"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="开发团队 (字母顺序):" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a0z-gY-avX">
@@ -289,58 +290,76 @@ Includes portions from BSMobileProvision:
                                                     <rect key="frame" x="20" y="12" width="30" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Fang Liu     , kevinlin007" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Bk-mo-GFZ">
-                                                    <rect key="frame" x="65" y="43" width="212" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="移动端: Maple, Qilin, 王者, 殷馨, Yunzhu" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Bk-mo-GFZ">
+                                                    <rect key="frame" x="65" y="46" width="239" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="15"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12.5"/>
                                                     <color key="textColor" white="0.40000000000000002" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ic_link" translatesAutoresizingMaskIntoConstraints="NO" id="DaT-xr-txJ">
-                                                    <rect key="frame" x="122" y="44" width="15" height="15"/>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ic_link" translatesAutoresizingMaskIntoConstraints="NO" id="J1x-D3-lJo">
+                                                    <rect key="frame" x="297" y="48" width="15" height="15"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ic_link" translatesAutoresizingMaskIntoConstraints="NO" id="J1x-D3-lJo">
-                                                    <rect key="frame" x="223" y="44" width="15" height="15"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="服务端: Fang Liu     , Yunzhu" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KoY-uM-8WV">
+                                                    <rect key="frame" x="65" y="71" width="212" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12.5"/>
+                                                    <color key="textColor" white="0.40000000000000002" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ic_link" translatesAutoresizingMaskIntoConstraints="NO" id="CYe-7R-PYM">
+                                                    <rect key="frame" x="230" y="73" width="15" height="15"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ic_link" translatesAutoresizingMaskIntoConstraints="NO" id="DaT-xr-txJ">
+                                                    <rect key="frame" x="162" y="73" width="15" height="15"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BT3-yh-tzP">
+                                                    <rect key="frame" x="108" y="71" width="73" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <connections>
+                                                        <action selector="btnDeveloperFangLiuAct:" destination="QXC-2X-qFS" eventType="touchUpInside" id="6do-4w-Uhc"/>
+                                                    </connections>
+                                                </button>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="设计: kevinlin007" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="teq-bm-848">
+                                                    <rect key="frame" x="65" y="96" width="212" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12.5"/>
+                                                    <color key="textColor" white="0.40000000000000002" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ic_link" translatesAutoresizingMaskIntoConstraints="NO" id="4oG-Lv-ajk">
+                                                    <rect key="frame" x="166" y="98" width="15" height="15"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZwE-Vf-1DU">
-                                                    <rect key="frame" x="145" y="42" width="105" height="22"/>
+                                                    <rect key="frame" x="95" y="97" width="90" height="20"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <connections>
                                                         <action selector="btnDeveloperkevinlin007Act:" destination="QXC-2X-qFS" eventType="touchUpInside" id="LWb-e7-Dxu"/>
                                                     </connections>
                                                 </button>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Maple, Yunzhu" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pVh-72-vO1">
-                                                    <rect key="frame" x="65" y="67" width="212" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="15"/>
-                                                    <color key="textColor" white="0.40000000000000002" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ic_link" translatesAutoresizingMaskIntoConstraints="NO" id="4oG-Lv-ajk">
-                                                    <rect key="frame" x="161" y="68" width="15" height="15"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                </imageView>
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Jz-R9-2iC">
-                                                    <rect key="frame" x="109" y="66" width="72" height="21"/>
+                                                    <rect key="frame" x="248" y="46" width="72" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <connections>
                                                         <action selector="btnDeveloperYunzhuAct:" destination="QXC-2X-qFS" eventType="touchUpInside" id="wad-82-P1S"/>
                                                     </connections>
                                                 </button>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BT3-yh-tzP">
-                                                    <rect key="frame" x="65" y="42" width="76" height="22"/>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vdx-IF-mhH">
+                                                    <rect key="frame" x="181" y="71" width="69" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <connections>
-                                                        <action selector="btnDeveloperFangLiuAct:" destination="QXC-2X-qFS" eventType="touchUpInside" id="6do-4w-Uhc"/>
+                                                        <action selector="btnDeveloperYunzhuAct:" destination="QXC-2X-qFS" eventType="touchUpInside" id="LPF-jb-G9F"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="55" id="efe-GJ-6mv">
-                                        <rect key="frame" x="0.0" y="369" width="320" height="55"/>
+                                        <rect key="frame" x="0.0" y="400" width="320" height="55"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="efe-GJ-6mv" id="s9z-NX-gWE">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="55"/>
@@ -358,7 +377,7 @@ Includes portions from BSMobileProvision:
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xms-Bg-faA">
-                                                    <rect key="frame" x="0.0" y="1" width="320" height="51"/>
+                                                    <rect key="frame" x="0.0" y="1" width="320" height="49"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                     <connections>
                                                         <action selector="btnAppStoreAct:" destination="QXC-2X-qFS" eventType="touchUpInside" id="Vwr-qI-hTS"/>
@@ -368,7 +387,7 @@ Includes portions from BSMobileProvision:
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="55" id="CGg-DT-JeJ">
-                                        <rect key="frame" x="0.0" y="424" width="320" height="55"/>
+                                        <rect key="frame" x="0.0" y="455" width="320" height="55"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="CGg-DT-JeJ" id="CLj-WX-utS">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="55"/>
@@ -386,7 +405,7 @@ Includes portions from BSMobileProvision:
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="342-iR-gh9">
-                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="48"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                     <connections>
                                                         <segue destination="Bii-dC-YJy" kind="show" id="Pub-DX-YJg"/>
@@ -651,7 +670,7 @@ Includes portions from BSMobileProvision:
         <scene sceneID="EKd-pt-Tmg">
             <objects>
                 <tableViewController title="Grades Filter" id="nsN-e8-HU2" customClass="GradeFiltersViewController" customModule="sa_ios" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="nf8-1A-dS3">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" allowsMultipleSelection="YES" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="nf8-1A-dS3">
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
@@ -680,11 +699,18 @@ Includes portions from BSMobileProvision:
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="成绩筛选" id="m0r-RU-fwb">
-                        <barButtonItem key="rightBarButtonItem" title="重置" id="a9B-xr-gIk">
-                            <connections>
-                                <action selector="btnResetAction:" destination="nsN-e8-HU2" id="vf0-lU-ndI"/>
-                            </connections>
-                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem title="确定" id="lTy-Fw-ktg">
+                                <connections>
+                                    <action selector="btnApplyAction:" destination="nsN-e8-HU2" id="bkW-d8-sLw"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem title="重置" id="a9B-xr-gIk">
+                                <connections>
+                                    <action selector="btnResetAction:" destination="nsN-e8-HU2" id="vf0-lU-ndI"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TnS-HN-ff1" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1441,7 +1467,7 @@ Includes portions from BSMobileProvision:
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="qYF-87-l3N">
-                                                    <rect key="frame" x="8" y="8" width="304" height="270"/>
+                                                    <rect key="frame" x="8" y="8" width="304" height="272"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>

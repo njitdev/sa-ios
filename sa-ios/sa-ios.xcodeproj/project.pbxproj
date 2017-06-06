@@ -45,7 +45,7 @@
 		7913B1EC1E7E2D070030281C /* sa-ios-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "sa-ios-Bridging-Header.h"; sourceTree = "<group>"; };
 		791DED441EAEF5EF007FF646 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		791DED471EAF0161007FF646 /* MessageBoardModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageBoardModels.swift; sourceTree = "<group>"; };
-		791DED491EAF01A6007FF646 /* SchoolSystemModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SchoolSystemModels.swift; sourceTree = "<group>"; };
+		791DED491EAF01A6007FF646 /* SchoolSystemModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = SchoolSystemModels.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		792B7FE41E82263F00E8E309 /* SAGlobal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SAGlobal.swift; sourceTree = "<group>"; };
 		792B7FE61E82268300E8E309 /* SAConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SAConfig.swift; sourceTree = "<group>"; };
 		792BC7241EB1BCAC00B441FF /* GradesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradesViewController.swift; sourceTree = "<group>"; };
@@ -68,11 +68,11 @@
 		79AF926A1E73A6800091B535 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		79AF926C1E73A6800091B535 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		79AF92741E73E1D20091B535 /* MessageBoardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageBoardViewController.swift; sourceTree = "<group>"; };
-		79BCB0D91EDAC10500614C45 /* LibraryModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LibraryModels.swift; sourceTree = "<group>"; };
+		79BCB0D91EDAC10500614C45 /* LibraryModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = LibraryModels.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		79BCB0DB1EDACFE600614C45 /* BookDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookDetailsViewController.swift; sourceTree = "<group>"; };
 		79BCB0DD1EDAD1B400614C45 /* BookInventoryTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookInventoryTableCell.swift; sourceTree = "<group>"; };
 		79BCB0DF1EDB734B00614C45 /* AnnouncemtnesArticleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnnouncemtnesArticleViewController.swift; sourceTree = "<group>"; };
-		79BCB0E11EDB74C700614C45 /* AnnouncementsModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnnouncementsModels.swift; sourceTree = "<group>"; };
+		79BCB0E11EDB74C700614C45 /* AnnouncementsModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = AnnouncementsModels.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		79D11D421EAD69C500F63C09 /* NewPostViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewPostViewController.swift; sourceTree = "<group>"; };
 		79D581251EB6BC95007F7E99 /* ExamScheduleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExamScheduleViewController.swift; sourceTree = "<group>"; };
 		79D6323A1E80EAA000328C0D /* MessageBoardListCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageBoardListCell.swift; sourceTree = "<group>"; };

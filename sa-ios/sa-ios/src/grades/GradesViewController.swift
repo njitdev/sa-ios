@@ -57,7 +57,7 @@ class GradesViewController: GAITrackedViewController, UITableViewDelegate, UITab
         self.lblPassed.text = "\(passed) / \(self.data_grades_filtered.count)"
 
         // Compute and display GPA
-        self.lblGPA.text = String(format: "估算绩点: %0.3f", self.computeGPA())
+        self.lblGPA.text = String(format: "估算绩点: %0.4f", self.computeGPA())
 
         // Reload table
         self.tblGrades.reloadData()
@@ -88,12 +88,13 @@ class GradesViewController: GAITrackedViewController, UITableViewDelegate, UITab
         for g in self.data_grades_filtered {
             let score = processScore(g.score)
             if let credits = Float(g.credits) {
-                let gp = Float(Int((score - 50) / 10)) + 0.1 * Float(score % 10)
+                var gp = Float(Int((score - 50) / 10)) + 0.1 * Float(score % 10)
+                if (score < 60) { gp = 0 }
+                if let req = g.course_isrequired { if (gp == 0 && req == "选修") { continue } }
                 weighted_sum += gp * credits
                 credits_sum += credits
             }
         }
-
         return weighted_sum / credits_sum
     }
 

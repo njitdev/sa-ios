@@ -44,7 +44,7 @@ class NewPostViewController: UITableViewController {
     @IBAction func btnSendAction(_ sender: Any) {
         if (txtUserName.text!.characters.count <= 0 ||
             txtText.text.characters.count <= 0) {
-            SAUtils.alert(viewController: self, title: "新留言", message: "昵称和留言是必填内容");
+            SAUtils.alert(viewController: self, title: "新留言 📝", message: "昵称和留言是必填内容");
             return;
         }
 
@@ -67,7 +67,7 @@ class NewPostViewController: UITableViewController {
                 // Return to list view (and refresh)
                 self.navigationController?.popViewController(animated: true);
             } else {
-                SAUtils.alert(viewController: self, title: "发送失败", message: message);
+                SAUtils.alert(viewController: self, title: "发送失败 😛", message: message);
             }
         }
     }

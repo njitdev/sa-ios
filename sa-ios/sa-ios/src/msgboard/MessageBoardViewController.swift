@@ -77,7 +77,7 @@ class MessageBoardViewController: GAITrackedViewController, UITableViewDelegate,
 
             // Failure
             if (posts == nil) {
-                SAUtils.alert(viewController: self, title: "获取数据失败", message: message)
+                SAUtils.alert(viewController: self, title: "出错啦~~ 😛", message: message)
                 // Do not update local state
                 return
             }

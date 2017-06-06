@@ -41,10 +41,10 @@ class SchoolSystemModels: NSObject {
                 if resp_obj?.auth_result == true {
                     completionHandler(resp_obj!.session_id!, "ok")
                 } else {
-                    completionHandler(nil, "请检查用户名和密码")
+                    completionHandler(nil, "请检查用户名和密码，或教务系统网络维护，请稍后再试")
                 }
             default:
-                completionHandler(nil, "网络通信错误")
+                completionHandler(nil, "连接学校服务器超时")
             }
         }
     }
@@ -62,7 +62,7 @@ class SchoolSystemModels: NSObject {
             case .success(_):
                 completionHandler(response.result.value, "ok")
             default:
-                completionHandler(nil, "网络通信错误")
+                completionHandler(nil, "连接学校服务器超时")
             }
         }
     }
@@ -80,7 +80,7 @@ class SchoolSystemModels: NSObject {
             case .success(_):
                 completionHandler(response.result.value, "ok")
             default:
-                completionHandler(nil, "网络通信错误")
+                completionHandler(nil, "连接学校服务器超时")
             }
         }
     }
@@ -111,7 +111,7 @@ class SchoolSystemModels: NSObject {
             case .success(_):
                 completionHandler(response.result.value, "ok")
             default:
-                completionHandler(nil, "网络通信错误")
+                completionHandler(nil, "连接学校服务器超时")
             }
         }
     }
