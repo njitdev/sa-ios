@@ -64,8 +64,8 @@ class GradesViewController: GAITrackedViewController, UITableViewDelegate, UITab
     }
 
     private func processScore(_ score: String) -> Int {
-        if score == "合格" {
-            return 60
+        if score == "合格" || score == "及格" {
+            return 65
         } else if score == "中等" {
             return 75
         } else if score == "良好" {
@@ -90,7 +90,6 @@ class GradesViewController: GAITrackedViewController, UITableViewDelegate, UITab
             if let credits = Float(g.credits) {
                 var gp = Float(Int((score - 50) / 10)) + 0.1 * Float(score % 10)
                 if (score < 60) { gp = 0 }
-                if let req = g.course_isrequired { if (gp == 0 && req == "选修") { continue } }
                 weighted_sum += gp * credits
                 credits_sum += credits
             }
