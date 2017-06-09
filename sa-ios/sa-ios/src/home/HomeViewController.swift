@@ -42,7 +42,7 @@ class HomeViewController: UITableViewController {
 
     // School system data
     private var data_student_basic_info: StudentBasicInfo?
-    private var data_classes: [ClassSession]?
+    private var data_classes: ClassData?
     private var data_grades: [GradeItem]?
 
     // MARK: UI events
@@ -114,7 +114,7 @@ class HomeViewController: UITableViewController {
         if let classes = data_classes {
             lblClassScheduleTitle.center.y = 24.5
             lblClassScheduleSubtitle.isHidden = false
-            let cnt = SchoolSystemModels.classSessions(data: classes, dayInWeek: SAUtils.dayOfWeek()).count
+            let cnt = SchoolSystemModels.classSessions(data: classes.classes[classes.current_week], dayInWeek: SAUtils.dayOfWeek()).count
             if (cnt == 0) {
                 lblClassScheduleSubtitle.text = "今日课程: 无 🎉"
             } else {
@@ -142,7 +142,7 @@ class HomeViewController: UITableViewController {
         }
 
         if let json = SAUtils.readLocalKVStore(key: "data_classes") {
-            self.data_classes = [ClassSession](JSONString: json)
+            self.data_classes = ClassData(JSONString: json)
         }
 
         if let json = SAUtils.readLocalKVStore(key: "data_grades") {
@@ -271,7 +271,7 @@ class HomeViewController: UITableViewController {
         var total = 2, completed = 0
 
         // Fetch clases
-        SchoolSystemModels.classScheduleCurrentWeek(session_id: session_id, student_id: nil) { (data, message) in
+        SchoolSystemModels.classSchedule(session_id: session_id, student_id: nil) { (data, message) in
 
             self.actClassSchedule.stopAnimating()
 
@@ -281,7 +281,7 @@ class HomeViewController: UITableViewController {
                 self.title = SAConfig.appName;
             }
 
-            if let classes: [ClassSession] = data {
+            if let classes: ClassData = data {
                 SAUtils.writeLocalKVStore(key: "data_classes", val: classes.toJSONString())
                 self.data_classes = classes
             } else {

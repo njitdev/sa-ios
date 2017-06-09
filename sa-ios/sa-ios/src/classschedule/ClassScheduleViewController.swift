@@ -20,9 +20,13 @@ import UIKit
 
 class ClassScheduleViewController: GAITrackedViewController, UITableViewDelegate, UITableViewDataSource {
 
+    @IBOutlet weak var btnPrevWeek: UIBarButtonItem!
+    @IBOutlet weak var btnNextWeek: UIBarButtonItem!
     @IBOutlet weak var tableView: UITableView!
 
-    var data_classes: [ClassSession] = []
+    var data_classes: ClassData!
+    private var data_classes_display_week: [ClassSession] = []
+    private var data_display_week = 0
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,6 +36,27 @@ class ClassScheduleViewController: GAITrackedViewController, UITableViewDelegate
 
         tableView.delegate = self
         tableView.dataSource = self
+
+        data_display_week = data_classes.current_week
+        displayClasses()
+    }
+
+    @IBAction func btnPrevWeekAct(_ sender: Any) {
+        if data_display_week <= 1 { return }
+        data_display_week -= 1
+        displayClasses()
+    }
+
+    @IBAction func btnNextWeekAct(_ sender: Any) {
+        if data_display_week >= (data_classes.classes.count - 1) { return }
+        data_display_week += 1
+        displayClasses()
+    }
+
+    func displayClasses() {
+        data_classes_display_week = data_classes.classes[data_display_week]
+        tableView.reloadData()
+        self.navigationItem.title = "课表 (\(data_display_week)周)"
     }
 
     // MARK: - UITableView
@@ -61,13 +86,13 @@ class ClassScheduleViewController: GAITrackedViewController, UITableViewDelegate
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return SchoolSystemModels.classSessions(data: data_classes, dayInWeek: section + 1).count
+        return SchoolSystemModels.classSessions(data: data_classes_display_week, dayInWeek: section + 1).count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ClassSessionTableCell", for: indexPath) as! ClassSessionTableCell
 
-        let sessions = SchoolSystemModels.classSessions(data: data_classes, dayInWeek: indexPath.section + 1)
+        let sessions = SchoolSystemModels.classSessions(data: data_classes_display_week, dayInWeek: indexPath.section + 1)
         let session = sessions[indexPath.row]
 
         cell.lblTitle.text = session.title
@@ -79,7 +104,7 @@ class ClassScheduleViewController: GAITrackedViewController, UITableViewDelegate
         let nums = session.classes_in_day.components(separatedBy: ",")
         for num in nums {
             if let n = Int(num) {
-                session_text.append("\(n)-")
+                session_text.append("\(n),")
             }
         }
         if !session_text.isEmpty {

@@ -67,15 +67,15 @@ class SchoolSystemModels: NSObject {
         }
     }
 
-    // Get class schedule, current week
-    static func classScheduleCurrentWeek(session_id: String, student_id: String?,
-                                         completionHandler: @escaping ([ClassSession]?, String) -> Void) {
+    // Get class schedule, current term
+    static func classSchedule(session_id: String, student_id: String?,
+                              completionHandler: @escaping (ClassData?, String) -> Void) {
         // Prepare parameters
         var params: Parameters = ["session_id": session_id];
         if let v = student_id { params["student_id"] = v }
 
         // Make request
-        Alamofire.request(self.apiBaseURL + "/class/current-week", parameters: params).responseArray(keyPath: "result") { (response: DataResponse<[ClassSession]>) in
+        Alamofire.request(self.apiBaseURL + "/class/term", parameters: params).responseObject(keyPath: "result") { (response: DataResponse<ClassData>) in
             switch response.result {
             case .success(_):
                 completionHandler(response.result.value, "ok")
@@ -89,10 +89,8 @@ class SchoolSystemModels: NSObject {
     static func classSessions(data: [ClassSession], dayInWeek: Int) -> [ClassSession] {
         var result: [ClassSession] = []
         for session in data {
-            if let day = Int(session.day_of_week) {
-                if day == dayInWeek {
-                    result.append(session)
-                }
+            if dayInWeek == session.day_of_week {
+                result.append(session)
             }
         }
         return result.sorted { $0.classes_in_day < $1.classes_in_day }
@@ -151,8 +149,21 @@ class StudentBasicInfo: Mappable {
     }
 }
 
+class ClassData: Mappable {
+    var current_week: Int!
+    var classes: [[ClassSession]]!
+
+    required init?(map: Map) {}
+
+    func mapping(map: Map) {
+        current_week <- map["current_week"]
+        classes      <- map["classes"]
+    }
+}
+
 class ClassSession: Mappable {
-    var day_of_week: String!
+    var week: Int!
+    var day_of_week: Int!
     var classes_in_day: String!
     var title: String!
     var instructor: String!
@@ -162,6 +173,7 @@ class ClassSession: Mappable {
     required init?(map: Map) {}
 
     func mapping(map: Map) {
+        week           <- map["week"]
         day_of_week    <- map["day_of_week"]
         classes_in_day <- map["classes_in_day"]
         title          <- map["title"]
