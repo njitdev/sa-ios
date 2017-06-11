@@ -1,0 +1,6 @@
+framework module Pods_sa_ios_class_today {
+  umbrella header "Pods-sa-ios-class-today-umbrella.h"
+
+  export *
+  module * { export * }
+}

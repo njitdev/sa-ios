@@ -1,5 +1,5 @@
 # Uncomment the next line to define a global platform for your project
-platform :ios, '9.0'
+platform :ios, '8.0'
 
 target 'sa-ios' do
   # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
@@ -13,3 +13,14 @@ target 'sa-ios' do
   pod 'Sentry', :git => 'https://github.com/getsentry/sentry-swift.git', :tag => '2.1.9'
   pod 'OneSignal', '>= 2.5.2', '< 3.0'
 end
+
+target 'sa-ios-class-today' do
+  # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
+  use_frameworks!
+
+  # Pods for sa-ios
+  pod 'GoogleAnalytics', '~> 3.17.0'
+  pod 'Alamofire', '~> 4.4'
+  pod 'AlamofireObjectMapper', '~> 4.0'
+end
+

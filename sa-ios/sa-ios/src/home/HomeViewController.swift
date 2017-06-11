@@ -90,12 +90,12 @@ class HomeViewController: UITableViewController {
         autoUpdateData()
     }
 
-    func enableActionButtons(_ enable: Bool) {
+    private func enableActionButtons(_ enable: Bool) {
         btnRefresh.isEnabled = enable
         btnLogin.isEnabled = enable
     }
 
-    func displaySchoolSystemData() {
+    private func displaySchoolSystemData() {
         if let basic_info = self.data_student_basic_info {
             btnLogin.setTitle("重新登录", for: UIControlState.normal)
 
@@ -136,7 +136,7 @@ class HomeViewController: UITableViewController {
     }
 
     // MARK: Data management
-    func loadCachedData() {
+    private func loadCachedData() {
         if let json = SAUtils.readLocalKVStore(key: "data_student_basic_info") {
             self.data_student_basic_info = StudentBasicInfo(JSONString: json)
         }
@@ -152,7 +152,7 @@ class HomeViewController: UITableViewController {
         self.displaySchoolSystemData()
     }
 
-    func autoUpdateData() {
+    private func autoUpdateData() {
         // 1. If session_id changed (new login or app startup), fetch basic info
         // 2. If successful, continue to fetch all data
         // 3. If failure, attempt to login
@@ -201,7 +201,7 @@ class HomeViewController: UITableViewController {
         }
     }
 
-    func fetchBasicInfo(session_id: String, student_id: String?, completionHandler: @escaping (Bool) -> Void) {
+    private func fetchBasicInfo(session_id: String, student_id: String?, completionHandler: @escaping (Bool) -> Void) {
         self.title = "正在更新数据..."
         self.actLogin.startAnimating()
 
@@ -223,7 +223,7 @@ class HomeViewController: UITableViewController {
         }
     }
 
-    func loginWithSavedCredentials(completionHandler: @escaping (Bool) -> Void) {
+    private func loginWithSavedCredentials(completionHandler: @escaping (Bool) -> Void) {
         // Read saved credentials
         if let student_login = SAUtils.readLocalKVStore(key: "student_login"),
            let student_password = SAUtils.readLocalKVStore(key: "student_password") {
@@ -259,7 +259,7 @@ class HomeViewController: UITableViewController {
         }
     }
 
-    func fetchAndDisplayAllSchoolSystemData() {
+    private func fetchAndDisplayAllSchoolSystemData() {
         // UI Loading state
         self.title = "正在更新数据..."
         actGrades.startAnimating()

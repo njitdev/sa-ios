@@ -31,15 +31,18 @@ class SAUtils: NSObject {
     // MARK: Local Storage
     // Read KV store
     public static func readLocalKVStore(key: String) -> String? {
-        let defaults = UserDefaults.standard
-        return defaults.string(forKey: key)
+        if let defaults = UserDefaults(suiteName: SAConfig.appGroupsSuiteName) {
+            return defaults.string(forKey: key)
+        }
+        return nil
     }
 
     // Write KV store
     public static func writeLocalKVStore(key: String, val: String?) {
         if val == nil { return }
-        let defaults = UserDefaults.standard
-        defaults.set(val, forKey: key)
+        if let defaults = UserDefaults(suiteName: SAConfig.appGroupsSuiteName) {
+            defaults.set(val, forKey: key)
+        }
     }
 
     // MARK: Others
@@ -57,6 +60,7 @@ class SAUtils: NSObject {
         }
     }
 
+#if !TARGET_IS_EXTENSION
     // Google Analytics: Send screen view event
     public static func GAISendScreenView(_ screenName: String) {
         // Google Analytics
@@ -66,6 +70,15 @@ class SAUtils: NSObject {
         tracker?.send(build)
     }
 
+    // Open a URL
+    public static func openURL(url: String) {
+        if let url = URL(string: url) {
+            if UIApplication.shared.canOpenURL(url) {
+                UIApplication.shared.openURL(url)
+            }
+        }
+    }
+#endif
 
     // Generate random string
     public static func randomString(length: Int) -> String {
@@ -78,15 +91,6 @@ class SAUtils: NSObject {
             randomString += NSString(characters: &nextChar, length: 1) as String
         }
         return randomString
-    }
-
-    // Open a URL
-    public static func openURL(url: String) {
-        if let url = URL(string: url) {
-            if UIApplication.shared.canOpenURL(url) {
-                UIApplication.shared.openURL(url)
-            }
-        }
     }
 
     // Get day of week

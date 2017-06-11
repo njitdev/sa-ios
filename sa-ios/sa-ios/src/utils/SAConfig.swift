@@ -20,10 +20,16 @@ import UIKit
 
 class SAConfig: NSObject {
     public static let appName = "MyGDUT"
-    public static let APIBaseURL = "https://sa-api-prd.njitdev.com"
-//    public static let APIBaseURL = "https://sa-api-dev.njitdev.com"
+
+#if DEBUG
+    public static let APIBaseURL = "https://sa-api-dev.njitdev.com"
 //    public static let APIBaseURL = "http://127.0.0.1:8000"
+#else
+    public static let APIBaseURL = "https://sa-api-prd.njitdev.com"
+#endif
+
     public static let schoolIdentifier = "gdut"
+    public static let appGroupsSuiteName = "group.com.njitdev.sa-ios." + SAConfig.schoolIdentifier
 
     // 3rd party libraries
     public static let sentryClientKey = "https://63cb6cff1db447298fc2960f52382072:34fa1440cdda48009ae3cddf66d96127@sentry.io/154188"
