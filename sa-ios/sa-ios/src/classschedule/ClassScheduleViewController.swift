@@ -54,7 +54,12 @@ class ClassScheduleViewController: GAITrackedViewController, UITableViewDelegate
     }
 
     func displayClasses() {
-        data_classes_display_week = data_classes.classes[data_display_week]
+        if (data_display_week >= data_classes.classes.count) {
+            data_classes_display_week = []
+        } else {
+            data_classes_display_week = data_classes.classes[data_display_week]
+        }
+
         tableView.reloadData()
         self.navigationItem.title = "课表 (\(data_display_week)周)"
     }

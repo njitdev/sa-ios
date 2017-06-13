@@ -60,7 +60,13 @@ class TodayViewController: UIViewController, NCWidgetProviding, UITableViewDeleg
     private func displayClassData() {
         // Extract today's sessions
         let data_classes = self.data_classes!
-        let current_week = data_classes.classes[data_classes.current_week]
+
+        // Index out-of-bound bug
+        var current_week: [ClassSession] = []
+        if (data_classes.current_week < data_classes.classes.count) {
+            current_week = data_classes.classes[data_classes.current_week]
+        }
+
         self.data_today_sessions = SchoolSystemModels.classSessions(data: current_week, dayInWeek: SAUtils.dayOfWeek())
         if self.data_today_sessions.count == 0 {
             self.lblCenter.text = "没有课 🎉"
@@ -179,6 +185,8 @@ class TodayViewController: UIViewController, NCWidgetProviding, UITableViewDeleg
         let session = data_today_sessions[indexPath.row]
         if let lblTitle = cell.textLabel {
             lblTitle.textColor = UIColor.darkGray
+            lblTitle.font = UIFont.systemFont(ofSize: 14)
+            lblTitle.minimumScaleFactor = 0.5
 
             // Re-format session text
             var session_text = ""

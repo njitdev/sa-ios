@@ -114,7 +114,14 @@ class HomeViewController: UITableViewController {
         if let classes = data_classes {
             lblClassScheduleTitle.center.y = 24.5
             lblClassScheduleSubtitle.isHidden = false
-            let cnt = SchoolSystemModels.classSessions(data: classes.classes[classes.current_week], dayInWeek: SAUtils.dayOfWeek()).count
+
+            // Index out-of-bound bug
+            var _current_week: [ClassSession] = []
+            if (classes.current_week < classes.classes.count) {
+                _current_week = classes.classes[classes.current_week]
+            }
+
+            let cnt = SchoolSystemModels.classSessions(data: _current_week, dayInWeek: SAUtils.dayOfWeek()).count
             if (cnt == 0) {
                 lblClassScheduleSubtitle.text = "今日课程: 无 🎉"
             } else {
