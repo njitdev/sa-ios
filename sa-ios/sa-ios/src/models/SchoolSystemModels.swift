@@ -25,26 +25,58 @@ class SchoolSystemModels: NSObject {
     // School system base URL
     private static let apiBaseURL = SAConfig.APIBaseURL + "/school/" + SAConfig.schoolIdentifier
 
+    // Initialize authentication
+    static func initAuth(completionHandler: @escaping (Bool?, String?, String) -> Void) {
+        // Make request
+        Alamofire.request(self.apiBaseURL + "/auth/init", method: .get).responseObject { (response: DataResponse<AuthInitResponse>) in
+            switch response.result {
+            case .success(_):
+                if let resp_obj = response.result.value {
+                    completionHandler(resp_obj.captcha_enabled, resp_obj.session_id, resp_obj.message)
+                }
+            default:
+                completionHandler(nil, nil, "教务系统太烂无法通信，请稍后再试")
+            }
+        }
+    }
+
+    // Download captcha and return a UIImage
+    static func fetchCaptcha(session_id: String, completionHandler: @escaping (UIImage?, String) -> Void) {
+        // Prepare parameters
+        let params: Parameters = ["session_id": session_id];
+
+        // Make request
+        Alamofire.request(self.apiBaseURL + "/auth/captcha", parameters: params).response { response in
+            if let data = response.data {
+                completionHandler (UIImage(data: data), "ok")
+            } else {
+                completionHandler (nil, "验证码获取失败")
+            }
+        }
+    }
+
     // Submit login info
     // Responds with a session_id
-    static func submitAuthInfo(installation_id: String, student_login: String, student_password: String, captcha: String?,
-                               completionHandler: @escaping (String?, String) -> Void) {
+    static func submitAuthInfo(installation_id: String, session_id: String?, student_login: String, student_password: String, captcha: String?,
+                               completionHandler: @escaping (Bool, String?, String) -> Void) {
         // Prepare parameters
-        var params: Parameters = ["installation_id": installation_id, "student_login": student_login, "student_password": student_password];
+        var params: Parameters = ["installation_id": installation_id, "student_login": student_login, "student_password": student_password]
+        if let v = session_id { params["session_id"] = v }
         if let v = captcha { params["captcha"] = v }
 
         // Make request
         Alamofire.request(self.apiBaseURL + "/auth/submit", method: .post, parameters: params).responseObject { (response: DataResponse<AuthSubmitResponse>) in
             switch response.result {
             case .success(_):
-                let resp_obj = response.result.value
-                if resp_obj?.auth_result == true {
-                    completionHandler(resp_obj!.session_id!, "ok")
-                } else {
-                    completionHandler(nil, "请检查用户名和密码，或教务系统网络维护，请稍后再试")
+                if let resp_obj = response.result.value {
+                    if resp_obj.auth_result == true {
+                        completionHandler(true, resp_obj.session_id, "ok")
+                    } else {
+                        completionHandler(false, nil, "可能因为用户名密码不正确，或教务系统太烂无法通信，请稍后再试")
+                    }
                 }
             default:
-                completionHandler(nil, "连接学校服务器超时")
+                completionHandler(false, nil, "连接学校服务器超时")
             }
         }
     }
@@ -112,6 +144,20 @@ class SchoolSystemModels: NSObject {
                 completionHandler(nil, "连接学校服务器超时")
             }
         }
+    }
+}
+
+class AuthInitResponse: Mappable {
+    var session_id: String?
+    var captcha_enabled: Bool!
+    var message: String!
+
+    required init?(map: Map) {}
+
+    func mapping(map: Map) {
+        session_id      <- map["result.session_id"]
+        captcha_enabled <- map["result.captcha_enabled"]
+        message         <- map["message"]
     }
 }
 

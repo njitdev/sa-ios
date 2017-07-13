@@ -22,9 +22,14 @@ class LoginViewController: UITableViewController {
 
     @IBOutlet weak var txtStudentLogin: UITextField!
     @IBOutlet weak var txtStudentPassword: UITextField!
-    @IBOutlet weak var swAutoLogin: UISwitch!
+    @IBOutlet weak var tblCellCaptcha: UITableViewCell!
+    @IBOutlet weak var txtCaptcha: UITextField!
+    @IBOutlet weak var imgCaptcha: UIImageView!
     @IBOutlet weak var btnLogin: UIButton!
     @IBOutlet weak var actBusy: UIActivityIndicatorView!
+
+    private var captchaEnabled: Bool = false
+    private var temp_session_id: String?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,7 +44,42 @@ class LoginViewController: UITableViewController {
             txtStudentPassword.text = student_password
         }
 
-        autoEnableLoginButton();
+        // Init auth
+        authInit()
+    }
+
+    private func authInit() {
+        setBusyState(true)
+        SchoolSystemModels.initAuth { (captchaEnabled, session_id, message) in
+            self.setBusyState(false)
+            if let session_id = session_id, let captchaEnabled = captchaEnabled {
+                self.temp_session_id = session_id
+
+                self.captchaEnabled = captchaEnabled
+                if captchaEnabled {
+                    self.fetchCaptcha()
+                } else {
+                    self.txtCaptcha.placeholder = "无需验证码"
+                    self.tblCellCaptcha.isUserInteractionEnabled = false
+                }
+            } else {
+                SAUtils.alert(viewController: self, title: "登录信息获取失败", message: message)
+            }
+        }
+    }
+
+    private func fetchCaptcha() {
+        if let session_id = temp_session_id {
+            setBusyState(true)
+            SchoolSystemModels.fetchCaptcha(session_id: session_id, completionHandler: { (captcha, message) in
+                self.setBusyState(false)
+                if let captcha = captcha {
+                    self.imgCaptcha.image = captcha
+                } else {
+                    SAUtils.alert(viewController: self, title: "登录信息获取失败", message: message)
+                }
+            })
+        }
     }
 
     @IBAction func txtStudentLoginPrimaryAction(_ sender: Any) {
@@ -47,7 +87,17 @@ class LoginViewController: UITableViewController {
     }
 
     @IBAction func txtStudentPasswordPrimaryAction(_ sender: Any) {
-        if (btnLogin.isEnabled) {
+        if !captchaEnabled && btnLogin.isEnabled {
+            self.btnLoginAction(btnLogin)
+        }
+
+        if captchaEnabled {
+            self.txtCaptcha.becomeFirstResponder()
+        }
+    }
+
+    @IBAction func txtCaptchaPrimaryAction(_ sender: Any) {
+        if captchaEnabled && btnLogin.isEnabled {
             self.btnLoginAction(btnLogin)
         }
     }
@@ -56,20 +106,28 @@ class LoginViewController: UITableViewController {
         autoEnableLoginButton();
     }
 
-    @IBAction func btnLoginAction(_ sender: Any) {
-        self.setBusyState(true)
+    @IBAction func btnFetchCaptchaAction(_ sender: Any) {
+        fetchCaptcha()
+    }
 
-        SchoolSystemModels.submitAuthInfo(installation_id: SAGlobal.installation_id, student_login: txtStudentLogin.text!, student_password: txtStudentPassword.text!, captcha: nil) { (session_id, message) in
+    @IBAction func btnLoginAction(_ sender: Any) {
+        setBusyState(true)
+
+        SchoolSystemModels.submitAuthInfo(installation_id: SAGlobal.installation_id, session_id: self.temp_session_id, student_login: txtStudentLogin.text!, student_password: txtStudentPassword.text!, captcha: txtCaptcha.text) { (success, session_id, message) in
             self.setBusyState(false)
 
-            if session_id != nil {
+            if success {
                 // Set session_id
-                SAGlobal.student_session_id = session_id!
+                if session_id != nil {
+                    SAGlobal.student_session_id = session_id
+                } else {
+                    SAGlobal.student_session_id = self.temp_session_id
+                }
 
                 // Save credentials
                 SAUtils.writeLocalKVStore(key: "student_login", val: self.txtStudentLogin.text!)
                 SAUtils.writeLocalKVStore(key: "student_password", val: self.txtStudentPassword.text!)
-                SAUtils.writeLocalKVStore(key: "student_session_id", val: session_id)
+                SAUtils.writeLocalKVStore(key: "student_session_id", val: SAGlobal.student_session_id)
 
                 // Return to home page
                 self.navigationController?.popViewController(animated: true)
@@ -91,6 +149,11 @@ class LoginViewController: UITableViewController {
     func setBusyState(_ busy: Bool) {
         self.tableView.isUserInteractionEnabled = !busy
         btnLogin.isEnabled = !busy
-        busy ? actBusy.startAnimating() : actBusy.stopAnimating()
+        if busy {
+            actBusy.startAnimating()
+        } else {
+            actBusy.stopAnimating()
+            autoEnableLoginButton()
+        }
     }
 }

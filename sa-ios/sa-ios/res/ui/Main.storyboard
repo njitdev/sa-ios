@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="VxW-KH-cjZ">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F2104" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="VxW-KH-cjZ">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
@@ -377,7 +378,7 @@ Includes portions from BSMobileProvision:
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xms-Bg-faA">
-                                                    <rect key="frame" x="0.0" y="1" width="320" height="48"/>
+                                                    <rect key="frame" x="0.0" y="1" width="320" height="46"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                     <connections>
                                                         <action selector="btnAppStoreAct:" destination="QXC-2X-qFS" eventType="touchUpInside" id="Vwr-qI-hTS"/>
@@ -405,7 +406,7 @@ Includes portions from BSMobileProvision:
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="342-iR-gh9">
-                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="47"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="45"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                     <connections>
                                                         <segue destination="Bii-dC-YJy" kind="show" id="Pub-DX-YJg"/>
@@ -484,12 +485,45 @@ Includes portions from BSMobileProvision:
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="HSU-1c-Ggi">
+                                        <rect key="frame" x="0.0" y="144" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="HSU-1c-Ggi" id="uhX-mt-rkT">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="验证码" textAlignment="natural" minimumFontSize="12" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="msD-lH-n7z">
+                                                    <rect key="frame" x="15" y="0.0" width="217" height="44"/>
+                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                                    <nil key="textColor"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="alphabet" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
+                                                    <connections>
+                                                        <action selector="txtCaptchaPrimaryAction:" destination="rGu-E6-fNQ" eventType="primaryActionTriggered" id="pZz-jY-iEt"/>
+                                                        <action selector="txtStudentPasswordPrimaryAction:" destination="rGu-E6-fNQ" eventType="primaryActionTriggered" id="fzO-Vj-RIV"/>
+                                                        <action selector="txtValueChanged:" destination="rGu-E6-fNQ" eventType="editingChanged" id="meu-Yd-z3l"/>
+                                                    </connections>
+                                                </textField>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ypB-l3-tqQ">
+                                                    <rect key="frame" x="240" y="6" width="70" height="30"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mS2-K3-kdG">
+                                                    <rect key="frame" x="240" y="6" width="70" height="30"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                                                    <connections>
+                                                        <action selector="btnFetchCaptchaAction:" destination="rGu-E6-fNQ" eventType="touchUpInside" id="NCa-Ym-X87"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
                                 </cells>
                             </tableViewSection>
                             <tableViewSection id="mrN-nR-sOm">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="6QV-nd-FCJ">
-                                        <rect key="frame" x="0.0" y="180" width="320" height="44"/>
+                                        <rect key="frame" x="0.0" y="224" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="6QV-nd-FCJ" id="DaU-mo-W8a">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
@@ -525,13 +559,16 @@ Includes portions from BSMobileProvision:
                     <connections>
                         <outlet property="actBusy" destination="HUc-16-DjY" id="MBZ-Ej-7kd"/>
                         <outlet property="btnLogin" destination="6MH-v8-0Qc" id="HYt-iA-z9r"/>
+                        <outlet property="imgCaptcha" destination="ypB-l3-tqQ" id="pOg-6x-cPw"/>
+                        <outlet property="tblCellCaptcha" destination="HSU-1c-Ggi" id="gAM-ZU-aHG"/>
+                        <outlet property="txtCaptcha" destination="msD-lH-n7z" id="alB-uR-lNb"/>
                         <outlet property="txtStudentLogin" destination="Szd-se-qA3" id="Rou-73-jbU"/>
                         <outlet property="txtStudentPassword" destination="cjn-iM-Zbs" id="8so-vB-eGG"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KTU-Vh-KkC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="291" y="-704"/>
+            <point key="canvasLocation" x="290.625" y="-704.57746478873241"/>
         </scene>
         <!--Grades-->
         <scene sceneID="FLq-m5-MiG">
@@ -1482,7 +1519,7 @@ Includes portions from BSMobileProvision:
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="qYF-87-l3N">
-                                                    <rect key="frame" x="8" y="8" width="304" height="273"/>
+                                                    <rect key="frame" x="8" y="8" width="304" height="275"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>

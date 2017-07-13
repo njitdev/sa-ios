@@ -83,8 +83,10 @@ class TodayViewController: UIViewController, NCWidgetProviding, UITableViewDeleg
         // Check if saved student_login / password available
         let student_login = SAUtils.readLocalKVStore(key: "student_login")
         let student_password = SAUtils.readLocalKVStore(key: "student_password")
+        let student_session_id = SAUtils.readLocalKVStore(key: "student_session_id")
+        SAGlobal.student_session_id = student_session_id
 
-        if student_login == nil || student_password == nil {
+        if student_login == nil || student_password == nil || SAGlobal.student_session_id == nil {
             lblCenter.text = "请先使用 MyGDUT App 登录"
             completionHandler(NCUpdateResult.newData)
             return
@@ -111,33 +113,35 @@ class TodayViewController: UIViewController, NCWidgetProviding, UITableViewDeleg
         SAUtils.initInstallationID()
 
         // Login
-        loginWithSavedCredentials(student_login: student_login!, student_password: student_password!) { (success) in
-            if success {
-                // Logged in, fetch class schedule
-                self.fetchClassSchedule(completionHandler: { (success) in
-                    if success {
-                        // Cache data
-                        SAUtils.writeLocalKVStore(key: "class-widget-last-updated", val: date_string)
-                        SAUtils.writeLocalKVStore(key: "data_classes", val: self.data_classes!.toJSONString())
+//        loginWithSavedCredentials(student_login: student_login!, student_password: student_password!) { (success) in
+//            if success {
+//
+//            } else {
+//                self.lblCenter.text = "登录失败"
+//                completionHandler(NCUpdateResult.newData)
+//            }
+//        }
 
-                        // Update UI
-                        self.displayClassData()
-                        completionHandler(NCUpdateResult.newData)
-                    } else {
-                        self.lblCenter.text = "获取课程表失败"
-                        completionHandler(NCUpdateResult.newData)
-                    }
-                })
+        // Logged in, fetch class schedule
+        self.fetchClassSchedule(completionHandler: { (success) in
+            if success {
+                // Cache data
+                SAUtils.writeLocalKVStore(key: "class-widget-last-updated", val: date_string)
+                SAUtils.writeLocalKVStore(key: "data_classes", val: self.data_classes!.toJSONString())
+
+                // Update UI
+                self.displayClassData()
+                completionHandler(NCUpdateResult.newData)
             } else {
-                self.lblCenter.text = "登录失败"
+                self.lblCenter.text = "获取失败,请使用 App 登录"
                 completionHandler(NCUpdateResult.newData)
             }
-        }
+        })
     }
 
     private func loginWithSavedCredentials(student_login: String, student_password: String, completionHandler: @escaping (Bool) -> Void) {
         // Execute
-        SchoolSystemModels.submitAuthInfo(installation_id: SAGlobal.installation_id, student_login: student_login, student_password: student_password, captcha: nil, completionHandler: { (session_id, message) in
+        SchoolSystemModels.submitAuthInfo(installation_id: SAGlobal.installation_id, session_id: nil, student_login: student_login, student_password: student_password, captcha: nil, completionHandler: { (success, session_id, message) in
 
             if session_id != nil {
                 // Store and cache session_id

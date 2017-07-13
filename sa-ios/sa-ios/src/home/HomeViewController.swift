@@ -240,7 +240,7 @@ class HomeViewController: UITableViewController {
             self.actLogin.startAnimating()
 
             // Execute
-            SchoolSystemModels.submitAuthInfo(installation_id: SAGlobal.installation_id, student_login: student_login, student_password: student_password, captcha: nil, completionHandler: { (session_id, message) in
+            SchoolSystemModels.submitAuthInfo(installation_id: SAGlobal.installation_id, session_id: nil, student_login: student_login, student_password: student_password, captcha: nil, completionHandler: { (success, session_id, message) in
 
                 // UI
                 self.actLogin.stopAnimating()
@@ -256,12 +256,12 @@ class HomeViewController: UITableViewController {
                     self.title = SAConfig.appName
                     completionHandler(true)
                 } else {
-                    self.title = "登录失败"
+                    self.title = "需重新登录"
                     completionHandler(false)
                 }
             })
         } else {
-            self.title = "登录失败"
+            self.title = "需重新登录"
             completionHandler(false)
         }
     }
