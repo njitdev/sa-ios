@@ -64,7 +64,7 @@ class LoginViewController: UITableViewController {
                     self.tblCellCaptcha.isUserInteractionEnabled = false
                 }
             } else {
-                SAUtils.alert(viewController: self, title: "登录初始化失败", message: message)
+                SAUtils.alert(viewController: self, title: "登录初始化失败 😑", message: message)
             }
         }
     }
@@ -77,7 +77,7 @@ class LoginViewController: UITableViewController {
                 if let captcha = captcha {
                     self.imgCaptcha.image = captcha
                 } else {
-                    SAUtils.alert(viewController: self, title: "登录初始化失败", message: message)
+                    SAUtils.alert(viewController: self, title: "登录初始化失败 😑", message: message)
                 }
             })
         }
