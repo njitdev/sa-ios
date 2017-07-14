@@ -55,15 +55,16 @@ class LoginViewController: UITableViewController {
             if let session_id = session_id, let captchaEnabled = captchaEnabled {
                 self.temp_session_id = session_id
 
+                // Fetch captcha if enabled
                 self.captchaEnabled = captchaEnabled
-                if captchaEnabled {
+                if self.captchaEnabled {
                     self.fetchCaptcha()
                 } else {
                     self.txtCaptcha.placeholder = "无需验证码"
                     self.tblCellCaptcha.isUserInteractionEnabled = false
                 }
             } else {
-                SAUtils.alert(viewController: self, title: "登录信息获取失败", message: message)
+                SAUtils.alert(viewController: self, title: "登录初始化失败", message: message)
             }
         }
     }
@@ -76,7 +77,7 @@ class LoginViewController: UITableViewController {
                 if let captcha = captcha {
                     self.imgCaptcha.image = captcha
                 } else {
-                    SAUtils.alert(viewController: self, title: "登录信息获取失败", message: message)
+                    SAUtils.alert(viewController: self, title: "登录初始化失败", message: message)
                 }
             })
         }
@@ -133,6 +134,9 @@ class LoginViewController: UITableViewController {
                 self.navigationController?.popViewController(animated: true)
             } else {
                 SAUtils.alert(viewController: self, title: "登录失败 😱", message: message)
+
+                // Re-init auth
+                self.authInit()
             }
         }
     }
@@ -147,8 +151,10 @@ class LoginViewController: UITableViewController {
     }
 
     func setBusyState(_ busy: Bool) {
-        self.tableView.isUserInteractionEnabled = !busy
+        tableView.isUserInteractionEnabled = !busy
         btnLogin.isEnabled = !busy
+        txtCaptcha.isEnabled = !busy
+
         if busy {
             actBusy.startAnimating()
         } else {

@@ -200,7 +200,7 @@ class HomeViewController: UITableViewController {
                         } else {
                             // End state, enable action buttons
                             self.enableActionButtons(true)
-                            SAUtils.alert(viewController: self, title: "错误 😛", message: "登录失败，请尝试重新登录")
+                            SAUtils.alert(viewController: self, title: "无法自动登录 😛", message: "需重新登录")
                         }
                     })
                 }
