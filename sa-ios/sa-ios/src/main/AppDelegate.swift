@@ -1,6 +1,6 @@
 //
 //    sa-ios
-//    Copyright (C) 2017 {name of author}
+//    Copyright (C) 2017 Yunzhu Li
 //
 //    This program is free software: you can redistribute it and/or modify
 //    it under the terms of the GNU General Public License as published by
@@ -31,7 +31,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         // Google Analytics
         GAI.sharedInstance().tracker(withTrackingId: SAConfig.GAPropertyID)
-        
+
         // Configure GAI
         if let gai = GAI.sharedInstance() {
             gai.dispatchInterval = 10; // Send events every 10 seconds
