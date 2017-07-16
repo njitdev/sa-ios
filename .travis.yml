@@ -1,0 +1,4 @@
+# Swift. (objective-c is used for both objective-c and swift)
+language: objective-c
+osx_image: xcode8.3
+xcode_workspace: sa-ios/sa-ios.xcworkspace
