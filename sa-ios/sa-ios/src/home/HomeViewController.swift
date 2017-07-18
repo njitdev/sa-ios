@@ -200,7 +200,8 @@ class HomeViewController: UITableViewController {
                         } else {
                             // End state, enable action buttons
                             self.enableActionButtons(true)
-                            SAUtils.alert(viewController: self, title: "无法自动登录 😛", message: "需重新登录")
+                            self.performSegue(withIdentifier: "segLogin", sender: self)
+//                            SAUtils.alert(viewController: self, title: "无法自动登录 😛", message: "无验证码登录失败，需要重新登录")
                         }
                     })
                 }
@@ -331,7 +332,7 @@ class HomeViewController: UITableViewController {
         switch identifier {
         case "segLogin":
             // Force reload on return
-            lastSessionID = ""
+//            lastSessionID = ""
             return !self.actLogin.isAnimating
         case "segClassSchedule":
             if self.data_classes == nil {

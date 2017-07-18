@@ -50,4 +50,8 @@ class AboutViewController: UITableViewController {
     @IBAction func btnAppStoreAct(_ sender: Any) {
         SAUtils.openURL(url: "itms://itunes.apple.com/us/app/mygdut/id616723635?mt=8")
     }
+
+    @IBAction func btnGitHubAct(_ sender: Any) {
+        SAUtils.openURL(url: "https://github.com/njitdev/sa-ios")
+    }
 }

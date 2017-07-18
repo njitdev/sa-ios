@@ -49,12 +49,12 @@ class SchoolSystemModels: NSObject {
         Alamofire.request(self.apiBaseURL + "/auth/captcha", parameters: params).response { response in
             if let data = response.data {
                 if let img = UIImage(data: data) {
-                    completionHandler (img, "ok")
+                    completionHandler(img, "ok")
                 } else {
-                    completionHandler (nil, "验证码获取失败，请重试")
+                    completionHandler(nil, "验证码获取失败，请重试")
                 }
             } else {
-                completionHandler (nil, "验证码获取失败，请重试")
+                completionHandler(nil, "验证码获取失败，请重试")
             }
         }
     }
