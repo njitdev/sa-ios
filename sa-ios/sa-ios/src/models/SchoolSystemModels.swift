@@ -30,7 +30,7 @@ class SchoolSystemModels: NSObject {
         // Make request
         Alamofire.request(self.apiBaseURL + "/auth/init", method: .get).responseObject { (response: DataResponse<AuthInitResponse>) in
             switch response.result {
-            case .success(_):
+            case .success:
                 if let resp_obj = response.result.value {
                     completionHandler(resp_obj.captcha_enabled, resp_obj.session_id, resp_obj.message)
                 }
@@ -69,9 +69,9 @@ class SchoolSystemModels: NSObject {
         if let v = captcha { params["captcha"] = v }
 
         // Make request
-        Alamofire.request(self.apiBaseURL + "/auth/submit", method: .post, parameters: params).responseObject { (response: DataResponse<AuthSubmitResponse>) in
+        Alamofire.request(self.apiBaseURL + "/auth/submit", method: .post, parameters: params).validate(statusCode: 200..<300).responseObject { (response: DataResponse<AuthSubmitResponse>) in
             switch response.result {
-            case .success(_):
+            case .success:
                 if let resp_obj = response.result.value {
                     if resp_obj.auth_result == true {
                         completionHandler(true, resp_obj.session_id, "ok")
@@ -80,7 +80,7 @@ class SchoolSystemModels: NSObject {
                     }
                 }
             default:
-                completionHandler(false, nil, "连接学校服务器超时")
+                completionHandler(false, nil, "教务系统太烂无法通信，请稍后再试")
             }
         }
     }
@@ -95,7 +95,7 @@ class SchoolSystemModels: NSObject {
         // Make request
         Alamofire.request(self.apiBaseURL + "/student/basic-info", parameters: params).responseObject(keyPath: "result") { (response: DataResponse<StudentBasicInfo>) in
             switch response.result {
-            case .success(_):
+            case .success:
                 completionHandler(response.result.value, "ok")
             default:
                 completionHandler(nil, "连接学校服务器超时")
@@ -113,7 +113,7 @@ class SchoolSystemModels: NSObject {
         // Make request
         Alamofire.request(self.apiBaseURL + "/class/term", parameters: params).responseObject(keyPath: "result") { (response: DataResponse<ClassData>) in
             switch response.result {
-            case .success(_):
+            case .success:
                 completionHandler(response.result.value, "ok")
             default:
                 completionHandler(nil, "连接学校服务器超时")
@@ -142,7 +142,7 @@ class SchoolSystemModels: NSObject {
         // Make request
         Alamofire.request(self.apiBaseURL + "/grades", parameters: params).responseArray(keyPath: "result") { (response: DataResponse<[GradeItem]>) in
             switch response.result {
-            case .success(_):
+            case .success:
                 completionHandler(response.result.value, "ok")
             default:
                 completionHandler(nil, "连接学校服务器超时")

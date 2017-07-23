@@ -34,7 +34,7 @@ class AnnouncementsModels: NSObject {
         Alamofire.request(apiBaseURL + "/announcements", parameters: params).responseArray(keyPath: "result") { (response: DataResponse<[AnnouncementListItem]>) in
             // Response status validation
             switch response.result {
-            case .success(_):
+            case .success:
                 completionHandler(response.result.value, "ok")
             default:
                 completionHandler(nil, "连接学校服务器超时")
@@ -50,7 +50,7 @@ class AnnouncementsModels: NSObject {
         // Make request
         Alamofire.request(self.apiBaseURL + "/announcements/article", parameters: params).responseObject(keyPath: "result") { (response: DataResponse<AnnouncementsArticle>) in
             switch response.result {
-            case .success(_):
+            case .success:
                 completionHandler(response.result.value, "ok")
             default:
                 completionHandler(nil, "连接学校服务器超时")

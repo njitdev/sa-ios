@@ -34,7 +34,7 @@ class MessageBoardModels: NSObject {
         Alamofire.request(apiBaseURL + "/posts", parameters: params).responseObject { (response: DataResponse<MessageBoardListResponse>) in
             // Response status validation
             switch response.result {
-            case .success(_):
+            case .success:
                 let resp_obj = response.result.value
                 completionHandler(resp_obj?.posts, "ok")
             default:
@@ -54,12 +54,12 @@ class MessageBoardModels: NSObject {
         if let v = user_student_id      { params["user_student_id"] = v }
 
         // Make request
-        Alamofire.request(self.apiBaseURL + "/posts", method: .post, parameters: params).responseJSON { (response) in
+        Alamofire.request(self.apiBaseURL + "/posts", method: .post, parameters: params).validate(statusCode: 200..<300).responseJSON { (response) in
             switch response.result {
-            case .success(_):
+            case .success:
                 completionHandler(true, "ok")
             default:
-                completionHandler(false, "网络通信错误")
+                completionHandler(false, "发送留言失败，请检查网络并确认你的昵称没有和开发者重复")
             }
         }
     }

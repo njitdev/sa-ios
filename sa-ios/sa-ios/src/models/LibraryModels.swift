@@ -34,7 +34,7 @@ class LibraryModels: NSObject {
         Alamofire.request(apiBaseURL + "/search", parameters: params).responseArray(keyPath: "result") { (response: DataResponse<[Book]>) in
             // Response status validation
             switch response.result {
-            case .success(_):
+            case .success:
                 completionHandler(response.result.value, "ok")
             default:
                 completionHandler(nil, "连接学校服务器超时")
@@ -50,7 +50,7 @@ class LibraryModels: NSObject {
         // Make request
         Alamofire.request(self.apiBaseURL + "/details", parameters: params).responseObject(keyPath: "result") { (response: DataResponse<BookDetails>) in
             switch response.result {
-            case .success(_):
+            case .success:
                 completionHandler(response.result.value, "ok")
             default:
                 completionHandler(nil, "连接学校服务器超时")

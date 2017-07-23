@@ -29,9 +29,9 @@ class AnalyticsModels: NSObject {
         let params: Parameters = ["school": school, "installation_id": installation_id, "client_version": client_version, "device_info": device_info]
 
         // Make request
-        Alamofire.request(self.apiBaseURL + "/start", method: .post, parameters: params).responseJSON { (response) in
+        Alamofire.request(self.apiBaseURL + "/start", method: .post, parameters: params).validate(statusCode: 200..<300).responseJSON { (response) in
             switch response.result {
-            case .success(_):
+            case .success:
                 completionHandler(true, "ok")
             default:
                 completionHandler(false, "error")
