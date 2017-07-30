@@ -17,9 +17,9 @@
 //
 
 import UIKit
-import Sentry
 import AlamofireNetworkActivityIndicator
 import OneSignal
+import Rollbar
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -41,9 +41,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             assert(false, "Google Analytics not configured correctly")
         }
 
-        // Create a Sentry client and start crash handler
-        SentryClient.shared = SentryClient(dsnString: SAConfig.sentryClientKey)
-        SentryClient.shared?.startCrashHandler()
+        // Configure rollbar
+        let rollbarConfig: RollbarConfiguration = RollbarConfiguration()
+#if DEBUG
+        rollbarConfig.environment = "development"
+#else
+        rollbarConfig.environment = "production"
+#endif
+        Rollbar.initWithAccessToken(SAConfig.rollbarClientToken, configuration: rollbarConfig)
 
         // Enable automatic NetworkActivityIndicator management
         NetworkActivityIndicatorManager.shared.isEnabled = true

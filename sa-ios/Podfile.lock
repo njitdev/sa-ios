@@ -1,107 +1,32 @@
 PODS:
-  - Alamofire (4.4.0)
-  - AlamofireNetworkActivityIndicator (2.1.0):
-    - Alamofire (~> 4.1)
+  - Alamofire (4.5.0)
+  - AlamofireNetworkActivityIndicator (2.2.0):
+    - Alamofire (~> 4.5)
   - AlamofireObjectMapper (4.1.0):
     - Alamofire (~> 4.1)
     - ObjectMapper (~> 2.0)
   - GoogleAnalytics (3.17.0)
-  - KSCrash (1.15.8):
-    - KSCrash/Installations (= 1.15.8)
-  - KSCrash/Installations (1.15.8):
-    - KSCrash/Recording
-    - KSCrash/Reporting
-  - KSCrash/Recording (1.15.8):
-    - KSCrash/Recording/Tools (= 1.15.8)
-  - KSCrash/Recording/Tools (1.15.8)
-  - KSCrash/Reporting (1.15.8):
-    - KSCrash/Recording
-    - KSCrash/Reporting/Filters (= 1.15.8)
-    - KSCrash/Reporting/MessageUI (= 1.15.8)
-    - KSCrash/Reporting/Sinks (= 1.15.8)
-    - KSCrash/Reporting/Tools (= 1.15.8)
-  - KSCrash/Reporting/Filters (1.15.8):
-    - KSCrash/Recording
-    - KSCrash/Reporting/Filters/Alert (= 1.15.8)
-    - KSCrash/Reporting/Filters/AppleFmt (= 1.15.8)
-    - KSCrash/Reporting/Filters/Base (= 1.15.8)
-    - KSCrash/Reporting/Filters/Basic (= 1.15.8)
-    - KSCrash/Reporting/Filters/GZip (= 1.15.8)
-    - KSCrash/Reporting/Filters/JSON (= 1.15.8)
-    - KSCrash/Reporting/Filters/Sets (= 1.15.8)
-    - KSCrash/Reporting/Filters/Stringify (= 1.15.8)
-    - KSCrash/Reporting/Filters/Tools (= 1.15.8)
-  - KSCrash/Reporting/Filters/Alert (1.15.8):
-    - KSCrash/Recording
-    - KSCrash/Reporting/Filters/Base
-  - KSCrash/Reporting/Filters/AppleFmt (1.15.8):
-    - KSCrash/Recording
-    - KSCrash/Reporting/Filters/Base
-  - KSCrash/Reporting/Filters/Base (1.15.8):
-    - KSCrash/Recording
-  - KSCrash/Reporting/Filters/Basic (1.15.8):
-    - KSCrash/Recording
-    - KSCrash/Reporting/Filters/Base
-  - KSCrash/Reporting/Filters/GZip (1.15.8):
-    - KSCrash/Recording
-    - KSCrash/Reporting/Filters/Base
-  - KSCrash/Reporting/Filters/JSON (1.15.8):
-    - KSCrash/Recording
-    - KSCrash/Reporting/Filters/Base
-  - KSCrash/Reporting/Filters/Sets (1.15.8):
-    - KSCrash/Recording
-    - KSCrash/Reporting/Filters/AppleFmt
-    - KSCrash/Reporting/Filters/Base
-    - KSCrash/Reporting/Filters/Basic
-    - KSCrash/Reporting/Filters/GZip
-    - KSCrash/Reporting/Filters/JSON
-    - KSCrash/Reporting/Filters/Stringify
-  - KSCrash/Reporting/Filters/Stringify (1.15.8):
-    - KSCrash/Recording
-    - KSCrash/Reporting/Filters/Base
-  - KSCrash/Reporting/Filters/Tools (1.15.8):
-    - KSCrash/Recording
-  - KSCrash/Reporting/MessageUI (1.15.8):
-    - KSCrash/Recording
-  - KSCrash/Reporting/Sinks (1.15.8):
-    - KSCrash/Recording
-    - KSCrash/Reporting/Filters
-    - KSCrash/Reporting/Tools
-  - KSCrash/Reporting/Tools (1.15.8):
-    - KSCrash/Recording
-  - ObjectMapper (2.2.7)
+  - ObjectMapper (2.2.8)
   - OneSignal (2.5.4)
-  - Sentry (2.1.9):
-    - KSCrash (~> 1.15.5)
+  - Rollbar (0.2.0)
 
 DEPENDENCIES:
-  - Alamofire (~> 4.4)
-  - AlamofireNetworkActivityIndicator (~> 2.0)
+  - Alamofire (~> 4.5)
+  - AlamofireNetworkActivityIndicator (~> 2.2)
   - AlamofireObjectMapper (~> 4.0)
   - GoogleAnalytics (~> 3.17.0)
   - OneSignal (< 3.0, >= 2.5.2)
-  - Sentry (from `https://github.com/getsentry/sentry-swift.git`, tag `2.1.9`)
-
-EXTERNAL SOURCES:
-  Sentry:
-    :git: https://github.com/getsentry/sentry-swift.git
-    :tag: 2.1.9
-
-CHECKOUT OPTIONS:
-  Sentry:
-    :git: https://github.com/getsentry/sentry-swift.git
-    :tag: 2.1.9
+  - Rollbar (~> 0.2.0)
 
 SPEC CHECKSUMS:
-  Alamofire: dc44b1600b800eb63da6a19039a0083d62a6a62d
-  AlamofireNetworkActivityIndicator: 4716f6554bdfb9c7cf13b1e0e3af21163129690a
+  Alamofire: f28cdffd29de33a7bfa022cbd63ae95a27fae140
+  AlamofireNetworkActivityIndicator: 81e1630e7cfed22a4e4e82a174c59e651dc4f8ca
   AlamofireObjectMapper: 435adc82f5b367679bd9e71c4974a54efd0b2521
   GoogleAnalytics: f42cc53a87a51fe94334821868d9c8481ff47a7b
-  KSCrash: 4acb0f9cdb0b1ce7155c608dc175d91d750a8c3a
-  ObjectMapper: 65abcfd9a61cf7396cbd14a4fb22fddfcc46577e
+  ObjectMapper: 3d571bb5af471c779e1160828cd9ad5c4ef90958
   OneSignal: da994bcf6a2efbdceaf71e389e1d05245c562899
-  Sentry: 0dad761f7d6ca36ad424d87f9c0f22b66eaf7b91
+  Rollbar: 7f9f6faab9138cbb1b152f0a500e68f0469554ef
 
-PODFILE CHECKSUM: ae2272a917a421e16867ea63ba82b127add72e86
+PODFILE CHECKSUM: 390d071ed72e186769ee743fe86a41dfba2dd58e
 
 COCOAPODS: 1.2.1

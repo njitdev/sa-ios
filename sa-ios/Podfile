@@ -6,12 +6,12 @@ target 'sa-ios' do
   use_frameworks!
 
   # Pods for sa-ios
-  pod 'GoogleAnalytics', '~> 3.17.0'
-  pod 'Alamofire', '~> 4.4'
+  pod 'Alamofire', '~> 4.5'
   pod 'AlamofireObjectMapper', '~> 4.0'
-  pod 'AlamofireNetworkActivityIndicator', '~> 2.0'
-  pod 'Sentry', :git => 'https://github.com/getsentry/sentry-swift.git', :tag => '2.1.9'
+  pod 'AlamofireNetworkActivityIndicator', '~> 2.2'
+  pod 'GoogleAnalytics', '~> 3.17.0'
   pod 'OneSignal', '>= 2.5.2', '< 3.0'
+  pod 'Rollbar', '~> 0.2.0'
 end
 
 target 'sa-ios-class-today' do
@@ -19,8 +19,7 @@ target 'sa-ios-class-today' do
   use_frameworks!
 
   # Pods for sa-ios
-  pod 'GoogleAnalytics', '~> 3.17.0'
-  pod 'Alamofire', '~> 4.4'
+  pod 'Alamofire', '~> 4.5'
   pod 'AlamofireObjectMapper', '~> 4.0'
+  pod 'GoogleAnalytics', '~> 3.17.0'
 end
-

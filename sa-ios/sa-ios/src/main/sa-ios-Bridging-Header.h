@@ -23,3 +23,7 @@
 #import <GoogleAnalytics/GAI.h>
 #import <GoogleAnalytics/GAIDictionaryBuilder.h>
 #import <GoogleAnalytics/GAIFields.h>
+
+// Rollbar
+#import <SystemConfiguration/SystemConfiguration.h>
+#import <Rollbar/Rollbar.h>
