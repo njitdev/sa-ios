@@ -43,7 +43,7 @@ class SchoolSystemModels: NSObject {
     // Download captcha and return a UIImage
     static func fetchCaptcha(session_id: String, completionHandler: @escaping (UIImage?, String) -> Void) {
         // Prepare parameters
-        let params: Parameters = ["session_id": session_id];
+        let params: Parameters = ["session_id": session_id]
 
         // Make request
         Alamofire.request(self.apiBaseURL + "/auth/captcha", parameters: params).response { response in
@@ -89,7 +89,7 @@ class SchoolSystemModels: NSObject {
     static func studentBasicInfo(session_id: String, student_id: String?,
                                  completionHandler: @escaping (StudentBasicInfo?, String) -> Void) {
         // Prepare parameters
-        var params: Parameters = ["session_id": session_id];
+        var params: Parameters = ["session_id": session_id]
         if let v = student_id { params["student_id"] = v }
 
         // Make request
@@ -107,7 +107,7 @@ class SchoolSystemModels: NSObject {
     static func classSchedule(session_id: String, student_id: String?,
                               completionHandler: @escaping (ClassData?, String) -> Void) {
         // Prepare parameters
-        var params: Parameters = ["session_id": session_id];
+        var params: Parameters = ["session_id": session_id]
         if let v = student_id { params["student_id"] = v }
 
         // Make request
@@ -132,11 +132,26 @@ class SchoolSystemModels: NSObject {
         return result.sorted { $0.classes_in_day < $1.classes_in_day }
     }
 
+    static func safeCurrentWeek(_ data: ClassData) -> Int {
+        if let srw = data.start_reference_week {
+            if srw == 0 {
+                return 0
+            }
+            var current_week = SAUtils.refWeekNumber() - srw + 1
+            if current_week < 1 || current_week >= data.classes.count {
+                current_week = 0
+            }
+            return current_week
+        } else {
+            return 0
+        }
+    }
+
     // Get grades
     static func grades(session_id: String, student_id: String?,
                        completionHandler: @escaping ([GradeItem]?, String) -> Void) {
         // Prepare parameters
-        var params: Parameters = ["session_id": session_id];
+        var params: Parameters = ["session_id": session_id]
         if let v = student_id { params["student_id"] = v }
 
         // Make request
@@ -201,13 +216,15 @@ class StudentBasicInfo: Mappable {
 
 class ClassData: Mappable {
     var current_week: Int!
+    var start_reference_week: Int? // First week of the term as reference week number
     var classes: [[ClassSession]]!
 
     required init?(map: Map) {}
 
     func mapping(map: Map) {
-        current_week <- map["current_week"]
-        classes      <- map["classes"]
+        current_week         <- map["current_week"]
+        start_reference_week <- map["start_reference_week"]
+        classes              <- map["classes"]
     }
 }
 

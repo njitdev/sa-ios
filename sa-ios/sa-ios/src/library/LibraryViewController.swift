@@ -31,7 +31,7 @@ class LibraryViewController: GAITrackedViewController, UITableViewDelegate, UITa
         super.viewDidLoad()
 
         // Google Analytics
-        self.screenName = "LibraryViewController";
+        self.screenName = "LibraryViewController"
 
         tableView.dataSource = self
         tableView.delegate = self

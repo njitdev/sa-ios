@@ -45,7 +45,7 @@ class AnnouncementsModels: NSObject {
     // Get article
     static func article(article_id: String, completionHandler: @escaping (AnnouncementsArticle?, String) -> Void) {
         // Prepare parameters
-        let params: Parameters = ["article_id": article_id];
+        let params: Parameters = ["article_id": article_id]
 
         // Make request
         Alamofire.request(self.apiBaseURL + "/announcements/article", parameters: params).responseObject(keyPath: "result") { (response: DataResponse<AnnouncementsArticle>) in

@@ -35,7 +35,7 @@ class BookDetailsViewController: GAITrackedViewController, UITableViewDataSource
         super.viewDidLoad()
 
         // Google Analytics
-        self.screenName = "BookDetailsViewController";
+        self.screenName = "BookDetailsViewController"
 
         tableView.delegate = self
         tableView.dataSource = self
@@ -65,7 +65,7 @@ class BookDetailsViewController: GAITrackedViewController, UITableViewDataSource
                     self.tableView.reloadData()
                 } else {
                     SAUtils.alert(viewController: self, title: "没有查询到馆藏 😛", message: "换本书试试看")
-                    return;
+                    return
                 }
             })
         }

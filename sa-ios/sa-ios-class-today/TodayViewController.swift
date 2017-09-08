@@ -51,9 +51,13 @@ class TodayViewController: UIViewController, NCWidgetProviding, UITableViewDeleg
         }
     }
 
-    private func dateString() -> String {
+    private func dateString(_ currentWeek: Int) -> String {
         let fmt = DateFormatter()
-        fmt.dateFormat = "yyyy-MM-dd • EEEE"
+        if (currentWeek > 0) {
+            fmt.dateFormat = "MM-dd • 第\(currentWeek)周 • EEEE"
+        } else {
+            fmt.dateFormat = "MM-dd • EEEE"
+        }
         return fmt.string(from: Date())
     }
 
@@ -62,12 +66,10 @@ class TodayViewController: UIViewController, NCWidgetProviding, UITableViewDeleg
         let data_classes = self.data_classes!
 
         // Index out-of-bound bug
-        var current_week: [ClassSession] = []
-        if (data_classes.current_week < data_classes.classes.count) {
-            current_week = data_classes.classes[data_classes.current_week]
-        }
+        let current_week = SchoolSystemModels.safeCurrentWeek(data_classes)
+        let _classes_current_week = data_classes.classes[current_week]
 
-        self.data_today_sessions = SchoolSystemModels.classSessions(data: current_week, dayInWeek: SAUtils.dayOfWeek())
+        self.data_today_sessions = SchoolSystemModels.classSessions(data: _classes_current_week, dayInWeek: SAUtils.dayOfWeek())
         if self.data_today_sessions.count == 0 {
             self.lblCenter.text = "没有课 🎉"
         } else {
@@ -76,98 +78,25 @@ class TodayViewController: UIViewController, NCWidgetProviding, UITableViewDeleg
 
         // Refresh tableview
         self.tableView.reloadData()
+
+        // Update title label
+        let date_string = dateString(current_week)
+        lblTitle.text = date_string
     }
 
     func widgetPerformUpdate(completionHandler: (@escaping (NCUpdateResult) -> Void)) {
         // Perform any setup necessary in order to update the view.
         // Check if saved student_login / password available
-        let student_login = SAUtils.readLocalKVStore(key: "student_login")
-        let student_password = SAUtils.readLocalKVStore(key: "student_password")
-        let student_session_id = SAUtils.readLocalKVStore(key: "student_session_id")
-        SAGlobal.student_session_id = student_session_id
-
-        if student_login == nil || student_password == nil || SAGlobal.student_session_id == nil {
-            lblCenter.text = "请先使用 MyGDUT App 登录"
+        if let json = SAUtils.readLocalKVStore(key: "data_classes") {
+            self.data_classes = ClassData(JSONString: json)
+        } else {
+            lblCenter.text = "请先登录 App 更新课表~"
             completionHandler(NCUpdateResult.newData)
             return
         }
 
-        // Get date string
-        let date_string = dateString()
-        lblTitle.text = date_string
-
-        // Determine if update is not needed
-        if let last_updated_date_string = SAUtils.readLocalKVStore(key: "class-widget-last-updated") {
-            if date_string == last_updated_date_string {
-                if let json = SAUtils.readLocalKVStore(key: "data_classes") {
-                    self.data_classes = ClassData(JSONString: json)
-                    self.displayClassData()
-                    completionHandler(NCUpdateResult.newData)
-                    return
-                }
-            }
-        }
-
-        // Fetch data from backend
-        // Init
-        SAUtils.initInstallationID()
-
-        // Login
-//        loginWithSavedCredentials(student_login: student_login!, student_password: student_password!) { (success) in
-//            if success {
-//
-//            } else {
-//                self.lblCenter.text = "登录失败"
-//                completionHandler(NCUpdateResult.newData)
-//            }
-//        }
-
-        // Logged in, fetch class schedule
-        self.fetchClassSchedule(completionHandler: { (success) in
-            if success {
-                // Cache data
-                SAUtils.writeLocalKVStore(key: "class-widget-last-updated", val: date_string)
-                SAUtils.writeLocalKVStore(key: "data_classes", val: self.data_classes!.toJSONString())
-
-                // Update UI
-                self.displayClassData()
-                completionHandler(NCUpdateResult.newData)
-            } else {
-                self.lblCenter.text = "获取失败,请使用 App 登录"
-                completionHandler(NCUpdateResult.newData)
-            }
-        })
-    }
-
-    private func loginWithSavedCredentials(student_login: String, student_password: String, completionHandler: @escaping (Bool) -> Void) {
-        // Execute
-        SchoolSystemModels.submitAuthInfo(installation_id: SAGlobal.installation_id, session_id: nil, student_login: student_login, student_password: student_password, captcha: nil, completionHandler: { (success, session_id, message) in
-
-            if session_id != nil {
-                // Store and cache session_id
-                SAGlobal.student_session_id = session_id
-                completionHandler(true)
-            } else {
-                completionHandler(false)
-            }
-        })
-    }
-
-    private func fetchClassSchedule(completionHandler: @escaping (Bool) -> Void) {
-        // Fetch clases
-        if let session_id = SAGlobal.student_session_id {
-            SchoolSystemModels.classSchedule(session_id: session_id, student_id: nil) { (data, message) in
-                if let classes: ClassData = data {
-                    SAUtils.writeLocalKVStore(key: "data_classes", val: classes.toJSONString())
-                    self.data_classes = classes
-                    completionHandler(true)
-                } else {
-                    completionHandler(false)
-                }
-            }
-        } else {
-            completionHandler(false)
-        }
+        self.displayClassData()
+        completionHandler(NCUpdateResult.newData)
     }
 
     // MARK: - UITableView

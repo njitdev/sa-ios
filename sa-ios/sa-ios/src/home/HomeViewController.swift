@@ -54,10 +54,13 @@ class HomeViewController: UITableViewController {
         SAUtils.GAISendScreenView("HomeViewController")
 
         // Load saved session_id
-        SAGlobal.student_session_id = SAUtils.readLocalKVStore(key: "student_session_id");
+        SAGlobal.student_session_id = SAUtils.readLocalKVStore(key: "student_session_id")
 
         // Load cached data
         loadCachedData()
+
+        // Set lastSessionID to disable auto fetching
+        lastSessionID = SAGlobal.student_session_id ?? ""
 
         // Push notifications
         // Get permission status
@@ -115,13 +118,11 @@ class HomeViewController: UITableViewController {
             lblClassScheduleTitle.center.y = 24.5
             lblClassScheduleSubtitle.isHidden = false
 
-            // Index out-of-bound bug
-            var _current_week: [ClassSession] = []
-            if (classes.current_week < classes.classes.count) {
-                _current_week = classes.classes[classes.current_week]
-            }
+            // Get classes of current week
+            let current_week = SchoolSystemModels.safeCurrentWeek(classes)
+            let _classes_current_week = classes.classes[current_week]
 
-            let cnt = SchoolSystemModels.classSessions(data: _current_week, dayInWeek: SAUtils.dayOfWeek()).count
+            let cnt = SchoolSystemModels.classSessions(data: _classes_current_week, dayInWeek: SAUtils.dayOfWeek()).count
             if (cnt == 0) {
                 lblClassScheduleSubtitle.text = "今日课程: 无 🎉"
             } else {
@@ -169,7 +170,7 @@ class HomeViewController: UITableViewController {
         if SAGlobal.student_session_id == nil {
             lastSessionID = ""
             displaySchoolSystemData()
-            return;
+            return
         }
 
         // session_id available
@@ -286,7 +287,7 @@ class HomeViewController: UITableViewController {
             completed += 1
             if (completed == total) {
                 self.enableActionButtons(true)
-                self.title = SAConfig.appName;
+                self.title = SAConfig.appName
             }
 
             if let classes: ClassData = data {
@@ -308,7 +309,7 @@ class HomeViewController: UITableViewController {
             completed += 1
             if (completed == total) {
                 self.enableActionButtons(true)
-                self.title = SAConfig.appName;
+                self.title = SAConfig.appName
             }
 
             if let grades: [GradeItem] = data {

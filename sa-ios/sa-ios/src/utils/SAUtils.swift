@@ -24,8 +24,8 @@ class SAUtils: NSObject {
     public static func alert(viewController: UIViewController, title: String, message: String, handler: ((UIAlertAction) -> Void)? = nil) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
         let action = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: handler)
-        alert.addAction(action);
-        viewController.present(alert, animated: true, completion: nil);
+        alert.addAction(action)
+        viewController.present(alert, animated: true, completion: nil)
     }
 
     // MARK: Local Storage
@@ -50,10 +50,10 @@ class SAUtils: NSObject {
     public static func initInstallationID() {
         // Read existing installation_id from local storage
         if let iid: String = SAUtils.readLocalKVStore(key: "installation_id") {
-            SAGlobal.installation_id = iid;
+            SAGlobal.installation_id = iid
         } else {
             // If not exist, generate a new one
-            SAGlobal.installation_id = SAUtils.randomString(length: 16);
+            SAGlobal.installation_id = SAUtils.randomString(length: 16)
 
             // Save
             SAUtils.writeLocalKVStore(key: "installation_id", val: SAGlobal.installation_id)
@@ -101,5 +101,16 @@ class SAUtils: NSObject {
         weekDay -= 1
         if weekDay == 0 { weekDay = 7 }
         return weekDay
+    }
+
+    // Get the number of weeks since 1970-01-05
+    public static func refWeekNumber() -> Int {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-mm-dd"
+        if let refd = formatter.date(from: "1970-01-05") {
+            let interval = Int(Date().timeIntervalSince(refd))
+            return interval / 86400 / 7
+        }
+        return 0
     }
 }

@@ -34,7 +34,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         // Configure GAI
         if let gai = GAI.sharedInstance() {
-            gai.dispatchInterval = 10; // Send events every 10 seconds
+            gai.dispatchInterval = 10 // Send events every 10 seconds
             gai.trackUncaughtExceptions = true  // Report uncaught exceptions
             // gai.logger.logLevel = GAILogLevel.verbose  // Remove before app release
         } else {
@@ -73,7 +73,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                                         handleNotificationAction: nil,
                                         settings: onesignalInitSettings)
 
-        OneSignal.inFocusDisplayType = OSNotificationDisplayType.notification;
+        OneSignal.inFocusDisplayType = OSNotificationDisplayType.notification
 
         return true
     }

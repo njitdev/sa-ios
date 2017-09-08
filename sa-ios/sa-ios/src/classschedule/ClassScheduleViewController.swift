@@ -37,7 +37,12 @@ class ClassScheduleViewController: GAITrackedViewController, UITableViewDelegate
         tableView.delegate = self
         tableView.dataSource = self
 
-        data_display_week = data_classes.current_week
+        // Get current week
+        data_display_week = SchoolSystemModels.safeCurrentWeek(data_classes)
+        if data_display_week == 0 {
+            data_display_week = 1
+        }
+
         displayClasses()
     }
 
@@ -54,14 +59,10 @@ class ClassScheduleViewController: GAITrackedViewController, UITableViewDelegate
     }
 
     func displayClasses() {
-        if (data_display_week >= data_classes.classes.count) {
-            data_classes_display_week = []
-        } else {
-            data_classes_display_week = data_classes.classes[data_display_week]
-        }
+        data_classes_display_week = data_classes.classes[data_display_week]
 
         tableView.reloadData()
-        self.navigationItem.title = "课表 (\(data_display_week)周)"
+        self.navigationItem.title = "课表(第\(data_display_week)周)"
     }
 
     // MARK: - UITableView

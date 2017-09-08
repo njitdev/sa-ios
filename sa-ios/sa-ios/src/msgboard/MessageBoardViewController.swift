@@ -40,7 +40,7 @@ class MessageBoardViewController: GAITrackedViewController, UITableViewDelegate,
 //        tblPosts.register(MessageBoardListCell.self, forCellReuseIdentifier: cellReuseIdentifier)
 
         // Google Analytics
-        self.screenName = "MessageBoardViewController";
+        self.screenName = "MessageBoardViewController"
 
         // Set this class as the event delegate and datasource of the UITableview
         tblPosts.delegate = self

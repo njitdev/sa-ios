@@ -45,7 +45,7 @@ class LibraryModels: NSObject {
     // Get book details
     static func details(book_id: String, completionHandler: @escaping (BookDetails?, String) -> Void) {
         // Prepare parameters
-        let params: Parameters = ["book_id": book_id];
+        let params: Parameters = ["book_id": book_id]
 
         // Make request
         Alamofire.request(self.apiBaseURL + "/details", parameters: params).responseObject(keyPath: "result") { (response: DataResponse<BookDetails>) in

@@ -104,7 +104,7 @@ class LoginViewController: UITableViewController {
     }
 
     @IBAction func txtValueChanged(_ sender: Any) {
-        autoEnableLoginButton();
+        autoEnableLoginButton()
     }
 
     @IBAction func btnFetchCaptchaAction(_ sender: Any) {
@@ -144,9 +144,9 @@ class LoginViewController: UITableViewController {
     func autoEnableLoginButton() {
         if (txtStudentLogin.text!.characters.count > 0 &&
             txtStudentPassword.text!.characters.count > 0) {
-            btnLogin.isEnabled = true;
+            btnLogin.isEnabled = true
         } else {
-            btnLogin.isEnabled = false;
+            btnLogin.isEnabled = false
         }
     }
 
