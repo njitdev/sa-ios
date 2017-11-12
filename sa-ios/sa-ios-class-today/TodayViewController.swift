@@ -135,7 +135,6 @@ class TodayViewController: UIViewController, NCWidgetProviding, UITableViewDeleg
 
             lblTitle.text = "• " + session_text + "节, " + session.location + ", " + session.title
         }
-
         return cell
     }
 }

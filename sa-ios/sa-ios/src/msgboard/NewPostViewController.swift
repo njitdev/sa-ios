@@ -42,8 +42,8 @@ class NewPostViewController: UITableViewController {
     }
 
     @IBAction func btnSendAction(_ sender: Any) {
-        if (txtUserName.text!.characters.count <= 0 ||
-            txtText.text.characters.count <= 0) {
+        if (txtUserName.text!.count <= 0 ||
+            txtText.text.count <= 0) {
             SAUtils.alert(viewController: self, title: "新留言 📝", message: "昵称和留言是必填内容")
             return
         }

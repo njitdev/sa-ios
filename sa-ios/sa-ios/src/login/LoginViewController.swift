@@ -142,8 +142,8 @@ class LoginViewController: UITableViewController {
     }
 
     func autoEnableLoginButton() {
-        if (txtStudentLogin.text!.characters.count > 0 &&
-            txtStudentPassword.text!.characters.count > 0) {
+        if (txtStudentLogin.text!.count > 0 &&
+            txtStudentPassword.text!.count > 0) {
             btnLogin.isEnabled = true
         } else {
             btnLogin.isEnabled = false
