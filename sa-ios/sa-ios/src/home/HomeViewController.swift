@@ -31,6 +31,8 @@ class HomeViewController: UITableViewController {
     @IBOutlet weak var lblClassScheduleSubtitle: UILabel!
     @IBOutlet weak var lblGradesTitle: UILabel!
     @IBOutlet weak var lblGradesSubtitle: UILabel!
+    @IBOutlet weak var lblExamsTitle: UILabel!
+    @IBOutlet weak var lblExamsSubtitle: UILabel!
 
     @IBOutlet weak var actLogin: UIActivityIndicatorView!
     @IBOutlet weak var actClassSchedule: UIActivityIndicatorView!
@@ -43,6 +45,7 @@ class HomeViewController: UITableViewController {
     // School system data
     private var data_student_basic_info: StudentBasicInfo?
     private var data_classes: ClassData?
+    private var data_exams: [ExamSchedule]?
     private var data_grades: [GradeItem]?
 
     // MARK: UI events
@@ -114,6 +117,7 @@ class HomeViewController: UITableViewController {
             lblLoginInformation.text = "未登录"
         }
 
+        // Classes
         if let classes = data_classes {
             lblClassScheduleTitle.center.y = 24.5
             lblClassScheduleSubtitle.isHidden = false
@@ -133,6 +137,17 @@ class HomeViewController: UITableViewController {
             lblClassScheduleSubtitle.isHidden = true
         }
 
+        // Exams
+        if let exams = data_exams {
+            lblExamsTitle.center.y = 24.5
+            lblExamsSubtitle.isHidden = false
+            lblExamsSubtitle.text = "\(exams.count) 门考试"
+        } else {
+            lblExamsTitle.center.y = 34.5
+            lblExamsSubtitle.isHidden = true
+        }
+
+        // Grades
         if let grades = data_grades {
             lblGradesTitle.center.y = 24.5
             lblGradesSubtitle.isHidden = false
@@ -151,6 +166,10 @@ class HomeViewController: UITableViewController {
 
         if let json = SAUtils.readLocalKVStore(key: "data_classes") {
             self.data_classes = ClassData(JSONString: json)
+        }
+
+        if let json = SAUtils.readLocalKVStore(key: "data_exams") {
+            self.data_exams = [ExamSchedule](JSONString: json)
         }
 
         if let json = SAUtils.readLocalKVStore(key: "data_grades") {
@@ -273,15 +292,15 @@ class HomeViewController: UITableViewController {
         self.title = "正在更新数据..."
         actGrades.startAnimating()
         actClassSchedule.startAnimating()
+        actExamSchedule.startAnimating()
 
         let session_id = SAGlobal.student_session_id!
 
         // Counter
-        var total = 2, completed = 0
+        var total = 3, completed = 0
 
         // Fetch clases
         SchoolSystemModels.classSchedule(session_id: session_id, student_id: nil) { (data, message) in
-
             self.actClassSchedule.stopAnimating()
 
             completed += 1
@@ -303,7 +322,6 @@ class HomeViewController: UITableViewController {
 
         // Fetch grades
         SchoolSystemModels.grades(session_id: session_id, student_id: nil) { (data, message) in
-
             self.actGrades.stopAnimating()
 
             completed += 1
@@ -318,6 +336,27 @@ class HomeViewController: UITableViewController {
             } else {
                 self.title = "获取成绩失败"
                 SAUtils.alert(viewController: self, title: "错误 😛", message: "获取成绩失败，请尝试重新登录")
+            }
+
+            self.displaySchoolSystemData()
+        }
+
+        // Fetch exams
+        SchoolSystemModels.examSchedule(session_id: session_id, student_id: nil) { (data, message) in
+            self.actExamSchedule.stopAnimating()
+
+            completed += 1
+            if (completed == total) {
+                self.enableActionButtons(true)
+                self.title = SAConfig.appName
+            }
+
+            if let exams: [ExamSchedule] = data {
+                SAUtils.writeLocalKVStore(key: "data_exams", val: exams.toJSONString())
+                self.data_exams = exams
+            } else {
+                self.title = "获取考试安排失败"
+                SAUtils.alert(viewController: self, title: "错误 😛", message: "获取考试安排失败，请尝试重新登录")
             }
 
             self.displaySchoolSystemData()
@@ -341,6 +380,12 @@ class HomeViewController: UITableViewController {
                 return false
             }
             return !self.actClassSchedule.isAnimating
+        case "segExamSchedule":
+            if self.data_exams == nil {
+                SAUtils.alert(viewController: self, title: "没有数据 🤔", message: "请先登录教务系统")
+                return false
+            }
+            return !self.actExamSchedule.isAnimating
         case "segGrades":
             if self.data_grades == nil {
                 SAUtils.alert(viewController: self, title: "没有数据 🤔", message: "请先登录教务系统")
@@ -360,6 +405,10 @@ class HomeViewController: UITableViewController {
         case "segClassSchedule":
             if let vc_class = segue.destination as? ClassScheduleViewController {
                 vc_class.data_classes = self.data_classes!
+            }
+        case "segExamSchedule":
+            if let vc_exams = segue.destination as? ExamScheduleViewController {
+                vc_exams.data_exams = self.data_exams!
             }
         case "segGrades":
             if let vc_grades = segue.destination as? GradesViewController {

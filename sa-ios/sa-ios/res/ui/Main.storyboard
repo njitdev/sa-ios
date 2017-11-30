@@ -1,22 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="VxW-KH-cjZ">
-    <device id="retina4_0" orientation="portrait">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="VxW-KH-cjZ">
+    <device id="retina3_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="Segues with Peek and Pop" minToolsVersion="7.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="AppleSDGothicNeo.ttc">
+            <string>AppleSDGothicNeo-Regular</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--Navigation Controller-->
         <scene sceneID="EtE-Of-o7d">
             <objects>
                 <navigationController id="VxW-KH-cjZ" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="OBM-T7-CZH">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="barTintColor" red="0.0" green="0.50196078431372548" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -37,16 +44,12 @@
         <scene sceneID="vzr-0R-9Vo">
             <objects>
                 <viewController id="Bii-dC-YJy" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="OJc-OW-Rl1"/>
-                        <viewControllerLayoutGuide type="bottom" id="m2G-BV-PeD"/>
-                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="egw-rr-3Xb">
-                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EZE-lp-cxf">
-                                <rect key="frame" x="8" y="0.0" width="304" height="504"/>
+                                <rect key="frame" x="8" y="0.0" width="304" height="416"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <string key="text">Alamofire
@@ -216,6 +219,7 @@ Includes portions from BSMobileProvision:
                             </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <viewLayoutGuide key="safeArea" id="Wpi-zn-EoQ"/>
                     </view>
                     <navigationItem key="navigationItem" title="Open Source Licenses" id="ju0-TY-4YS"/>
                 </viewController>
@@ -228,7 +232,7 @@ Includes portions from BSMobileProvision:
             <objects>
                 <tableViewController id="QXC-2X-qFS" customClass="AboutViewController" customModule="sa_ios" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="kJe-P0-zUZ">
-                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <inset key="separatorInset" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -249,7 +253,7 @@ Includes portions from BSMobileProvision:
                                         <rect key="frame" x="0.0" y="213" width="320" height="55"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="vUX-hR-RMM" id="Kh9-GA-EdV">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="55"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="54.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="MyGDUT" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1iM-ym-H1m">
@@ -277,7 +281,7 @@ Includes portions from BSMobileProvision:
                                         <rect key="frame" x="0.0" y="268" width="320" height="132"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="yvo-v9-skj" id="D2o-zy-MYq">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="132"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="131.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="开发团队 (字母顺序):" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a0z-gY-avX">
@@ -363,7 +367,7 @@ Includes portions from BSMobileProvision:
                                         <rect key="frame" x="0.0" y="400" width="320" height="55"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="efe-GJ-6mv" id="s9z-NX-gWE">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="55"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="54.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="App Store 好评" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Afy-2O-jfB">
@@ -378,7 +382,7 @@ Includes portions from BSMobileProvision:
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xms-Bg-faA">
-                                                    <rect key="frame" x="0.0" y="1" width="320" height="49"/>
+                                                    <rect key="frame" x="0.0" y="1" width="320" height="48"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                     <connections>
                                                         <action selector="btnAppStoreAct:" destination="QXC-2X-qFS" eventType="touchUpInside" id="Vwr-qI-hTS"/>
@@ -391,7 +395,7 @@ Includes portions from BSMobileProvision:
                                         <rect key="frame" x="0.0" y="455" width="320" height="55"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="CGg-DT-JeJ" id="CLj-WX-utS">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="55"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="54.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="MyGDUT 是开源软件 (GPLv3)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j0d-bO-fWc">
@@ -413,7 +417,7 @@ Includes portions from BSMobileProvision:
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="342-iR-gh9">
-                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="47"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="46"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                     <connections>
                                                         <action selector="btnGitHubAct:" destination="QXC-2X-qFS" eventType="touchUpInside" id="WHQ-cH-Nrz"/>
@@ -426,7 +430,7 @@ Includes portions from BSMobileProvision:
                                         <rect key="frame" x="0.0" y="510" width="320" height="55"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="3Yb-DD-m5o" id="Zd7-hN-yTM">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="55"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="54.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Open Source Licenses" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q6H-ie-c8U">
@@ -441,7 +445,7 @@ Includes portions from BSMobileProvision:
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WWG-3Q-b0c">
-                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="52"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="51"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                     <connections>
                                                         <segue destination="Bii-dC-YJy" kind="show" id="tpI-yr-iIE"/>
@@ -472,17 +476,17 @@ Includes portions from BSMobileProvision:
             <objects>
                 <tableViewController title="Login" id="rGu-E6-fNQ" customClass="LoginViewController" customModule="sa_ios" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="gPL-wE-vVH">
-                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <sections>
                             <tableViewSection headerTitle="新教务系统账号" id="8eE-S9-0Px">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="g6o-fD-dDR">
-                                        <rect key="frame" x="0.0" y="56" width="320" height="44"/>
+                                        <rect key="frame" x="0.0" y="55.5" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="g6o-fD-dDR" id="Ej2-nq-e1z">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="学号" textAlignment="natural" minimumFontSize="12" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Szd-se-qA3">
@@ -500,10 +504,10 @@ Includes portions from BSMobileProvision:
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="6am-Di-crj">
-                                        <rect key="frame" x="0.0" y="100" width="320" height="44"/>
+                                        <rect key="frame" x="0.0" y="99.5" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="6am-Di-crj" id="wPA-mV-xz6">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="密码" textAlignment="natural" minimumFontSize="12" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="cjn-iM-Zbs">
@@ -521,10 +525,10 @@ Includes portions from BSMobileProvision:
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="HSU-1c-Ggi">
-                                        <rect key="frame" x="0.0" y="144" width="320" height="44"/>
+                                        <rect key="frame" x="0.0" y="143.5" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="HSU-1c-Ggi" id="uhX-mt-rkT">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="验证码" textAlignment="natural" minimumFontSize="12" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="msD-lH-n7z">
@@ -558,10 +562,10 @@ Includes portions from BSMobileProvision:
                             <tableViewSection id="mrN-nR-sOm">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="6QV-nd-FCJ">
-                                        <rect key="frame" x="0.0" y="224" width="320" height="44"/>
+                                        <rect key="frame" x="0.0" y="223.5" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="6QV-nd-FCJ" id="DaU-mo-W8a">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6MH-v8-0Qc">
@@ -609,24 +613,19 @@ Includes portions from BSMobileProvision:
         <scene sceneID="FLq-m5-MiG">
             <objects>
                 <viewController title="Grades" id="cSe-ap-DFV" customClass="GradesViewController" customModule="sa_ios" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="o3l-dq-vDE"/>
-                        <viewControllerLayoutGuide type="bottom" id="eVj-Yc-Gl0"/>
-                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="vq9-Gn-oB5">
-                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="5000" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Rz1-O4-vxZ">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="460"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="5000" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Rz1-O4-vxZ">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="372"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="GradesTableCell" rowHeight="67" id="VIu-db-grG" customClass="GradeItemTableCell" customModule="sa_ios" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="320" height="67"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="VIu-db-grG" id="N9a-jS-a9f">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="67"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="66.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Course Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.69999999999999996" translatesAutoresizingMaskIntoConstraints="NO" id="Jdq-Zx-SCe">
@@ -676,11 +675,16 @@ Includes portions from BSMobileProvision:
                                 </prototypes>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zYv-L1-anp">
-                                <rect key="frame" x="0.0" y="460" width="320" height="44"/>
+                                <rect key="frame" x="0.0" y="372" width="320" height="44"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="o7i-x5-pPI">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="1"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                    </view>
+                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6NN-II-BWg">
+                                        <rect key="frame" x="0.0" y="44" width="320" height="1"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="估算绩点: 0.000" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w1p-f8-fB4">
@@ -716,10 +720,15 @@ Includes portions from BSMobileProvision:
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="zYv-L1-anp" firstAttribute="leading" secondItem="vq9-Gn-oB5" secondAttribute="leading" id="5t9-L2-aoN"/>
-                            <constraint firstAttribute="trailing" secondItem="zYv-L1-anp" secondAttribute="trailing" id="QiA-8j-5VS"/>
-                            <constraint firstAttribute="bottom" secondItem="zYv-L1-anp" secondAttribute="bottom" id="aUj-oW-wmD"/>
+                            <constraint firstItem="zYv-L1-anp" firstAttribute="leading" secondItem="UNr-bn-rcJ" secondAttribute="leading" id="5t9-L2-aoN"/>
+                            <constraint firstItem="Rz1-O4-vxZ" firstAttribute="leading" secondItem="UNr-bn-rcJ" secondAttribute="leading" id="JhP-K2-MgJ"/>
+                            <constraint firstItem="zYv-L1-anp" firstAttribute="top" secondItem="Rz1-O4-vxZ" secondAttribute="bottom" id="Kae-kZ-d5r"/>
+                            <constraint firstItem="UNr-bn-rcJ" firstAttribute="trailing" secondItem="zYv-L1-anp" secondAttribute="trailing" id="QiA-8j-5VS"/>
+                            <constraint firstItem="UNr-bn-rcJ" firstAttribute="bottom" secondItem="zYv-L1-anp" secondAttribute="bottom" id="aUj-oW-wmD"/>
+                            <constraint firstItem="Rz1-O4-vxZ" firstAttribute="top" secondItem="UNr-bn-rcJ" secondAttribute="top" id="cAF-Zc-TNE"/>
+                            <constraint firstItem="Rz1-O4-vxZ" firstAttribute="trailing" secondItem="UNr-bn-rcJ" secondAttribute="trailing" id="x7W-3L-eAZ"/>
                         </constraints>
+                        <viewLayoutGuide key="safeArea" id="UNr-bn-rcJ"/>
                     </view>
                     <navigationItem key="navigationItem" title="成绩查询" id="egy-XL-OlT">
                         <barButtonItem key="rightBarButtonItem" title="筛选" id="6gC-tu-ike">
@@ -736,26 +745,26 @@ Includes portions from BSMobileProvision:
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wf7-Xf-9c3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1115.625" y="55.985915492957744"/>
+            <point key="canvasLocation" x="1114.4000000000001" y="55.418719211822662"/>
         </scene>
         <!--Grades Filter-->
         <scene sceneID="EKd-pt-Tmg">
             <objects>
                 <tableViewController title="Grades Filter" id="nsN-e8-HU2" customClass="GradeFiltersViewController" customModule="sa_ios" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" allowsMultipleSelection="YES" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="nf8-1A-dS3">
-                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="GradeFilterTableCell" textLabel="mph-he-Pgq" style="IBUITableViewCellStyleDefault" id="lUv-l2-Pdv">
-                                <rect key="frame" x="0.0" y="56" width="320" height="44"/>
+                                <rect key="frame" x="0.0" y="55.5" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="lUv-l2-Pdv" id="RSf-G7-myv">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="mph-he-Pgq">
-                                            <rect key="frame" x="15" y="0.0" width="290" height="43.5"/>
+                                            <rect key="frame" x="16" y="0.0" width="288" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
@@ -793,12 +802,8 @@ Includes portions from BSMobileProvision:
         <scene sceneID="c6w-8U-ODn">
             <objects>
                 <viewController title="Library" id="7Kw-W3-9c0" customClass="LibraryViewController" customModule="sa_ios" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="VN7-5I-MGT"/>
-                        <viewControllerLayoutGuide type="bottom" id="jFY-PK-lMx"/>
-                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="tJr-6u-MHq">
-                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="搜索" textAlignment="natural" minimumFontSize="12" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="0bQ-P6-Lj6">
@@ -812,7 +817,7 @@ Includes portions from BSMobileProvision:
                                 </connections>
                             </textField>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="5000" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="xtp-Je-A1o">
-                                <rect key="frame" x="0.0" y="46" width="320" height="458"/>
+                                <rect key="frame" x="0.0" y="46" width="320" height="370"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
@@ -820,7 +825,7 @@ Includes portions from BSMobileProvision:
                                         <rect key="frame" x="0.0" y="28" width="320" height="95"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="uQF-Ph-4Uy" id="BDL-pf-FwK">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="95"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="94.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lHd-2W-Nsn">
@@ -871,11 +876,12 @@ Includes portions from BSMobileProvision:
                                 </prototypes>
                             </tableView>
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="JCN-Jc-Ejd">
-                                <rect key="frame" x="150" y="242" width="20" height="20"/>
+                                <rect key="frame" x="150" y="198" width="20" height="20"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                             </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <viewLayoutGuide key="safeArea" id="AeY-H4-PuD"/>
                     </view>
                     <navigationItem key="navigationItem" title="图书馆" id="pw2-Ma-ULj"/>
                     <connections>
@@ -893,17 +899,12 @@ Includes portions from BSMobileProvision:
         <scene sceneID="GLz-gk-pE2">
             <objects>
                 <viewController title="Announcements" id="DJJ-c5-7Dy" customClass="AnnouncementsViewController" customModule="sa_ios" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="OF3-oj-vRj"/>
-                        <viewControllerLayoutGuide type="bottom" id="sTw-Lo-1rd"/>
-                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="lgz-Bs-Aja">
-                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="5000" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="LcJ-rr-UYO">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="455"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="5000" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="LcJ-rr-UYO">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="366"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="AnnouncementsTableCell" textLabel="GaP-1f-xyz" detailTextLabel="x0I-x0-2vE" rowHeight="67" style="IBUITableViewCellStyleSubtitle" id="eIp-0b-DhE">
@@ -914,7 +915,7 @@ Includes portions from BSMobileProvision:
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="GaP-1f-xyz">
-                                                    <rect key="frame" x="15" y="16" width="33.5" height="20.5"/>
+                                                    <rect key="frame" x="15" y="13" width="33.5" height="20.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
@@ -933,12 +934,11 @@ Includes portions from BSMobileProvision:
                                 </prototypes>
                             </tableView>
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="0RZ-p8-F6f">
-                                <rect key="frame" x="150" y="242" width="20" height="20"/>
+                                <rect key="frame" x="150" y="198" width="20" height="20"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                             </activityIndicatorView>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="l56-NA-a1S">
-                                <rect key="frame" x="0.0" y="454" width="320" height="50"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="l56-NA-a1S">
+                                <rect key="frame" x="0.0" y="366" width="320" height="50"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OOS-v8-a39">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="1"/>
@@ -959,9 +959,22 @@ Includes portions from BSMobileProvision:
                                         </connections>
                                     </segmentedControl>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="y2b-jm-OdL"/>
+                                </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="l56-NA-a1S" firstAttribute="trailing" secondItem="QPa-Yk-NzO" secondAttribute="trailing" id="LS8-Ma-3AY"/>
+                            <constraint firstItem="LcJ-rr-UYO" firstAttribute="trailing" secondItem="QPa-Yk-NzO" secondAttribute="trailing" id="V3u-vb-caA"/>
+                            <constraint firstItem="LcJ-rr-UYO" firstAttribute="top" secondItem="QPa-Yk-NzO" secondAttribute="top" id="VU9-8Q-b5R"/>
+                            <constraint firstItem="l56-NA-a1S" firstAttribute="leading" secondItem="QPa-Yk-NzO" secondAttribute="leading" id="eBt-gw-gTb"/>
+                            <constraint firstItem="QPa-Yk-NzO" firstAttribute="bottom" secondItem="l56-NA-a1S" secondAttribute="bottom" id="mKb-r3-bmr"/>
+                            <constraint firstItem="LcJ-rr-UYO" firstAttribute="leading" secondItem="QPa-Yk-NzO" secondAttribute="leading" id="nsr-he-X0A"/>
+                            <constraint firstItem="l56-NA-a1S" firstAttribute="top" secondItem="LcJ-rr-UYO" secondAttribute="bottom" id="xFW-5j-Td6"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="QPa-Yk-NzO"/>
                     </view>
                     <navigationItem key="navigationItem" title="校内通知" id="U5R-SO-8YK"/>
                     <connections>
@@ -980,7 +993,7 @@ Includes portions from BSMobileProvision:
             <objects>
                 <tableViewController title="Home" id="FKN-b2-wau" customClass="HomeViewController" customModule="sa_ios" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="gaG-JC-Xp8">
-                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <sections>
@@ -990,7 +1003,7 @@ Includes portions from BSMobileProvision:
                                         <rect key="frame" x="0.0" y="35" width="320" height="70"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="zfZ-Pr-0bZ" id="jIM-Vc-roK">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="70"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="69.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Login info" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QTF-Lb-fHT">
@@ -1036,7 +1049,7 @@ Includes portions from BSMobileProvision:
                                         <rect key="frame" x="0.0" y="105" width="320" height="70"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="DhX-rW-sJs" id="wI4-2U-49M">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="70"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="69.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ic_class_schedule" translatesAutoresizingMaskIntoConstraints="NO" id="bWs-Kf-cMX">
@@ -1064,14 +1077,17 @@ Includes portions from BSMobileProvision:
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="rs8-GU-LY2" kind="show" identifier="segClassSchedule" id="q7g-WA-894"/>
+                                            <segue destination="rs8-GU-LY2" kind="show" identifier="segClassSchedule" id="q7g-WA-894">
+                                                <segue key="commit" inheritsFrom="parent" id="N9N-nX-CJN"/>
+                                                <segue key="preview" inheritsFrom="commit" id="6DU-e4-FrG"/>
+                                            </segue>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="70" id="sZp-li-aTC">
                                         <rect key="frame" x="0.0" y="175" width="320" height="70"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="sZp-li-aTC" id="6Nn-4m-4BT">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="70"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="69.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ic_grades" translatesAutoresizingMaskIntoConstraints="NO" id="KG7-vi-zl1">
@@ -1099,14 +1115,17 @@ Includes portions from BSMobileProvision:
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="cSe-ap-DFV" kind="show" identifier="segGrades" id="QUM-eB-KGu"/>
+                                            <segue destination="cSe-ap-DFV" kind="show" identifier="segGrades" id="QUM-eB-KGu">
+                                                <segue key="commit" inheritsFrom="parent" id="SOt-53-gx1"/>
+                                                <segue key="preview" inheritsFrom="commit" id="sA8-Zv-ltV"/>
+                                            </segue>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="70" id="5QI-Yw-hyo">
                                         <rect key="frame" x="0.0" y="245" width="320" height="70"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="5QI-Yw-hyo" id="H1o-N6-WEG">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="70"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="69.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ic_exam" translatesAutoresizingMaskIntoConstraints="NO" id="Ezk-yl-U6d">
@@ -1124,10 +1143,20 @@ Includes portions from BSMobileProvision:
                                                     <rect key="frame" x="163" y="25" width="20" height="20"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </activityIndicatorView>
+                                                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Exams info" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pk8-tS-62L">
+                                                    <rect key="frame" x="75" y="35" width="235" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <color key="textColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="HEv-qy-vcS" kind="show" id="zTd-Km-aBU"/>
+                                            <segue destination="HEv-qy-vcS" kind="show" identifier="segExamSchedule" id="zTd-Km-aBU">
+                                                <segue key="commit" inheritsFrom="parent" id="NYv-5X-N3u"/>
+                                                <segue key="preview" inheritsFrom="commit" id="f2H-ut-7lf"/>
+                                            </segue>
                                         </connections>
                                     </tableViewCell>
                                 </cells>
@@ -1138,7 +1167,7 @@ Includes portions from BSMobileProvision:
                                         <rect key="frame" x="0.0" y="363" width="320" height="70"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="b1g-DG-OjO" id="buL-3B-j4Z">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="70"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="69.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ic_library" translatesAutoresizingMaskIntoConstraints="NO" id="9wa-Db-XX0">
@@ -1162,7 +1191,7 @@ Includes portions from BSMobileProvision:
                                         <rect key="frame" x="0.0" y="433" width="320" height="70"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="TBU-Ar-fqs" id="zV0-O7-DoU">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="70"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="69.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ic_announcement" translatesAutoresizingMaskIntoConstraints="NO" id="Vqm-Bg-DSN">
@@ -1186,7 +1215,7 @@ Includes portions from BSMobileProvision:
                                         <rect key="frame" x="0.0" y="503" width="320" height="70"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="3mU-Pm-9XF" id="6eh-vJ-evS">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="70"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="69.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ic_msgboard" translatesAutoresizingMaskIntoConstraints="NO" id="yp0-SU-UPw">
@@ -1203,7 +1232,10 @@ Includes portions from BSMobileProvision:
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="Y6V-zu-bQv" kind="show" identifier="segMessageBoard" id="pmK-pR-Pzu"/>
+                                            <segue destination="Y6V-zu-bQv" kind="show" identifier="segMessageBoard" id="pmK-pR-Pzu">
+                                                <segue key="commit" inheritsFrom="parent" id="yiG-ng-2if"/>
+                                                <segue key="preview" inheritsFrom="commit" id="xwL-kw-4en"/>
+                                            </segue>
                                         </connections>
                                     </tableViewCell>
                                 </cells>
@@ -1227,7 +1259,6 @@ Includes portions from BSMobileProvision:
                         </barButtonItem>
                     </navigationItem>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="320" height="568"/>
                     <connections>
                         <outlet property="actClassSchedule" destination="IBd-gX-GKt" id="dW4-tp-eme"/>
                         <outlet property="actExamSchedule" destination="fqr-bY-jjj" id="C9v-QF-47q"/>
@@ -1238,6 +1269,8 @@ Includes portions from BSMobileProvision:
                         <outlet property="btnRefresh" destination="ovH-La-PfG" id="ayl-hV-OBd"/>
                         <outlet property="lblClassScheduleSubtitle" destination="dli-H4-1m4" id="Sdq-ox-2BF"/>
                         <outlet property="lblClassScheduleTitle" destination="klP-a6-5fa" id="je9-Gj-nLj"/>
+                        <outlet property="lblExamsSubtitle" destination="Pk8-tS-62L" id="mdG-HI-zic"/>
+                        <outlet property="lblExamsTitle" destination="1bP-XB-5K5" id="fQY-l1-m4Y"/>
                         <outlet property="lblGradesSubtitle" destination="Hs1-2a-E5G" id="Q25-zJ-NL3"/>
                         <outlet property="lblGradesTitle" destination="e8u-f6-zyl" id="4pG-VQ-8zR"/>
                         <outlet property="lblLoginInformation" destination="QTF-Lb-fHT" id="Mx2-Ep-ygQ"/>
@@ -1251,41 +1284,80 @@ Includes portions from BSMobileProvision:
         <!--Exam Schedule-->
         <scene sceneID="mSA-LW-sfh">
             <objects>
-                <tableViewController title="Exam Schedule" id="HEv-qy-vcS" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" allowsSelection="NO" rowHeight="55" sectionHeaderHeight="18" sectionFooterHeight="18" id="8Pj-Vf-Wb4">
-                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                <tableViewController title="Exam Schedule" id="HEv-qy-vcS" customClass="ExamScheduleViewController" customModule="sa_ios" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="55" sectionHeaderHeight="28" sectionFooterHeight="28" id="8Pj-Vf-Wb4">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                        <sections>
-                            <tableViewSection id="wHI-ZX-8zE">
-                                <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ExamScheduleTableCell" rowHeight="149" id="Jc2-6D-u5t">
-                                        <rect key="frame" x="0.0" y="35" width="320" height="149"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Jc2-6D-u5t" id="hmU-xz-aRB">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="149"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="暂无数据" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Yc-BE-Gvd">
-                                                    <rect key="frame" x="88" y="43" width="144" height="27"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" white="0.25" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="将在新版教务系统加入此功能后接入" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SZ0-6U-7bi">
-                                                    <rect key="frame" x="20" y="77" width="280" height="27"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                    <color key="textColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </cells>
-                            </tableViewSection>
-                        </sections>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ExamScheduleTableCell" rowHeight="67" id="Jc2-6D-u5t" customClass="ExamScheduleTableCell" customModule="sa_ios" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="320" height="67"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Jc2-6D-u5t" id="hmU-xz-aRB">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="66.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Course Name " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="RWI-XW-p5U">
+                                            <rect key="frame" x="15" y="12" width="157" height="20"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="20" id="Xru-Nr-zI0"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <color key="textColor" white="0.25" alpha="1" colorSpace="calibratedWhite"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DateTime" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="oVE-2k-0yi">
+                                            <rect key="frame" x="15" y="36" width="162" height="20"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="20" id="vie-Wm-kHl"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                            <color key="textColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Inst. | Arrangement" textAlignment="right" lineBreakMode="tailTruncation" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="ozd-wx-xGR">
+                                            <rect key="frame" x="180" y="12" width="125" height="20"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="125" id="O7d-jg-mVf"/>
+                                                <constraint firstAttribute="height" constant="20" id="mJx-QR-pX5"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                            <color key="textColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Location" textAlignment="right" lineBreakMode="tailTruncation" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="02F-Es-bZR">
+                                            <rect key="frame" x="185" y="37" width="120" height="20"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="20" id="J1E-lh-M1E"/>
+                                                <constraint firstAttribute="width" constant="120" id="arD-Yu-7Xl"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                            <color key="textColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="bottom" secondItem="02F-Es-bZR" secondAttribute="bottom" constant="10" id="9Mf-w1-Sew"/>
+                                        <constraint firstAttribute="trailing" secondItem="ozd-wx-xGR" secondAttribute="trailing" constant="15" id="Bpv-Zh-At8"/>
+                                        <constraint firstItem="RWI-XW-p5U" firstAttribute="top" secondItem="hmU-xz-aRB" secondAttribute="top" constant="12" id="CG4-A1-qYf"/>
+                                        <constraint firstItem="ozd-wx-xGR" firstAttribute="top" secondItem="hmU-xz-aRB" secondAttribute="top" constant="12" id="Kfe-5p-hRe"/>
+                                        <constraint firstAttribute="trailing" secondItem="02F-Es-bZR" secondAttribute="trailing" constant="15" id="X7Z-TQ-bx4"/>
+                                        <constraint firstItem="02F-Es-bZR" firstAttribute="leading" secondItem="oVE-2k-0yi" secondAttribute="trailing" constant="8" id="XGc-vY-xge"/>
+                                        <constraint firstItem="RWI-XW-p5U" firstAttribute="leading" secondItem="hmU-xz-aRB" secondAttribute="leading" constant="15" id="bQX-YS-l5h"/>
+                                        <constraint firstItem="ozd-wx-xGR" firstAttribute="leading" secondItem="RWI-XW-p5U" secondAttribute="trailing" constant="8" id="lzB-Up-dwb"/>
+                                        <constraint firstItem="oVE-2k-0yi" firstAttribute="leading" secondItem="hmU-xz-aRB" secondAttribute="leading" constant="15" id="nId-Zb-bnY"/>
+                                        <constraint firstAttribute="bottom" secondItem="oVE-2k-0yi" secondAttribute="bottom" constant="10" id="rKB-cR-EYt"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="lblCourseName" destination="RWI-XW-p5U" id="ag3-nV-LEg"/>
+                                    <outlet property="lblDateTime" destination="oVE-2k-0yi" id="BV4-VO-ac8"/>
+                                    <outlet property="lblInstructorArrangement" destination="ozd-wx-xGR" id="tru-oT-1CH"/>
+                                    <outlet property="lblLocation" destination="02F-Es-bZR" id="JAl-xi-c67"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <sections/>
                         <connections>
                             <outlet property="dataSource" destination="HEv-qy-vcS" id="xdc-ho-c5R"/>
                             <outlet property="delegate" destination="HEv-qy-vcS" id="Mug-8b-GVN"/>
@@ -1295,30 +1367,26 @@ Includes portions from BSMobileProvision:
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="k6s-eb-gFo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1951.875" y="842.95774647887322"/>
+            <point key="canvasLocation" x="1951.875" y="842.5"/>
         </scene>
         <!--Class Schedule-->
         <scene sceneID="F3C-WX-OuD">
             <objects>
                 <viewController title="Class Schedule" id="rs8-GU-LY2" customClass="ClassScheduleViewController" customModule="sa_ios" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="eOW-IY-Qow"/>
-                        <viewControllerLayoutGuide type="bottom" id="YM9-gV-aBy"/>
-                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="1mj-eS-8Lr">
-                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" allowsSelection="NO" rowHeight="65" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="yCM-U0-RMS">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="416"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ClassSessionTableCell" rowHeight="65" id="jyj-0Q-JL4" customClass="ClassSessionTableCell" customModule="sa_ios" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="56" width="320" height="65"/>
+                                        <rect key="frame" x="0.0" y="55.5" width="320" height="65"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="jyj-0Q-JL4" id="VDM-i1-lrT">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="64"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="64.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Xqg-DO-0in">
@@ -1367,6 +1435,7 @@ Includes portions from BSMobileProvision:
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <viewLayoutGuide key="safeArea" id="hGA-hh-HUY"/>
                     </view>
                     <navigationItem key="navigationItem" title="课表" id="S0e-el-K3X">
                         <rightBarButtonItems>
@@ -1396,16 +1465,12 @@ Includes portions from BSMobileProvision:
         <scene sceneID="Pdv-HL-dQi">
             <objects>
                 <viewController title="Message Board" id="Y6V-zu-bQv" customClass="MessageBoardViewController" customModule="sa_ios" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="Tvh-1w-EUX"/>
-                        <viewControllerLayoutGuide type="bottom" id="wy5-V7-CGy"/>
-                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="FOj-KG-WuG">
-                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="5000" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="jmK-px-NZy">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="416"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
@@ -1413,11 +1478,11 @@ Includes portions from BSMobileProvision:
                                         <rect key="frame" x="0.0" y="28" width="320" height="70"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ZUs-RY-4bR" id="dZ0-sk-hFA">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="70"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="69.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="nickname" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nrh-aq-Qde">
-                                                    <rect key="frame" x="16" y="12" width="70" height="21"/>
+                                                    <rect key="frame" x="15" y="15" width="70" height="21"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="21" id="3Q7-j1-26O"/>
                                                     </constraints>
@@ -1426,7 +1491,7 @@ Includes portions from BSMobileProvision:
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="text" lineBreakMode="tailTruncation" numberOfLines="100" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qtv-bg-grK">
-                                                    <rect key="frame" x="16" y="39" width="288" height="18"/>
+                                                    <rect key="frame" x="15" y="42" width="290" height="12"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <color key="textColor" white="0.40000000000000002" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
@@ -1440,7 +1505,7 @@ Includes portions from BSMobileProvision:
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w1C-S7-cXY">
-                                                    <rect key="frame" x="94" y="12" width="97" height="21"/>
+                                                    <rect key="frame" x="93" y="15" width="97" height="21"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="97" id="8xZ-9P-Dcr"/>
                                                         <constraint firstAttribute="height" constant="21" id="913-Kr-NNG"/>
@@ -1451,12 +1516,12 @@ Includes portions from BSMobileProvision:
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="trailingMargin" secondItem="Qtv-bg-grK" secondAttribute="trailing" constant="8" id="0s1-CZ-XOr"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="Qtv-bg-grK" secondAttribute="trailing" id="0s1-CZ-XOr"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="Qtv-bg-grK" secondAttribute="bottom" constant="5" id="6Qu-or-TMs"/>
                                                 <constraint firstItem="w1C-S7-cXY" firstAttribute="leading" secondItem="nrh-aq-Qde" secondAttribute="trailing" constant="8" id="Ggq-DT-JyQ"/>
                                                 <constraint firstItem="Qtv-bg-grK" firstAttribute="top" secondItem="nrh-aq-Qde" secondAttribute="bottom" constant="6" id="KX2-4K-dW9"/>
-                                                <constraint firstItem="nrh-aq-Qde" firstAttribute="leading" secondItem="dZ0-sk-hFA" secondAttribute="leadingMargin" constant="8" id="NBa-6C-tPP"/>
-                                                <constraint firstItem="Qtv-bg-grK" firstAttribute="leading" secondItem="dZ0-sk-hFA" secondAttribute="leadingMargin" constant="8" id="Ze3-9Z-AnX"/>
+                                                <constraint firstItem="nrh-aq-Qde" firstAttribute="leading" secondItem="dZ0-sk-hFA" secondAttribute="leadingMargin" id="NBa-6C-tPP"/>
+                                                <constraint firstItem="Qtv-bg-grK" firstAttribute="leading" secondItem="dZ0-sk-hFA" secondAttribute="leadingMargin" id="Ze3-9Z-AnX"/>
                                                 <constraint firstItem="nrh-aq-Qde" firstAttribute="top" secondItem="dZ0-sk-hFA" secondAttribute="topMargin" constant="4" id="e7G-n9-zYo"/>
                                                 <constraint firstItem="w1C-S7-cXY" firstAttribute="top" secondItem="dZ0-sk-hFA" secondAttribute="topMargin" constant="4" id="tDO-Yh-9Am"/>
                                             </constraints>
@@ -1473,6 +1538,7 @@ Includes portions from BSMobileProvision:
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <viewLayoutGuide key="safeArea" id="Cu3-7y-6yv"/>
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="留言板" id="pBP-zG-YR8">
@@ -1496,17 +1562,17 @@ Includes portions from BSMobileProvision:
             <objects>
                 <tableViewController title="New Post" id="1iY-Fe-D6B" customClass="NewPostViewController" customModule="sa_ios" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="yM9-yL-9jN">
-                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <sections>
                             <tableViewSection headerTitle="用户信息" id="295-i0-ezX">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="1lL-JX-Ggu">
-                                        <rect key="frame" x="0.0" y="56" width="320" height="44"/>
+                                        <rect key="frame" x="0.0" y="55.5" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="1lL-JX-Ggu" id="Goj-qg-bk2">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="昵称" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="a2i-DE-P83">
@@ -1523,10 +1589,10 @@ Includes portions from BSMobileProvision:
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="T4g-Qq-6MR">
-                                        <rect key="frame" x="0.0" y="100" width="320" height="44"/>
+                                        <rect key="frame" x="0.0" y="99.5" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="T4g-Qq-6MR" id="Ofd-1d-lrh">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="联系方式 (开发者可见，选填)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="AkP-e9-dgb">
@@ -1547,14 +1613,14 @@ Includes portions from BSMobileProvision:
                             <tableViewSection headerTitle="留言" id="SsQ-6x-soR">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="252" id="DzY-cX-J11">
-                                        <rect key="frame" x="0.0" y="200" width="320" height="252"/>
+                                        <rect key="frame" x="0.0" y="199.5" width="320" height="252"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="DzY-cX-J11" id="34w-pd-fWb">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="251"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="251.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="qYF-87-l3N">
-                                                    <rect key="frame" x="8" y="8" width="304" height="280"/>
+                                                    <rect key="frame" x="8" y="8" width="304" height="281"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -1593,12 +1659,8 @@ Includes portions from BSMobileProvision:
         <scene sceneID="ZGX-gO-Ogp">
             <objects>
                 <viewController title="Book Details" id="scZ-Uw-ysU" customClass="BookDetailsViewController" customModule="sa_ios" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="yFy-G2-EFT"/>
-                        <viewControllerLayoutGuide type="bottom" id="E5V-gD-ePP"/>
-                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="32J-c2-ga9">
-                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.69999999999999996" translatesAutoresizingMaskIntoConstraints="NO" id="vmn-8L-rh8">
@@ -1653,7 +1715,7 @@ Includes portions from BSMobileProvision:
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </activityIndicatorView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="5000" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="kF3-cJ-BOh">
-                                <rect key="frame" x="2" y="176" width="302" height="328"/>
+                                <rect key="frame" x="2" y="176" width="302" height="240"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
@@ -1661,7 +1723,7 @@ Includes portions from BSMobileProvision:
                                         <rect key="frame" x="0.0" y="28" width="302" height="70"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="uww-RS-uMY" id="w53-Nw-sRU">
-                                            <rect key="frame" x="0.0" y="0.0" width="302" height="70"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="302" height="69.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Location" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="133-oO-du8">
@@ -1705,6 +1767,7 @@ Includes portions from BSMobileProvision:
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <viewLayoutGuide key="safeArea" id="WJm-nu-0er"/>
                     </view>
                     <navigationItem key="navigationItem" title="图书详情" id="TbI-Lx-xvb"/>
                     <connections>
@@ -1725,25 +1788,22 @@ Includes portions from BSMobileProvision:
         <scene sceneID="uZ7-cf-sxn">
             <objects>
                 <viewController title="Announcements Article" id="4RO-CM-gt1" customClass="AnnouncementsArticleViewController" customModule="sa_ios" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="g4S-C6-36Q"/>
-                        <viewControllerLayoutGuide type="bottom" id="uA2-jw-2Ms"/>
-                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="FYw-69-DDL">
-                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <webView userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pcH-nI-GUN">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="416"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </webView>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="scg-3K-yLh">
-                                <rect key="frame" x="150" y="242" width="20" height="20"/>
+                                <rect key="frame" x="150" y="198" width="20" height="20"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                             </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <viewLayoutGuide key="safeArea" id="Skw-DL-zzD"/>
                     </view>
                     <navigationItem key="navigationItem" title="通知内容" id="4QE-7G-L3G"/>
                     <connections>
@@ -1773,4 +1833,10 @@ Includes portions from BSMobileProvision:
         <image name="ic_msgboard" width="35" height="35"/>
         <image name="ic_user" width="35" height="35"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="pmK-pR-Pzu"/>
+        <segue reference="q7g-WA-894"/>
+        <segue reference="zTd-Km-aBU"/>
+        <segue reference="QUM-eB-KGu"/>
+    </inferredMetricsTieBreakers>
 </document>

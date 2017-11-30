@@ -20,6 +20,8 @@ import UIKit
 
 class ExamScheduleViewController: UITableViewController {
 
+    var data_exams: [ExamSchedule]!
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -29,13 +31,30 @@ class ExamScheduleViewController: UITableViewController {
 
     // MARK: - Table view data source
 
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 67;
+    }
+
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
         return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+        return data_exams.count
+    }
+
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ExamScheduleTableCell", for: indexPath) as! ExamScheduleTableCell
+        let exam = data_exams[indexPath.row]
+
+        cell.lblCourseName.text = exam.course_name
+        cell.lblDateTime.text = exam.datetime
+        cell.lblLocation.text = exam.location
+
+        // Concatenated values
+        let ia = [exam.instructor, exam.arrangement].flatMap{$0}.joined(separator: " | ")
+        cell.lblInstructorArrangement.text = ia
+
+        return cell
     }
 }

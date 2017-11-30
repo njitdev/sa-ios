@@ -35,7 +35,7 @@ class SchoolSystemModels: NSObject {
                     completionHandler(resp_obj.captcha_enabled, resp_obj.session_id, resp_obj.message)
                 }
             default:
-                completionHandler(nil, nil, "教务系统太烂无法通信，请稍后再试")
+                completionHandler(nil, nil, "教务系统变更无法通信，请稍后再试")
             }
         }
     }
@@ -76,11 +76,11 @@ class SchoolSystemModels: NSObject {
                     if resp_obj.auth_result == true {
                         completionHandler(true, resp_obj.session_id, "ok")
                     } else {
-                        completionHandler(false, nil, "可能因为用户名密码不正确，或教务系统太烂无法通信，请稍后再试")
+                        completionHandler(false, nil, "可能因为用户名密码不正确，或教务系统变更无法通信，请稍后再试")
                     }
                 }
             default:
-                completionHandler(false, nil, "教务系统太烂无法通信，请稍后再试")
+                completionHandler(false, nil, "教务系统变更无法通信，请稍后再试")
             }
         }
     }
@@ -112,6 +112,24 @@ class SchoolSystemModels: NSObject {
 
         // Make request
         Alamofire.request(self.apiBaseURL + "/class/term", parameters: params).responseObject(keyPath: "result") { (response: DataResponse<ClassData>) in
+            switch response.result {
+            case .success:
+                completionHandler(response.result.value, "ok")
+            default:
+                completionHandler(nil, "连接学校服务器超时")
+            }
+        }
+    }
+
+    // Get exam schedule, current term
+    static func examSchedule(session_id: String, student_id: String?,
+                             completionHandler: @escaping ([ExamSchedule]?, String) -> Void) {
+        // Prepare parameters
+        var params: Parameters = ["session_id": session_id]
+        if let v = student_id { params["student_id"] = v }
+
+        // Make request
+        Alamofire.request(self.apiBaseURL + "/exam/term", parameters: params).responseArray(keyPath: "result") { (response: DataResponse<[ExamSchedule]>) in
             switch response.result {
             case .success:
                 completionHandler(response.result.value, "ok")
@@ -247,6 +265,24 @@ class ClassSession: Mappable {
         instructor     <- map["instructor"]
         location       <- map["location"]
         type           <- map["type"]
+    }
+}
+
+class ExamSchedule: Mappable {
+    var course_name: String!
+    var datetime: String!
+    var location: String!
+    var instructor: String?
+    var arrangement: String?
+
+    required init?(map: Map) {}
+
+    func mapping(map: Map) {
+        course_name <- map["course_name"]
+        datetime    <- map["datetime"]
+        location    <- map["location"]
+        instructor  <- map["instructor"]
+        arrangement <- map["arrangement"]
     }
 }
 
