@@ -293,8 +293,8 @@ class GradeItem: Mappable {
     var course_isrequired: String?
     var course_hours: String?
     var term: String?
-    var credits: String!
-    var score: String!
+    var credits: String?
+    var score: String?
     var grade_point: String?
     var exam_type: String?
 

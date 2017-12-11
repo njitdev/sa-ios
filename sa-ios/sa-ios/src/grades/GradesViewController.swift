@@ -50,8 +50,10 @@ class GradesViewController: GAITrackedViewController, UITableViewDelegate, UITab
         // Count and display pass / total
         var passed = 0
         for g in self.data_grades_filtered {
-            if processScore(g.score) >= 60 {
-                passed += 1
+            if let score = g.score {
+                if processScore(score) >= 60 {
+                    passed += 1
+                }
             }
         }
         self.lblPassed.text = "\(passed) / \(self.data_grades_filtered.count)"
@@ -74,8 +76,8 @@ class GradesViewController: GAITrackedViewController, UITableViewDelegate, UITab
             return 95
         }
 
-        if let s = Int(score) {
-            return s
+        if let s = Float(score) {
+            return Int(s)
         } else {
             return 0
         }
@@ -86,12 +88,14 @@ class GradesViewController: GAITrackedViewController, UITableViewDelegate, UITab
         var weighted_sum: Float = 0
 
         for g in self.data_grades_filtered {
-            let score = processScore(g.score)
-            if let credits = Float(g.credits) {
-                var gp = Float(Int((score - 50) / 10)) + 0.1 * Float(score % 10)
-                if (score < 60) { gp = 0 }
-                weighted_sum += gp * credits
-                credits_sum += credits
+            if let score = g.score, let credits = g.credits {
+                if let credits_f = Float(credits) {
+                    let sp = processScore(score)
+                    var gp = Float(Int((sp - 50) / 10)) + 0.1 * Float(sp % 10)
+                    if (sp < 60) { gp = 0 }
+                    weighted_sum += gp * credits_f
+                    credits_sum += credits_f
+                }
             }
         }
         return weighted_sum / credits_sum
@@ -130,8 +134,10 @@ class GradesViewController: GAITrackedViewController, UITableViewDelegate, UITab
 
         // Score text color
         var color = UIColor(red:0.30, green:0.69, blue:0.31, alpha:1.0)
-        if processScore(g.score) < 60 {
-            color = UIColor(red:0.94, green:0.33, blue:0.31, alpha:1.0)
+        if let score = g.score {
+            if processScore(score) < 60 {
+                color = UIColor(red:0.94, green:0.33, blue:0.31, alpha:1.0)
+            }
         }
         cell.lblScore.textColor = color
 
