@@ -119,6 +119,10 @@ class GradeFiltersViewController: UITableViewController {
         return "按学期筛选"
     }
 
+    override func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
+        return "ℹ️ 提示: 在成绩页面点击任意科目成绩可排除绩点计算"
+    }
+
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.filter_terms_available.count
     }

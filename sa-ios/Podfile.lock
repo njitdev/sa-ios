@@ -1,5 +1,5 @@
 PODS:
-  - Alamofire (4.5.1)
+  - Alamofire (4.6.0)
   - AlamofireNetworkActivityIndicator (2.2.0):
     - Alamofire (~> 4.5)
   - AlamofireObjectMapper (4.1.0):
@@ -7,7 +7,7 @@ PODS:
     - ObjectMapper (~> 2.0)
   - GoogleAnalytics (3.17.0)
   - ObjectMapper (2.2.9)
-  - OneSignal (2.5.7)
+  - OneSignal (2.6.2)
   - Rollbar (0.2.0)
 
 DEPENDENCIES:
@@ -19,12 +19,12 @@ DEPENDENCIES:
   - Rollbar (~> 0.2.0)
 
 SPEC CHECKSUMS:
-  Alamofire: 2d95912bf4c34f164fdfc335872e8c312acaea4a
+  Alamofire: f41a599bd63041760b26d393ec1069d9d7b917f4
   AlamofireNetworkActivityIndicator: 81e1630e7cfed22a4e4e82a174c59e651dc4f8ca
   AlamofireObjectMapper: 435adc82f5b367679bd9e71c4974a54efd0b2521
   GoogleAnalytics: f42cc53a87a51fe94334821868d9c8481ff47a7b
   ObjectMapper: 63cfe41bc6f8e7c8f44344c49901b8ae7de14c52
-  OneSignal: 5be2eb3394e654b7467a190fe4d58147fc46bb78
+  OneSignal: 95127bce89b9e495079e7205e3d47c88590b5750
   Rollbar: 7f9f6faab9138cbb1b152f0a500e68f0469554ef
 
 PODFILE CHECKSUM: 390d071ed72e186769ee743fe86a41dfba2dd58e

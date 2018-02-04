@@ -25,7 +25,8 @@ class GradesViewController: GAITrackedViewController, UITableViewDelegate, UITab
     @IBOutlet weak var lblPassed: UILabel!
 
     public var data_grades: [GradeItem] = []
-    public var data_grades_filtered: [GradeItem] = []
+    public var data_grades_filtered: [GradeItem] = [] // Displayed in table
+    public var data_grades_unselected: [Bool] = [] // Exclude course from GPA calculation
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,16 +48,26 @@ class GradesViewController: GAITrackedViewController, UITableViewDelegate, UITab
             self.data_grades_filtered = self.data_grades
         }
 
+        if self.data_grades_unselected.count == 0 {
+            self.data_grades_unselected = Array(repeating: false, count: self.data_grades_filtered.count)
+        }
+
         // Count and display pass / total
-        var passed = 0
-        for g in self.data_grades_filtered {
+        var passed = 0, all = 0
+        for (i, g) in self.data_grades_filtered.enumerated() {
+            // Skip if grade item is unselected
+            if self.data_grades_unselected[i] {
+                continue;
+            }
+
+            all += 1
             if let score = g.score {
                 if processScore(score) >= 60 {
                     passed += 1
                 }
             }
         }
-        self.lblPassed.text = "\(passed) / \(self.data_grades_filtered.count)"
+        self.lblPassed.text = "\(passed) / \(all)"
 
         // Compute and display GPA
         self.lblGPA.text = String(format: "估算绩点: %0.4f", self.computeGPA())
@@ -87,7 +98,12 @@ class GradesViewController: GAITrackedViewController, UITableViewDelegate, UITab
         var credits_sum: Float = 0
         var weighted_sum: Float = 0
 
-        for g in self.data_grades_filtered {
+        for (i, g) in self.data_grades_filtered.enumerated() {
+            // Skip if grade item is unselected
+            if self.data_grades_unselected[i] {
+                continue;
+            }
+
             if let score = g.score, let credits = g.credits {
                 if let credits_f = Float(credits) {
                     let sp = processScore(score)
@@ -132,16 +148,32 @@ class GradesViewController: GAITrackedViewController, UITableViewDelegate, UITab
         cell.lblCredits.text = g.credits
         cell.lblScore.text = g.score
 
-        // Score text color
-        var color = UIColor(red:0.30, green:0.69, blue:0.31, alpha:1.0)
+        // Text colors
+        var scoreColor = UIColor(red:0.30, green:0.69, blue:0.31, alpha:1.0)
         if let score = g.score {
             if processScore(score) < 60 {
-                color = UIColor(red:0.94, green:0.33, blue:0.31, alpha:1.0)
+                scoreColor = UIColor(red:0.94, green:0.33, blue:0.31, alpha:1.0)
             }
         }
-        cell.lblScore.textColor = color
+        cell.lblScore.textColor = scoreColor
+
+        let unselected = self.data_grades_unselected[indexPath.row]
+        if unselected {
+            cell.contentView.alpha = 0.2
+        } else {
+            cell.contentView.alpha = 1
+        }
 
         return cell
+    }
+
+    // MARK: - Table view data delegate
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+
+        self.data_grades_unselected[indexPath.row] = !self.data_grades_unselected[indexPath.row]
+        self.loadData()
     }
 
     // MARK: - Navigation
@@ -150,6 +182,9 @@ class GradesViewController: GAITrackedViewController, UITableViewDelegate, UITab
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "segGradeFilters") {
             if let dest = segue.destination as? GradeFiltersViewController {
+                // Clear exceptions
+                self.data_grades_unselected.removeAll()
+
                 dest.parent_vc = self
                 dest.data_grades = self.data_grades
             }
