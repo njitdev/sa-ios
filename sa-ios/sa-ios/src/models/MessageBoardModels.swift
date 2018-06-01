@@ -46,7 +46,7 @@ class MessageBoardModels: NSObject {
     // Submit new post
     static func submitPost(post: MessageBoardPost, user_student_id: String?, completionHandler: @escaping (Bool, String) -> Void) {
         // Prepare parameters
-        var params: Parameters = ["user_name": post.user_name, "text": post.text]
+        var params: Parameters = ["user_name": post.user_name!, "text": post.text!]
 
         // Assign optional values
         if let v = post.installation_id { params["installation_id"] = v }
